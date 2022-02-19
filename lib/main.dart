@@ -26,7 +26,8 @@ class SpalshScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.amber,
+
+      backgroundColor: Colors.blue,
       body: Container(
         child: Text('Tushar'),
         color: Colors.blue,
