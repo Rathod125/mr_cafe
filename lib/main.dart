@@ -28,6 +28,7 @@ class SpalshScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.green,
       body: Container(
+        child: Text('Tushar'),
         color: Colors.blue,
       ),
     );
