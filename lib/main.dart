@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 
 void main() {
@@ -27,6 +25,11 @@ class SpalshScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      backgroundColor: Colors.blueGrey,
+      body: Container(
+        color: Colors.blue,
+      ),
+    );
   }
 }
