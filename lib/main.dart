@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,18 +17,16 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Color(0xFF212325),
       ),
-      home: 
+      home: SpalshScreen(),
     );
   }
 }
+
 class SpalshScreen extends StatelessWidget {
-  const SpalshScreen({ Key? key }) : super(key: key);
+  const SpalshScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      
-    );
+    return Container();
   }
 }
-
