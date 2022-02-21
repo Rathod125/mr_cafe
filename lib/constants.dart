@@ -15,3 +15,16 @@ const kTextFieldDecoration = InputDecoration(
     borderRadius: BorderRadius.all(Radius.circular(32.0)),
   ),
 );
+
+const kItemLableTextStyle = TextStyle(
+  color: Color(0xFFEADBCC),
+  fontSize: 35.0,
+  fontFamily: 'Lobster',
+);
+
+const kNormalTextStyle = TextStyle(
+  color: Colors.grey,
+  fontSize: 20.0,
+);
+
+const kBackGroundColor = Color(0xFFEADBCC);

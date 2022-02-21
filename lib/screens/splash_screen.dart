@@ -40,6 +40,11 @@ class _SplashScreenState extends State<SplashScreen>
   }
 
   @override
+  void dispose() {
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return AnimatedSplashScreen(
       backgroundColor: Color(0xFFEADBCC),
@@ -50,9 +55,8 @@ class _SplashScreenState extends State<SplashScreen>
           fit: BoxFit.fill,
         ),
       ),
-      duration: 3000,
+      duration: 1000,
       splashIconSize: animation.value * 500,
-      animationDuration: Duration(seconds: 2),
       nextScreen: const WelcomeScreen(),
     );
   }
