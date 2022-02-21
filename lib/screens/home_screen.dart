@@ -64,37 +64,62 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             Container(
-              width: double.infinity,
-              height: 60,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                // controller: _scroll,
-                itemCount: items.length,
-                itemBuilder: ((context, index) {
-                  return GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        colour = !colour;
-                      });
-                    },
-                    child: Container(
-                      constraints: BoxConstraints(minWidth: 50),
-                      padding: EdgeInsets.all(10),
-                      margin: EdgeInsets.all(10),
-                      decoration: BoxDecoration(
+                width: double.infinity,
+                height: 40,
+                child: DefaultTabController(
+                  length: 5,
+                  child: TabBar(
+                    indicator: BoxDecoration(
                         borderRadius: BorderRadius.circular(30),
-                        color: colour ? Color(0xFFDACABD) : Color(0xFFDAA056),
+                        color: Colors.orange),
+                    tabs: [
+                      Tab(
+                        child: Text("All"),
                       ),
-                      child: Text(
-                        items[index],
-                        textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: 17),
+                      Tab(
+                        child: Text("All"),
                       ),
-                    ),
-                  );
-                }),
-              ),
-            ),
+                      Tab(
+                        child: Text("All"),
+                      ),
+                      Tab(
+                        child: Text("All"),
+                      ),
+                      Tab(
+                        child: Text("All"),
+                      ),
+                    ],
+                  ),
+                )
+                // child: ListView.builder(
+                //   scrollDirection: Axis.horizontal,
+                //   // controller: _scroll,
+                //   itemCount: items.length,
+                //   itemBuilder: ((context, index) {
+                //     return GestureDetector(
+                //       onTap: () {
+                //         setState(() {
+                //           colour = !colour;
+                //         });
+                //       },
+                //       child: Container(
+                //         constraints: BoxConstraints(minWidth: 50),
+                //         padding: EdgeInsets.all(10),
+                //         margin: EdgeInsets.all(10),
+                //         decoration: BoxDecoration(
+                //           borderRadius: BorderRadius.circular(30),
+                //           color: colour ? Color(0xFFDACABD) : Colors.orange,
+                //         ),
+                //         child: Text(
+                //           items[index],
+                //           textAlign: TextAlign.center,
+                //           style: TextStyle(fontSize: 17),
+                //         ),
+                //       ),
+                //     );
+                //   }),
+                // ),
+                ),
             // Container(
             //   height: 500,
             //   child: Text('h'),
