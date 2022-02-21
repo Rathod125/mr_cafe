@@ -83,7 +83,7 @@ class _HomePageState extends State<HomePage> {
                       margin: EdgeInsets.all(10),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(30),
-                        color: colour ? Color(0xFFDACABD) : Colors.orange,
+                        color: colour ? Color(0xFFDACABD) : Color(0xFFDAA056),
                       ),
                       child: Text(
                         items[index],

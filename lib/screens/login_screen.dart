@@ -86,7 +86,7 @@ class LoginPage extends StatelessWidget {
                 ),
                 style: TextButton.styleFrom(
                   backgroundColor: const Color(0xFF212325),
-                  minimumSize: const Size(200, 42),
+                  minimumSize: const Size(200, 50),
                   shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(30))),
                 ),
