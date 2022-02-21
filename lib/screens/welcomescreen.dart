@@ -14,7 +14,7 @@ class WelcomeScreen extends StatelessWidget {
       color: const Color(0xFF212325),
       child: SafeArea(
         child: Padding(
-          padding: EdgeInsets.only(top: 50.0, bottom: 20.0),
+          padding: const EdgeInsets.only(top: 50.0, bottom: 20.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [

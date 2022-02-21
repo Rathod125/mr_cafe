@@ -47,7 +47,7 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   Widget build(BuildContext context) {
     return AnimatedSplashScreen(
-      backgroundColor: Color(0xFFEADBCC),
+      backgroundColor: const Color(0xFFEADBCC),
       splash: RotationTransition(
         turns: rotateAnimation,
         child: const Image(
@@ -55,7 +55,7 @@ class _SplashScreenState extends State<SplashScreen>
           fit: BoxFit.fill,
         ),
       ),
-      duration: 1000,
+      duration: 5000,
       splashIconSize: animation.value * 500,
       nextScreen: const WelcomeScreen(),
     );
