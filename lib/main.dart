@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:mr_cafe/screens/home_screen.dart';
+import 'package:mr_cafe/screens/login_screen.dart';
+import 'package:mr_cafe/screens/splash_screen.dart';
 import 'package:mr_cafe/screens/welcomescreen.dart';
 
 void main() {
@@ -16,10 +19,12 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primaryColor: Color(0xFF212325),
         ),
-        initialRoute: WelcomeScreen.id,
+        initialRoute: SplashScreen.id,
         routes: {
           WelcomeScreen.id: (context) => WelcomeScreen(),
-        }
-        );
+          SplashScreen.id:(context) => SplashScreen(),
+          HomePage.id: (context) => HomePage(),
+          LoginPage.id:(context) => LoginPage(),
+        });
   }
 }

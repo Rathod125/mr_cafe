@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:mr_cafe/constants.dart';
+import 'package:mr_cafe/screens/home_screen.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
+  static const id = 'login_screen';
 
   @override
   Widget build(BuildContext context) {
@@ -75,7 +77,9 @@ class LoginPage extends StatelessWidget {
                 height: 24,
               ),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, HomePage.id);
+                },
                 child: const Text(
                   "Login",
                   style: TextStyle(color: Colors.white),
