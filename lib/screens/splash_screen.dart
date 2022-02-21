@@ -33,11 +33,6 @@ class _SplashScreenState extends State<SplashScreen>
       curve: Curves.decelerate,
     );
 
-    // colorAnimation =
-    //     ColorTween(begin: Colors.white, end: Colors.cyanAccent).animate(
-    //   CurvedAnimation(parent: animationController, curve: Curves.decelerate),
-    // );
-    // sizeAnimation = Tween<double>(begin: 100.0, end: 200.0).animate(animation);
     animationController.forward();
     animationController.addListener(() {
       setState(() {});
@@ -52,15 +47,12 @@ class _SplashScreenState extends State<SplashScreen>
         turns: rotateAnimation,
         child: const Image(
           image: AssetImage('assets/logo.png'),
-
-          // width: animation.value * 1000,
           fit: BoxFit.fill,
         ),
       ),
       duration: 3000,
       splashIconSize: animation.value * 500,
       animationDuration: Duration(seconds: 2),
-      // splashTransition: SplashTransition.rotationTransition,
       nextScreen: const WelcomeScreen(),
     );
   }
