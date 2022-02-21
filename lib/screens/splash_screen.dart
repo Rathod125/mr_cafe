@@ -55,7 +55,7 @@ class _SplashScreenState extends State<SplashScreen>
           fit: BoxFit.fill,
         ),
       ),
-      duration: 5000,
+      duration: 4000,
       splashIconSize: animation.value * 500,
       nextScreen: const WelcomeScreen(),
     );
