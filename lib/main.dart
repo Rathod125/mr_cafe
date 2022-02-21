@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mr_cafe/screens/welcomescreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,27 +12,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primaryColor: Color(0xFF212325),
-      ),
-      home: SpalshScreen(),
-    );
-  }
-}
-
-class SpalshScreen extends StatelessWidget {
-  const SpalshScreen({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-
-      backgroundColor: Colors.blue,
-      body: Container(
-        child: Text('Tushar'),
-        color: Colors.blue,
-      ),
-    );
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primaryColor: Color(0xFF212325),
+        ),
+        initialRoute: WelcomeScreen.id,
+        routes: {
+          WelcomeScreen.id: (context) => WelcomeScreen(),
+        }
+        );
   }
 }
