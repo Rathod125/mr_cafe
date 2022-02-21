@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mr_cafe/constants.dart';
 import 'package:mr_cafe/screens/login_screen.dart';
+import 'package:flutter/scheduler.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({Key? key}) : super(key: key);
@@ -8,6 +9,7 @@ class WelcomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    timeDilation = 2;
     return Material(
       color: const Color(0xFF212325),
       child: SafeArea(
@@ -27,13 +29,15 @@ class WelcomeScreen extends StatelessWidget {
               ),
               const SizedBox(height: 20.0),
               const Text(
-                'coffee cups set top view  dbshjb nwfbhff iufbuwidhwidufbu',
+                'Coffee is a brewed drink prepared from roasted coffee beans, the seeds of berries from certain flowering plants in the Coffea genus. ',
                 style: kNormalTextStyle,
                 textAlign: TextAlign.center,
               ),
-              const SizedBox(height: 20.0),
+              const SizedBox(height: 50.0),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, LoginPage.id);
+                },
                 style: ElevatedButton.styleFrom(
                     primary: kBackGroundColor,
                     fixedSize: const Size(80.0, 80.0),
