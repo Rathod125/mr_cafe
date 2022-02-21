@@ -3,20 +3,24 @@ import 'package:mr_cafe/screens/login_screen.dart';
 import 'package:splashscreen/splashscreen.dart';
 
 class WelcomeScreen extends StatelessWidget {
-  
-  const WelcomeScreen({ Key? key }) : super(key: key);
+  const WelcomeScreen({Key? key}) : super(key: key);
   static const String id = 'welcome_screen';
 
   @override
   Widget build(BuildContext context) {
     return SplashScreen(
-      seconds: 5,
-      backgroundColor: Colors.white,
+      seconds: 3,
+      backgroundColor: Color(0xFFEADBCC),
       navigateAfterSeconds: LoginPage(),
-      title:  Text('ABC',textScaleFactor: 2,),
-      image:  Image(image: AssetImage('assets/logo.png'),),
+      title: const Text(
+        'ABC',
+        textScaleFactor: 2,
+      ),
+      image: const Image(
+        image: AssetImage('assets/logo.png'),
+      ),
       loadingText: const Text("Loading"),
-      photoSize: 100.0,
+      photoSize: 200.0,
       loaderColor: Colors.black54,
     );
   }
