@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mr_cafe/constants.dart';
 import 'package:mr_cafe/screens/login_screen.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:page_transition/page_transition.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({Key? key}) : super(key: key);
@@ -36,11 +37,18 @@ class WelcomeScreen extends StatelessWidget {
               const SizedBox(height: 50.0),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, LoginPage.id);
+                  Navigator.push(
+                      context,
+                      PageTransition(
+                          child: LoginPage(),
+                          type: PageTransitionType.scale,
+                          duration: Duration(milliseconds: 500),
+                          alignment: Alignment.bottomCenter));
                 },
                 style: ElevatedButton.styleFrom(
+                    elevation: 0.0,
                     primary: kBackGroundColor,
-                    fixedSize: const Size(80.0, 80.0),
+                    fixedSize: const Size(70.0, 70.0),
                     shadowColor: Colors.amber.shade50,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15.0))),

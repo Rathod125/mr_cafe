@@ -1,14 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:mr_cafe/constants.dart';
 import 'package:mr_cafe/screens/home_screen.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:intl_phone_field/intl_phone_field.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
   static const id = 'login_screen';
 
   @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  @override
   Widget build(BuildContext context) {
-    late String email;
+    timeDilation = 2;
+    late String phone_no;
     late String password;
     return Scaffold(
       backgroundColor: Color(0xFFEADBCC),
@@ -52,14 +60,18 @@ class LoginPage extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              TextField(
-                keyboardType: TextInputType.emailAddress,
-                textAlign: TextAlign.center,
-                onChanged: (value) {
-                  email = value;
-                },
-                decoration:
-                    kTextFieldDecoration.copyWith(hintText: 'Enter Your email'),
+              IntlPhoneField(
+                dropdownIconPosition: IconPosition.leading,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.black),
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                  focusColor: Colors.yellow,
+                  hintText: 'Phone Number',
+                ),
+                initialCountryCode: 'IN',
+                showDropdownIcon: false,
               ),
               const SizedBox(
                 height: 8.0,
@@ -91,6 +103,9 @@ class LoginPage extends StatelessWidget {
                       borderRadius: BorderRadius.all(Radius.circular(30))),
                 ),
               ),
+              SizedBox(
+                height: 10.0,
+              )
             ],
           ),
         )

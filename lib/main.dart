@@ -22,9 +22,9 @@ class MyApp extends StatelessWidget {
         initialRoute: SplashScreen.id,
         routes: {
           WelcomeScreen.id: (context) => WelcomeScreen(),
-          SplashScreen.id:(context) => SplashScreen(),
+          SplashScreen.id: (context) => SplashScreen(),
           HomePage.id: (context) => HomePage(),
-          LoginPage.id:(context) => LoginPage(),
+          LoginPage.id: (context) => LoginPage(),
         });
   }
 }
