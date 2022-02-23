@@ -37,25 +37,25 @@ class ToppicksCard extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.only(right: 5, top: 5),
         child: Container(
-          padding: EdgeInsets.symmetric(vertical: 30, horizontal: 20),
+          padding: EdgeInsets.only(top: 20, left: 25, right: 25),
           decoration: BoxDecoration(
               color: Color(0xFF212325),
               borderRadius: BorderRadius.circular(20)),
           child: Column(
             // mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
-              Padding(
+            children: [
+              const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 15),
                 child: CircleAvatar(
                   radius: 60,
                   backgroundImage: AssetImage('assets/cofee.jpg'),
                 ),
               ),
-              SizedBox(
-                height: 20,
+              const SizedBox(
+                height: 25,
               ),
-              Text(
+              const Text(
                 "Espresso \nCapuccino",
                 textAlign: TextAlign.left,
                 style: TextStyle(
@@ -63,10 +63,28 @@ class ToppicksCard extends StatelessWidget {
                     fontFamily: 'Libre Baskerville',
                     color: Color(0xFFEADBCC)),
               ),
-              Text(
+              const SizedBox(
+                height: 5,
+              ),
+              const Text(
                 'Dark Roast',
                 textAlign: TextAlign.left,
                 style: TextStyle(color: Colors.grey),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Row(
+                children: const [
+                  Text(
+                    "\$68",
+                    style: TextStyle(fontSize: 22, color: Color(0xFFD4A056)),
+                  ),
+                  
+                ],
+              ),
+              SizedBox(
+                height: 20,
               ),
             ],
           ),
