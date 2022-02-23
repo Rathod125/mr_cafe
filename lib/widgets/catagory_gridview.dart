@@ -57,8 +57,11 @@ class CategoriesList extends StatelessWidget {
             ),
           ),
         ),
-        const Expanded(
+        Expanded(
           child: ListTile(
+            onTap: () {
+              Navigator.pushNamed(context, Categories.id);
+            },
             title: CircleAvatar(
               backgroundColor: Color(0xFF212325),
               radius: 42,
