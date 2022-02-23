@@ -75,12 +75,23 @@ class ToppicksCard extends StatelessWidget {
                 height: 20,
               ),
               Row(
-                children: const [
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
                   Text(
                     "\$68",
                     style: TextStyle(fontSize: 22, color: Color(0xFFD4A056)),
                   ),
-                  
+                  RawMaterialButton(
+                    onPressed: () {},
+                    child: Icon(Icons.add),
+                    // elevation: 6,
+                    shape: const CircleBorder(),
+                    fillColor: const Color(0xFFD4A056),
+                    constraints: const BoxConstraints.tightFor(
+                      width: 46.0,
+                      height: 46.0,
+                    ),
+                  ),
                 ],
               ),
               SizedBox(
