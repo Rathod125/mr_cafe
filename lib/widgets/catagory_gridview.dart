@@ -11,11 +11,8 @@ class CategoriesList extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Expanded(
-          child: ListTile(
-            onTap: () {
-              Navigator.pushNamed(context, Categories.id);
-            },
-            title: const CircleAvatar(
+          child: Column(children: const [
+            CircleAvatar(
               backgroundColor: Color(0xFF212325),
               radius: 42,
               child: CircleAvatar(
@@ -30,12 +27,12 @@ class CategoriesList extends StatelessWidget {
                 ),
               ),
             ),
-            subtitle: const Text(
+            Text(
               "capaccino",
               maxLines: 1,
               style: TextStyle(fontSize: 20, color: Color(0xFF212325)),
             ),
-          ),
+          ]),
         ),
         const Expanded(
           child: ListTile(
