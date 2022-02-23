@@ -15,7 +15,7 @@ class CategoriesList extends StatelessWidget {
             onTap: () {
               Navigator.pushNamed(context, Categories.id);
             },
-            title: CircleAvatar(
+            title: const CircleAvatar(
               backgroundColor: Color(0xFF212325),
               radius: 42,
               child: CircleAvatar(
@@ -30,13 +30,14 @@ class CategoriesList extends StatelessWidget {
                 ),
               ),
             ),
-            subtitle: Text(
+            subtitle: const Text(
               "capaccino",
+              maxLines: 1,
               style: TextStyle(fontSize: 20, color: Color(0xFF212325)),
             ),
           ),
         ),
-        Expanded(
+        const Expanded(
           child: ListTile(
             title: CircleAvatar(
               backgroundColor: Color(0xFF212325),
@@ -59,7 +60,7 @@ class CategoriesList extends StatelessWidget {
             ),
           ),
         ),
-        Expanded(
+        const Expanded(
           child: ListTile(
             title: CircleAvatar(
               backgroundColor: Color(0xFF212325),
