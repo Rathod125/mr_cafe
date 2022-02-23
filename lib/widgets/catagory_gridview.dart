@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mr_cafe/screens/categories.dart';
 
 class CategoriesList extends StatelessWidget {
   const CategoriesList({Key? key}) : super(key: key);
@@ -8,9 +9,12 @@ class CategoriesList extends StatelessWidget {
     return Row(
       // mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: const [
+      children: [
         Expanded(
           child: ListTile(
+            onTap: () {
+              Navigator.pushNamed(context, Categories.id);
+            },
             title: CircleAvatar(
               backgroundColor: Color(0xFF212325),
               radius: 42,
