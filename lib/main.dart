@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mr_cafe/screens/categories.dart';
 import 'package:mr_cafe/screens/home_screen.dart';
 import 'package:mr_cafe/screens/login_screen.dart';
 import 'package:mr_cafe/screens/splash_screen.dart';
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
           SplashScreen.id: (context) => SplashScreen(),
           HomePage.id: (context) => HomePage(),
           LoginPage.id: (context) => LoginPage(),
+          Categories.id: (context) => Categories(),
         });
   }
 }

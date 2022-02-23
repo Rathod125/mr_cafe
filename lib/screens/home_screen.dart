@@ -68,7 +68,7 @@ class _HomePageState extends State<HomePage> {
                 style: TextStyle(fontSize: 25, color: Color(0xFF212325)),
               ),
             ),
-            Categories(),
+            CategoriesList(),
           ],
         ),
       ),
