@@ -6,31 +6,63 @@ class CategoriesList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      // mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
+    return Column(
       children: [
-        Expanded(
-          child: CategoryLogo(
-            cname: 'capaccino',
-            onpress: () {
-              Navigator.push(context, MaterialPageRoute(builder: ((context) {
-                return Categories(title: 'capuccino');
-              })));
-            },
-          ),
+        Row(
+          // mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Expanded(
+              child: CategoryLogo(
+                cname: 'capaccino',
+                onpress: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: ((context) {
+                    return Categories(title: 'capuccino');
+                  })));
+                },
+              ),
+            ),
+            Expanded(
+              child: CategoryLogo(
+                cname: 'Tea',
+                onpress: () {},
+              ),
+            ),
+            Expanded(
+              child: CategoryLogo(
+                cname: 'Desserts',
+                onpress: () {},
+              ),
+            ),
+          ],
         ),
-        Expanded(
-          child: CategoryLogo(
-            cname: 'Tea',
-            onpress: () {},
-          ),
+        SizedBox(
+          height: 10,
         ),
-        Expanded(
-          child: CategoryLogo(
-            cname: 'Desserts',
-            onpress: () {},
-          ),
+        Row(
+          // mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Expanded(
+              child: CategoryLogo(
+                cname: 'capaccino',
+                onpress: () {},
+              ),
+            ),
+            Expanded(
+              child: CategoryLogo(
+                cname: 'Tea',
+                onpress: () {},
+              ),
+            ),
+            Expanded(
+              child: CategoryLogo(
+                cname: 'Desserts',
+                onpress: () {},
+              ),
+            ),
+          ],
         ),
       ],
     );

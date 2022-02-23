@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:mr_cafe/widgets/catagory_gridview.dart';
 import 'package:mr_cafe/widgets/toppicks.dart';
 
-import '../widgets/menutabbar.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key? key}) : super(key: key);
