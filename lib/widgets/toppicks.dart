@@ -37,7 +37,7 @@ class ToppicksCard extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.only(right: 5, top: 5),
         child: Container(
-          padding: EdgeInsets.only(top: 20, left: 25, right: 25),
+          padding: EdgeInsets.only(top: 15, left: 25, right: 25),
           decoration: BoxDecoration(
               color: Color(0xFF212325),
               borderRadius: BorderRadius.circular(20)),
@@ -53,7 +53,7 @@ class ToppicksCard extends StatelessWidget {
                 ),
               ),
               const SizedBox(
-                height: 25,
+                height: 15,
               ),
               const Text(
                 "Espresso \nCapuccino",

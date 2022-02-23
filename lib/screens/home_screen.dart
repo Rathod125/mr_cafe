@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:mr_cafe/widgets/catagory_gridview.dart';
 import 'package:mr_cafe/widgets/toppicks.dart';
 
-
 class HomePage extends StatefulWidget {
   HomePage({Key? key}) : super(key: key);
   static const String id = 'home_screen';
@@ -76,7 +75,7 @@ class _HomePageState extends State<HomePage> {
               ),
               const CategoriesList(),
               const Padding(
-                padding: EdgeInsets.all(10.0),
+                padding: EdgeInsets.only(top: 15, left: 10),
                 child: Text(
                   'Top Picks For You',
                   textAlign: TextAlign.start,
