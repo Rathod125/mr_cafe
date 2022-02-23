@@ -58,7 +58,7 @@ class ItemCard extends StatelessWidget {
         height: 100,
         decoration: const BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(10.0)),
-            color: Colors.white70),
+            color: Color(0xFF212325)),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.max,
@@ -69,7 +69,10 @@ class ItemCard extends StatelessWidget {
             Container(
               width: 100.0,
               height: 100.0,
-              child: Image.asset('assets/cofee.jpg'),
+              child: Image.asset(
+                'assets/cofee.jpg',
+                fit: BoxFit.fill,
+              ),
             ),
             Padding(
               padding: const EdgeInsets.all(10.0),
@@ -85,7 +88,7 @@ class ItemCard extends StatelessWidget {
                       width: MediaQuery.of(context).size.width * 0.5,
                       child: Text(
                         'Espresso',
-                        style: TextStyle(fontSize: 20),
+                        style: TextStyle(fontSize: 20, color: Colors.white70),
                       ),
                     ),
                   ),
@@ -96,7 +99,10 @@ class ItemCard extends StatelessWidget {
                       child: Container(
                         width: 60,
                         height: 13,
-                        child: Text('150/-'),
+                        child: Text(
+                          '150/-',
+                          style: TextStyle(color: Colors.white70),
+                        ),
                       ),
                     ),
                   ),
@@ -106,6 +112,7 @@ class ItemCard extends StatelessWidget {
             Expanded(
                 child: Icon(
               Icons.chevron_right,
+              color: Colors.white70,
               size: 40,
             ))
           ],
