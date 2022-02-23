@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:intl_phone_field/countries.dart';
-import 'package:intl_phone_field/phone_number.dart';
-import 'package:mr_cafe/constants.dart';
 import 'package:mr_cafe/screens/home_screen.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
@@ -18,9 +15,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     timeDilation = 2;
-    late String phone_no;
-    late Country country_code;
-    late PhoneNumber? phoneNumber;
+
     return Scaffold(
       backgroundColor: Color(0xFFEADBCC),
       body: Column(children: [
@@ -64,6 +59,7 @@ class _LoginPageState extends State<LoginPage> {
                 height: 20,
               ),
               IntlPhoneField(
+                keyboardType: TextInputType.phone,
                 textAlignVertical: TextAlignVertical.center,
                 showDropdownIcon: false,
                 dropdownTextStyle: TextStyle(fontSize: 18.0),
@@ -75,22 +71,11 @@ class _LoginPageState extends State<LoginPage> {
                   focusColor: Colors.yellow,
                   hintText: 'Phone Number',
                 ),
-                textInputAction: TextInputAction.done,
-                invalidNumberMessage: 'valid message',
                 flagsButtonPadding: EdgeInsets.symmetric(horizontal: 20.0),
                 initialCountryCode: 'IN',
               ),
               const SizedBox(
                 height: 8.0,
-              ),
-              TextField(
-                obscureText: true,
-                textAlign: TextAlign.center,
-                onChanged: (value) {
-                  // password = value;
-                },
-                decoration: kTextFieldDecoration.copyWith(
-                    hintText: 'Enter Your password'),
               ),
               const SizedBox(
                 height: 24,
@@ -110,7 +95,7 @@ class _LoginPageState extends State<LoginPage> {
                       borderRadius: BorderRadius.all(Radius.circular(30))),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10.0,
               )
             ],

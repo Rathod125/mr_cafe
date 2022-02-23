@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "879700960632",
+    "project_id": "mr-cafe-76c99",
+    "storage_bucket": "mr-cafe-76c99.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:879700960632:android:4ffb9a2c29a8c05010548d",
+        "android_client_info": {
+          "package_name": "com.example.mr_cafe"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "879700960632-a0vm5lan2h75peb4df312feeslvptla5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9U1UohiVFDndV8Of4QHrByRvUtaou950"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "879700960632-a0vm5lan2h75peb4df312feeslvptla5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
