@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:mr_cafe/screens/categories.dart';
 import 'package:mr_cafe/screens/home_screen.dart';
 import 'package:mr_cafe/screens/login_screen.dart';
 import 'package:mr_cafe/screens/splash_screen.dart';
@@ -14,6 +16,10 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
     return MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
@@ -25,6 +31,7 @@ class MyApp extends StatelessWidget {
           SplashScreen.id: (context) => SplashScreen(),
           HomePage.id: (context) => HomePage(),
           LoginPage.id: (context) => LoginPage(),
+          Categories.id: (context) => Categories(),
         });
   }
 }

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mr_cafe/widgets/catagory_gridview.dart';
+import 'package:mr_cafe/widgets/toppicks.dart';
 
 import '../widgets/menutabbar.dart';
 
@@ -30,9 +32,10 @@ class _HomePageState extends State<HomePage> {
         padding: const EdgeInsets.all(8),
         color: const Color(0xFFEADBCC),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
               child: Container(
                 height: 50,
                 child: const TextField(
@@ -58,11 +61,30 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-            MenuTabBar(),
-            // Container(
-            //   height: 500,
-            //   child: Text('h'),
-            // )
+            const Padding(
+              padding: EdgeInsets.all(10.0),
+              child: Text(
+                'Categories',
+                textAlign: TextAlign.start,
+                style: TextStyle(
+                    fontSize: 25,
+                    color: Color(0xFF212325),
+                    fontWeight: FontWeight.bold),
+              ),
+            ),
+            const CategoriesList(),
+            const Padding(
+              padding: EdgeInsets.all(10.0),
+              child: Text(
+                'Top Picks For You',
+                textAlign: TextAlign.start,
+                style: TextStyle(
+                    fontSize: 25,
+                    color: Color(0xFF212325),
+                    fontWeight: FontWeight.bold),
+              ),
+            ),
+            Toppickes(),
           ],
         ),
       ),
