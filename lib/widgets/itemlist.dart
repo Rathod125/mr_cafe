@@ -55,6 +55,7 @@ class ItemCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
+        height: 100,
         decoration: const BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(10.0)),
             color: Colors.white70),
@@ -66,8 +67,8 @@ class ItemCard extends StatelessWidget {
           // SkeletonAnimation method
           children: <Widget>[
             Container(
-              width: 70.0,
-              height: 70.0,
+              width: 100.0,
+              height: 100.0,
               child: Image.asset('assets/cofee.jpg'),
             ),
             Padding(
@@ -80,8 +81,12 @@ class ItemCard extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(left: 15.0, bottom: 5.0),
                     child: Container(
-                      height: 15,
-                      width: MediaQuery.of(context).size.width * 0.6,
+                      height: 25,
+                      width: MediaQuery.of(context).size.width * 0.5,
+                      child: Text(
+                        'Espresso',
+                        style: TextStyle(fontSize: 20),
+                      ),
                     ),
                   ),
                   Padding(
@@ -91,9 +96,7 @@ class ItemCard extends StatelessWidget {
                       child: Container(
                         width: 60,
                         height: 13,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10.0),
-                            color: Colors.grey[300]),
+                        child: Text('150/-'),
                       ),
                     ),
                   ),
@@ -101,11 +104,10 @@ class ItemCard extends StatelessWidget {
               ),
             ),
             Expanded(
-              child: Text(
-                '346/',
-                textAlign: TextAlign.end,
-              ),
-            )
+                child: Icon(
+              Icons.chevron_right,
+              size: 40,
+            ))
           ],
         ),
       ),
