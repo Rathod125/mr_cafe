@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mr_cafe/widgets/catagory_gridview.dart';
+import 'package:mr_cafe/widgets/toppicks.dart';
 
 import '../widgets/menutabbar.dart';
 
@@ -63,12 +64,27 @@ class _HomePageState extends State<HomePage> {
             const Padding(
               padding: EdgeInsets.all(10.0),
               child: Text(
-                'Catagories',
+                'Categories',
                 textAlign: TextAlign.start,
-                style: TextStyle(fontSize: 25, color: Color(0xFF212325)),
+                style: TextStyle(
+                    fontSize: 25,
+                    color: Color(0xFF212325),
+                    fontWeight: FontWeight.bold),
               ),
             ),
-            CategoriesList(),
+            const CategoriesList(),
+            const Padding(
+              padding: EdgeInsets.all(10.0),
+              child: Text(
+                'Top Picks For You',
+                textAlign: TextAlign.start,
+                style: TextStyle(
+                    fontSize: 25,
+                    color: Color(0xFF212325),
+                    fontWeight: FontWeight.bold),
+              ),
+            ),
+            Toppickes(),
           ],
         ),
       ),
