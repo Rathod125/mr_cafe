@@ -1,21 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:mr_cafe/screens/item.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Itemlist extends StatelessWidget {
   const Itemlist({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Column(
-        children: const [
-          SizedBox(
-            height: 10,
+    return ScreenUtilInit(
+      designSize: Size(1284, 2778),
+      builder: () {
+        return SafeArea(
+          child: Column(
+            children: const [
+              SizedBox(
+                height: 10,
+              ),
+              ItemCard(),
+              ItemCard()
+            ],
           ),
-          ItemCard(),
-          ItemCard()
-        ],
-      ),
+        );
+      },
     );
   }
 }
