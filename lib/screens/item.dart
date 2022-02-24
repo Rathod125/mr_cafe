@@ -25,19 +25,31 @@ class Item extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             // mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Center(
+              Center(
                 child: Padding(
-                  padding: EdgeInsets.only(top: 20.0),
-                  child: CircleAvatar(
-                    radius: 153,
-                    backgroundColor: Color(0xFF212325),
+                  padding: const EdgeInsets.only(top: 20.0),
+                  child: Container(
+                    decoration: const BoxDecoration(
+                      color: Colors.white,
+                      shape: BoxShape.circle,
+                      boxShadow: [
+                        BoxShadow(
+                            blurRadius: 15,
+                            color: Color.fromARGB(255, 102, 90, 78),
+                            spreadRadius: 4)
+                      ],
+                    ),
+                    // child: const CircleAvatar(
+                    //   radius: 153,
+                    //   backgroundColor: Color.fromARGB(255, 102, 90, 78),
                     child: CircleAvatar(
                       backgroundImage: AssetImage('assets/coldbrew.jpeg'),
-                      radius: 150.0,
+                      radius: 140.0,
                     ),
                   ),
                 ),
               ),
+              // ),
               Padding(
                 padding: const EdgeInsets.all(15.0),
                 child: Container(
@@ -109,6 +121,7 @@ class Item extends StatelessWidget {
                   ),
                 ),
               ),
+              Text('Description')
             ],
           ),
         );
