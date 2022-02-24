@@ -11,29 +11,22 @@ class Item extends StatelessWidget {
       designSize: Size(700, 700),
       builder: () {
         return Scaffold(
-          backgroundColor: Color(0xFFEADBCC),
-          appBar: AppBar(
-            iconTheme: IconThemeData(color: Color(0xFF212325)),
-            backgroundColor: Color(0xFFEADBCC),
-            title: Text(
-              itemname,
-              style: TextStyle(color: Color(0xFF212325)),
-            ),
-          ),
-          body: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            // mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Center(
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 20.0),
-                  child: CircleAvatar(
-                    backgroundImage: AssetImage('assets/coldbrew.jpeg'),
-                    radius: 150.0,
+          body: SafeArea(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              // mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Center(
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 20.0),
+                    child: CircleAvatar(
+                      backgroundImage: AssetImage('assets/coldbrew.jpeg'),
+                      radius: 150.0,
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         );
       },

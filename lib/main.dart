@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:mr_cafe/constants.dart';
 import 'package:mr_cafe/screens/home_screen.dart';
 import 'package:mr_cafe/screens/login_screen.dart';
 import 'package:mr_cafe/screens/splash_screen.dart';
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demo',
         theme: ThemeData(
           primaryColor: Color(0xFF212325),
+          scaffoldBackgroundColor: kBackGroundColor,
         ),
         initialRoute: SplashScreen.id,
         routes: {
