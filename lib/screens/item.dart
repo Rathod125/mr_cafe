@@ -8,17 +8,17 @@ class Item extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: Size(700, 700),
+      designSize: const Size(700, 700),
       builder: () {
         return Scaffold(
-          backgroundColor: Color(0xFFEADBCC),
+          backgroundColor: const Color(0xFFEADBCC),
           appBar: AppBar(
             elevation: 0,
-            iconTheme: IconThemeData(color: Color(0xFF212325)),
-            backgroundColor: Color(0xFFEADBCC),
+            iconTheme: const IconThemeData(color: const Color(0xFF212325)),
+            backgroundColor: const Color(0xFFEADBCC),
             title: Text(
               itemname,
-              style: TextStyle(color: Color(0xFF212325)),
+              style: const TextStyle(color: const Color(0xFF212325)),
             ),
           ),
           body: Column(
@@ -43,8 +43,8 @@ class Item extends StatelessWidget {
                     //   radius: 153,
                     //   backgroundColor: Color.fromARGB(255, 102, 90, 78),
                     child: CircleAvatar(
-                      backgroundImage: AssetImage('assets/coldbrew.jpeg'),
-                      radius: 140.0,
+                      backgroundImage: const AssetImage('assets/coldbrew.jpeg'),
+                      radius: MediaQuery.of(context).size.width * 0.32,
                     ),
                   ),
                 ),
@@ -53,9 +53,9 @@ class Item extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(15.0),
                 child: Container(
-                  padding: EdgeInsets.only(top: 15, left: 25, right: 25),
+                  padding: const EdgeInsets.only(top: 15, left: 25, right: 25),
                   decoration: BoxDecoration(
-                      color: Color(0xFF212325),
+                      color: const Color(0xFF212325),
                       borderRadius: BorderRadius.circular(30)),
                   child: Column(
                     // mainAxisAlignment: MainAxisAlignment.start,
@@ -84,20 +84,20 @@ class Item extends StatelessWidget {
                         textAlign: TextAlign.left,
                         style: TextStyle(color: Colors.grey),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(
+                          const Text(
                             "150/-",
                             style: TextStyle(
                                 fontSize: 22, color: Color(0xFFD4A056)),
                           ),
                           RawMaterialButton(
                             onPressed: () {},
-                            child: Text(
+                            child: const Text(
                               'Add to cart',
                               style: TextStyle(
                                   fontSize: 18,
@@ -114,14 +114,17 @@ class Item extends StatelessWidget {
                           ),
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                     ],
                   ),
                 ),
               ),
-              Text('Description')
+              const Text(
+                'Description',
+                style: TextStyle(fontSize: 22, fontFamily: 'Libre Baskerville'),
+              )
             ],
           ),
         );
