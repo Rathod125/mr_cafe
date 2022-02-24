@@ -57,7 +57,7 @@ class ItemCard extends StatelessWidget {
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(10),
                         child: Image.asset(
-                          'assets/cofee.jpg',
+                          'assets/coldbrew.jpeg',
                           fit: BoxFit.cover,
                         ),
                       ),
