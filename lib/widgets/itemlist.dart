@@ -43,7 +43,7 @@ class ItemCard extends StatelessWidget {
                   color: Color(0xFF212325)),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.max,
+                // mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.start,
 
                 // SkeletonAnimation method
@@ -62,51 +62,52 @@ class ItemCard extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Column(
-                      // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisSize: MainAxisSize.max,
-                      children: <Widget>[
-                        Padding(
-                          padding:
-                              const EdgeInsets.only(left: 15.0, bottom: 5.0),
-                          child: Container(
-                            height: 25,
-                            width: MediaQuery.of(context).size.width * 0.5,
-                            child: const Text(
-                              'Espresso',
-                              style: TextStyle(
-                                  fontSize: 20,
-                                  color: Colors.white70,
-                                  fontFamily: 'Libre Baskerville'),
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 15.0),
-                          child: Padding(
-                            padding: const EdgeInsets.only(right: 5.0),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 10),
+                      child: Column(
+                        // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.max,
+                        children: <Widget>[
+                          Padding(
+                            padding:
+                                const EdgeInsets.only(left: 15.0, bottom: 5.0),
                             child: Container(
-                              width: 60,
-                              height: 13,
+                              height: 25,
+                              width: MediaQuery.of(context).size.width * 0.5,
                               child: const Text(
-                                '150/-',
-                                style: TextStyle(color: Colors.white70),
+                                'Espresso',
+                                style: TextStyle(
+                                    fontSize: 20,
+                                    color: Colors.white70,
+                                    fontFamily: 'Libre Baskerville'),
                               ),
                             ),
                           ),
-                        ),
-                      ],
+                          Padding(
+                            padding: const EdgeInsets.only(left: 15.0),
+                            child: Padding(
+                              padding: const EdgeInsets.only(right: 5.0),
+                              child: Container( 
+                                width: 60,
+                                height: 13,
+                                child: const Text(
+                                  '150/-',
+                                  style: TextStyle(color: Colors.white70),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                  const Expanded(
-                      child: Icon(
+                  Icon(
                     Icons.chevron_right,
                     color: Colors.white70,
                     size: 40,
-                  ))
+                  )
                 ],
               ),
             ),
