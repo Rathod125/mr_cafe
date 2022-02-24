@@ -7,21 +7,16 @@ class Itemlist extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(
-      designSize: Size(1284, 2778),
-      builder: () {
-        return SafeArea(
-          child: Column(
-            children: const [
-              SizedBox(
-                height: 10,
-              ),
-              ItemCard(),
-              ItemCard()
-            ],
+    return SafeArea(
+      child: Column(
+        children: const [
+          SizedBox(
+            height: 10,
           ),
-        );
-      },
+          ItemCard(),
+          ItemCard()
+        ],
+      ),
     );
   }
 }
@@ -95,7 +90,7 @@ class ItemCard extends StatelessWidget {
                             padding: const EdgeInsets.only(left: 15.0),
                             child: Padding(
                               padding: const EdgeInsets.only(right: 5.0),
-                              child: Container( 
+                              child: Container(
                                 width: 60,
                                 height: 13,
                                 child: const Text(
