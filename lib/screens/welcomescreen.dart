@@ -15,7 +15,7 @@ class WelcomeScreen extends StatelessWidget {
       color: const Color(0xFF212325),
       child: SafeArea(
         child: Padding(
-          padding: EdgeInsets.only(top: 50.0, bottom: 20.0),
+          padding: const EdgeInsets.only(top: 50.0, bottom: 20.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -40,9 +40,9 @@ class WelcomeScreen extends StatelessWidget {
                   Navigator.push(
                       context,
                       PageTransition(
-                          child: LoginPage(),
+                          child: const LoginPage(),
                           type: PageTransitionType.scale,
-                          duration: Duration(milliseconds: 500),
+                          duration: const Duration(milliseconds: 500),
                           alignment: Alignment.bottomCenter));
                 },
                 style: ElevatedButton.styleFrom(

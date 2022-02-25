@@ -9,14 +9,14 @@ class Toppickes extends StatelessWidget {
       children: [
         Row(
           // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
+          children: const [
             ToppicksCard(),
             ToppicksCard(),
           ],
         ),
         Row(
           // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
+          children: const [
             ToppicksCard(),
             ToppicksCard(),
           ],
@@ -37,9 +37,9 @@ class ToppicksCard extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.only(right: 5, top: 5),
         child: Container(
-          padding: EdgeInsets.only(top: 15, left: 25, right: 25),
+          padding: const EdgeInsets.only(top: 15, left: 25, right: 25),
           decoration: BoxDecoration(
-              color: Color(0xFF212325),
+              color: const Color(0xFF212325),
               borderRadius: BorderRadius.circular(20)),
           child: Column(
             // mainAxisAlignment: MainAxisAlignment.start,
@@ -71,19 +71,19 @@ class ToppicksCard extends StatelessWidget {
                 textAlign: TextAlign.left,
                 style: TextStyle(color: Colors.grey),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
+                  const Text(
                     "\$68",
                     style: TextStyle(fontSize: 22, color: Color(0xFFD4A056)),
                   ),
                   RawMaterialButton(
                     onPressed: () {},
-                    child: Icon(Icons.add),
+                    child: const Icon(Icons.add),
                     // elevation: 6,
                     shape: const CircleBorder(),
                     fillColor: const Color(0xFFD4A056),
@@ -94,7 +94,7 @@ class ToppicksCard extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
             ],

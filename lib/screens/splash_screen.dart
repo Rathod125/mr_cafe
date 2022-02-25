@@ -47,7 +47,7 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   Widget build(BuildContext context) {
     return AnimatedSplashScreen(
-      backgroundColor: Color(0xFFEADBCC),
+      backgroundColor: const Color(0xFFEADBCC),
       splash: const Image(
         image: AssetImage('assets/logo.png'),
         fit: BoxFit.fill,

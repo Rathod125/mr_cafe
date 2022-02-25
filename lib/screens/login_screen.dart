@@ -17,7 +17,7 @@ class _LoginPageState extends State<LoginPage> {
     timeDilation = 2;
 
     return Scaffold(
-      backgroundColor: Color(0xFFEADBCC),
+      backgroundColor: const Color(0xFFEADBCC),
       body: Column(children: [
         Flexible(
           child: Container(
@@ -62,16 +62,16 @@ class _LoginPageState extends State<LoginPage> {
                 keyboardType: TextInputType.phone,
                 textAlignVertical: TextAlignVertical.center,
                 showDropdownIcon: false,
-                dropdownTextStyle: TextStyle(fontSize: 18.0),
+                dropdownTextStyle: const TextStyle(fontSize: 18.0),
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.black),
+                    borderSide: const BorderSide(color: Colors.black),
                     borderRadius: BorderRadius.circular(20.0),
                   ),
                   focusColor: Colors.yellow,
                   hintText: 'Phone Number',
                 ),
-                flagsButtonPadding: EdgeInsets.symmetric(horizontal: 20.0),
+                flagsButtonPadding: const EdgeInsets.symmetric(horizontal: 20.0),
                 initialCountryCode: 'IN',
               ),
               const SizedBox(

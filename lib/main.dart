@@ -24,15 +24,15 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demo',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          primaryColor: Color(0xFF212325),
+          primaryColor: const Color(0xFF212325),
           scaffoldBackgroundColor: kBackGroundColor,
         ),
         initialRoute: SplashScreen.id,
         routes: {
-          WelcomeScreen.id: (context) => WelcomeScreen(),
-          SplashScreen.id: (context) => SplashScreen(),
-          HomePage.id: (context) => HomePage(),
-          LoginPage.id: (context) => LoginPage(),
+          WelcomeScreen.id: (context) => const WelcomeScreen(),
+          SplashScreen.id: (context) => const SplashScreen(),
+          HomePage.id: (context) => const HomePage(),
+          LoginPage.id: (context) => const LoginPage(),
         });
   }
 }

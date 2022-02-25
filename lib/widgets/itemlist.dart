@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mr_cafe/screens/item.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Itemlist extends StatelessWidget {
   const Itemlist({Key? key}) : super(key: key);
@@ -35,7 +34,7 @@ class ItemCard extends StatelessWidget {
           child: GestureDetector(
             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (contex) {
-                return Item(itemname: 'Espresso');
+                return const Item(itemname: 'Espresso');
               }));
             },
             child: Container(
@@ -49,7 +48,7 @@ class ItemCard extends StatelessWidget {
 
                 // SkeletonAnimation method
                 children: <Widget>[
-                  Container(
+                  SizedBox(
                     width: 110.0,
                     height: 110.0,
                     child: Padding(
@@ -74,7 +73,7 @@ class ItemCard extends StatelessWidget {
                           Padding(
                             padding:
                                 const EdgeInsets.only(left: 15.0, bottom: 5.0),
-                            child: Container(
+                            child: SizedBox(
                               height: 25,
                               width: MediaQuery.of(context).size.width * 0.5,
                               child: const Text(
@@ -86,14 +85,14 @@ class ItemCard extends StatelessWidget {
                               ),
                             ),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 15.0),
+                          const Padding(
+                            padding: EdgeInsets.only(left: 15.0),
                             child: Padding(
-                              padding: const EdgeInsets.only(right: 5.0),
-                              child: Container(
+                              padding: EdgeInsets.only(right: 5.0),
+                              child: SizedBox(
                                 width: 60,
                                 height: 13,
-                                child: const Text(
+                                child: Text(
                                   '150/-',
                                   style: TextStyle(color: Colors.white70),
                                 ),
@@ -104,7 +103,7 @@ class ItemCard extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Icon(
+                  const Icon(
                     Icons.chevron_right,
                     color: Colors.white70,
                     size: 40,

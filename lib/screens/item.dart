@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Item extends StatelessWidget {
-  Item({required this.itemname});
-  String itemname;
+  const Item({Key? key, required this.itemname}) : super(key: key);
+  final String itemname;
 
   @override
   Widget build(BuildContext context) {
@@ -14,11 +14,11 @@ class Item extends StatelessWidget {
           backgroundColor: const Color(0xFFEADBCC),
           appBar: AppBar(
             elevation: 0,
-            iconTheme: const IconThemeData(color: const Color(0xFF212325)),
+            iconTheme: const IconThemeData(color: Color(0xFF212325)),
             backgroundColor: const Color(0xFFEADBCC),
             title: Text(
               itemname,
-              style: const TextStyle(color: const Color(0xFF212325)),
+              style: const TextStyle(color: Color(0xFF212325)),
             ),
           ),
           body: SingleChildScrollView(

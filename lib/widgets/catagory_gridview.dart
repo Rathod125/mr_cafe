@@ -18,7 +18,7 @@ class CategoriesList extends StatelessWidget {
                 onpress: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: ((context) {
-                    return Categories(title: 'capuccino');
+                    return const Categories(title: 'capuccino');
                   })));
                 },
               ),
@@ -37,7 +37,7 @@ class CategoriesList extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         Row(
@@ -70,9 +70,9 @@ class CategoriesList extends StatelessWidget {
 }
 
 class CategoryLogo extends StatelessWidget {
-  CategoryLogo({required this.cname, required this.onpress});
-  String cname;
-  VoidCallback onpress;
+  const CategoryLogo({Key? key, required this.cname, required this.onpress}) : super(key: key);
+  final String cname;
+  final VoidCallback onpress;
 
   @override
   Widget build(BuildContext context) {
@@ -97,7 +97,7 @@ class CategoryLogo extends StatelessWidget {
         Text(
           cname,
           maxLines: 1,
-          style: TextStyle(fontSize: 20, color: Color(0xFF212325)),
+          style: const TextStyle(fontSize: 20, color: Color(0xFF212325)),
         ),
       ]),
     );

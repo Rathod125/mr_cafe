@@ -2,22 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:mr_cafe/widgets/itemlist.dart';
 
 class Categories extends StatelessWidget {
-  Categories({required this.title});
-  String title;
+  const Categories({Key? key, required this.title}) : super(key: key);
+  final String title;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFEADBCC),
+      backgroundColor: const Color(0xFFEADBCC),
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Color(0xFF212325)),
+        iconTheme: const IconThemeData(color: Color(0xFF212325)),
         title: Text(
           title,
-          style: TextStyle(color: Color(0xFF212325)),
+          style: const TextStyle(color: Color(0xFF212325)),
         ),
-        backgroundColor: Color(0xFFEADBCC),
+        backgroundColor: const Color(0xFFEADBCC),
       ),
-      body: Itemlist(),
+      body: const Itemlist(),
     );
   }
 }

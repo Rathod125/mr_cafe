@@ -3,7 +3,7 @@ import 'package:mr_cafe/widgets/catagory_gridview.dart';
 import 'package:mr_cafe/widgets/toppicks.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({Key? key}) : super(key: key);
+  const HomePage({Key? key}) : super(key: key);
   static const String id = 'home_screen';
 
   @override
@@ -17,7 +17,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFEADBCC),
+      backgroundColor: const Color(0xFFEADBCC),
       appBar: AppBar(
         backgroundColor: const Color(0xFFEADBCC),
         iconTheme: const IconThemeData(color: Color(0xFF212325)),
@@ -28,18 +28,18 @@ class _HomePageState extends State<HomePage> {
         centerTitle: true,
       ),
       body: SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         child: Container(
           padding: const EdgeInsets.all(8),
           color: const Color(0xFFEADBCC),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
+            children: const [
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                child: Container(
+                child: SizedBox(
                   height: 50,
-                  child: const TextField(
+                  child: TextField(
                     decoration: InputDecoration(
                       prefixIcon: Icon(
                         Icons.search,
@@ -62,7 +62,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
-              const Padding(
+              Padding(
                 padding: EdgeInsets.all(10.0),
                 child: Text(
                   'Categories',
@@ -73,8 +73,8 @@ class _HomePageState extends State<HomePage> {
                       fontWeight: FontWeight.bold),
                 ),
               ),
-              const CategoriesList(),
-              const Padding(
+              CategoriesList(),
+              Padding(
                 padding: EdgeInsets.only(top: 15, left: 10),
                 child: Text(
                   'Top Picks For You',
