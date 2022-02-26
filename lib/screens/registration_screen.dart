@@ -1,29 +1,29 @@
 import 'package:firebase_auth/firebase_auth.dart';
-
 import 'package:flutter/material.dart';
-import 'package:mr_cafe/constants.dart';
-
 import 'package:mr_cafe/screens/home_screen.dart';
 
-import 'package:mr_cafe/screens/registration_screen.dart';
+import '../constants.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
-  static const id = 'login_screen';
-
+class RegistrationPage extends StatefulWidget {
+  const RegistrationPage({Key? key}) : super(key: key);
+  static const id = 'registration_scrren';
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  _RegistrationPageState createState() => _RegistrationPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegistrationPageState extends State<RegistrationPage> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   String email = '';
   String password = '';
+  @override
+  void dispose() {
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFEADBCC),
+      backgroundColor: Color(0xFFEADBCC),
       body: Column(children: [
         Flexible(
           child: Container(
@@ -54,13 +54,12 @@ class _LoginPageState extends State<LoginPage> {
                 height: 10,
               ),
               const Text(
-                "Login",
+                "Registration",
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold,
-                  color: Color(0xFF212325),
-                ),
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xFF212325)),
               ),
               const SizedBox(
                 height: 20,
@@ -69,10 +68,10 @@ class _LoginPageState extends State<LoginPage> {
                 decoration: kTextFieldDecoration.copyWith(
                   hintText: 'xyz@gmail.com',
                 ),
-                keyboardType: TextInputType.emailAddress,
                 onChanged: (value) {
                   email = value;
                 },
+                keyboardType: TextInputType.emailAddress,
               ),
               SizedBox(
                 height: MediaQuery.of(context).size.height * .02,
@@ -81,10 +80,10 @@ class _LoginPageState extends State<LoginPage> {
                 decoration: kTextFieldDecoration.copyWith(
                   hintText: 'password',
                 ),
-                keyboardType: TextInputType.visiblePassword,
                 onChanged: (value) {
                   password = value;
                 },
+                keyboardType: TextInputType.visiblePassword,
               ),
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.04,
@@ -92,9 +91,9 @@ class _LoginPageState extends State<LoginPage> {
               TextButton(
                 onPressed: () async {
                   try {
-                    final user = await _auth.signInWithEmailAndPassword(
+                    final newuser = await _auth.createUserWithEmailAndPassword(
                         email: email, password: password);
-                    if (user != null) {
+                    if (newuser != null) {
                       Navigator.pushNamed(context, HomePage.id);
                     }
                   } catch (e) {
@@ -102,7 +101,7 @@ class _LoginPageState extends State<LoginPage> {
                   }
                 },
                 child: const Text(
-                  "Login",
+                  "Register",
                   style: TextStyle(color: Colors.white),
                 ),
                 style: TextButton.styleFrom(
@@ -114,23 +113,6 @@ class _LoginPageState extends State<LoginPage> {
               ),
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.02,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  const Text('Don\'t have account?'),
-                  TextButton(
-                      onPressed: () {
-                        Navigator.pushNamed(context, RegistrationPage.id);
-                      },
-                      child: const Text(
-                        'Create account',
-                        style: TextStyle(
-                            decoration: TextDecoration.underline,
-                            decorationColor: Colors.black,
-                            decorationThickness: 1.5),
-                      )),
-                ],
               ),
             ],
           ),

@@ -1,5 +1,9 @@
+import 'dart:async';
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
+import 'package:mr_cafe/screens/home_screen.dart';
 import 'package:mr_cafe/screens/welcomescreen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -17,6 +21,8 @@ class _SplashScreenState extends State<SplashScreen>
   late Animation sizeAnimation;
   late Animation animation;
   late Animation<double> rotateAnimation;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  late StreamSubscription<User?> user;
   @override
   void initState() {
     super.initState();
@@ -37,10 +43,18 @@ class _SplashScreenState extends State<SplashScreen>
     animationController.addListener(() {
       setState(() {});
     });
+    user = _auth.authStateChanges().listen((user) {
+      if (user == null) {
+        print('User is cureently sign out');
+      } else {
+        print('User is singin');
+      }
+    });
   }
 
   @override
   void dispose() {
+    user.cancel();
     super.dispose();
   }
 
@@ -54,7 +68,9 @@ class _SplashScreenState extends State<SplashScreen>
       ),
       duration: 3000,
       splashIconSize: animation.value * 300,
-      nextScreen: const WelcomeScreen(),
+      nextScreen: FirebaseAuth.instance.currentUser == null
+          ? WelcomeScreen()
+          : HomePage(),
     );
   }
 }

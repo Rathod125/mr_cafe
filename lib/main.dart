@@ -1,12 +1,16 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mr_cafe/constants.dart';
 import 'package:mr_cafe/screens/home_screen.dart';
 import 'package:mr_cafe/screens/login_screen.dart';
+import 'package:mr_cafe/screens/registration_screen.dart';
 import 'package:mr_cafe/screens/splash_screen.dart';
 import 'package:mr_cafe/screens/welcomescreen.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -29,10 +33,11 @@ class MyApp extends StatelessWidget {
         ),
         initialRoute: SplashScreen.id,
         routes: {
-          WelcomeScreen.id: (context) => const WelcomeScreen(),
+          WelcomeScreen.id: (context) => WelcomeScreen(),
           SplashScreen.id: (context) => const SplashScreen(),
           HomePage.id: (context) => const HomePage(),
           LoginPage.id: (context) => const LoginPage(),
+          RegistrationPage.id: (context) => RegistrationPage(),
         });
   }
 }

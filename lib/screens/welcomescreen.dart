@@ -1,12 +1,24 @@
+import 'dart:async';
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mr_cafe/constants.dart';
 import 'package:mr_cafe/screens/login_screen.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:page_transition/page_transition.dart';
 
-class WelcomeScreen extends StatelessWidget {
-  const WelcomeScreen({Key? key}) : super(key: key);
+class WelcomeScreen extends StatefulWidget {
+  WelcomeScreen({Key? key}) : super(key: key);
   static const String id = 'welcome_screen';
+
+  @override
+  State<WelcomeScreen> createState() => _WelcomeScreenState();
+}
+
+class _WelcomeScreenState extends State<WelcomeScreen> {
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,13 +49,7 @@ class WelcomeScreen extends StatelessWidget {
               const SizedBox(height: 50.0),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.push(
-                      context,
-                      PageTransition(
-                          child: const LoginPage(),
-                          type: PageTransitionType.scale,
-                          duration: const Duration(milliseconds: 500),
-                          alignment: Alignment.bottomCenter));
+                  Navigator.pushNamed(context, LoginPage.id);
                 },
                 style: ElevatedButton.styleFrom(
                     elevation: 0.0,
