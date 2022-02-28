@@ -100,21 +100,23 @@ class Item extends StatelessWidget {
                                   fontSize: 22, color: Color(0xFFD4A056)),
                             ),
                             RawMaterialButton(
+                              padding: EdgeInsets.symmetric(horizontal: 10),
                               onPressed: () {},
                               child: const Text(
                                 'Add to cart',
+                                maxLines: 1,
                                 style: TextStyle(
-                                    fontSize: 18,
+                                    fontSize: 15,
                                     fontFamily: 'Libre Baskerville'),
                               ),
                               // elevation: 6,
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10)),
                               fillColor: const Color(0xFFD4A056),
-                              constraints: const BoxConstraints.tightFor(
-                                width: 110.0,
-                                height: 43.0,
-                              ),
+                              // constraints: const BoxConstraints.tightFor(
+                              //   width: 110.0,
+                              //   height: 43.0,
+                              // ),
                             ),
                           ],
                         ),

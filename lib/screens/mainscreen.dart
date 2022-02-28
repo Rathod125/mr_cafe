@@ -1,17 +1,20 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mr_cafe/screens/categories.dart';
 import 'package:mr_cafe/screens/home_screen.dart';
+import 'package:mr_cafe/screens/login_screen.dart';
 
 class MainHome extends StatefulWidget {
   const MainHome({Key? key}) : super(key: key);
+  static const String id = 'main_home';
 
   @override
   _MainHomeState createState() => _MainHomeState();
 }
 
 class _MainHomeState extends State<MainHome> {
-
   int _selectedIndex = 0;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -32,6 +35,12 @@ class _MainHomeState extends State<MainHome> {
       }
     });
   }
+
+  void logout() async {
+    await _auth.signOut();
+    Navigator.pushReplacementNamed(context, LoginPage.id);
+  }
+
   static const List _pages = [
     HomePage(),
     Categories(),
@@ -40,6 +49,23 @@ class _MainHomeState extends State<MainHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFFEADBCC),
+      appBar: AppBar(
+        backgroundColor: const Color(0xFFEADBCC),
+        iconTheme: const IconThemeData(color: Color(0xFF212325)),
+        title: const Text(
+          'CafeApp',
+          style: TextStyle(color: Color(0xFF212325)),
+        ),
+        centerTitle: true,
+        actions: [
+          IconButton(
+              onPressed: () {
+                logout();
+              },
+              icon: Icon(Icons.logout))
+        ],
+      ),
       body: Center(
         child: _pages.elementAt(_selectedIndex),
       ),

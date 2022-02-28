@@ -1,7 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:mr_cafe/screens/login_screen.dart';
 import 'package:mr_cafe/widgets/catagory_gridview.dart';
 import 'package:mr_cafe/widgets/toppicks.dart';
-
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -12,6 +14,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  
   FocusNode focusNode = FocusNode();
   bool colour = true;
   String hintText = 'Search';
@@ -28,20 +31,13 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+ 
+
   // ScrollController _scroll = ScrollController(initialScrollOffset: 50.0);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFEADBCC),
-      appBar: AppBar(
-        backgroundColor: const Color(0xFFEADBCC),
-        iconTheme: const IconThemeData(color: Color(0xFF212325)),
-        title: const Text(
-          'CafeApp',
-          style: TextStyle(color: Color(0xFF212325)),
-        ),
-        centerTitle: true,
-      ),
+     
       body: GestureDetector(
         onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
         child: SingleChildScrollView(

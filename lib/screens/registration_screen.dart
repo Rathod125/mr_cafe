@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mr_cafe/screens/home_screen.dart';
+import 'package:mr_cafe/screens/mainscreen.dart';
 
 import '../constants.dart';
 
@@ -94,7 +95,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                     final newuser = await _auth.createUserWithEmailAndPassword(
                         email: email, password: password);
                     if (newuser != null) {
-                      Navigator.pushNamed(context, HomePage.id);
+                      Navigator.pushReplacementNamed(context, MainHome.id);
                     }
                   } catch (e) {
                     print(e);

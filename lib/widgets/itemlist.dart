@@ -74,7 +74,7 @@ class ItemCard extends StatelessWidget {
                             padding:
                                 const EdgeInsets.only(left: 15.0, bottom: 5.0),
                             child: SizedBox(
-                              height: 25,
+                              // height: 25,
                               width: MediaQuery.of(context).size.width * 0.5,
                               child: const Text(
                                 'Espresso',
@@ -90,8 +90,8 @@ class ItemCard extends StatelessWidget {
                             child: Padding(
                               padding: EdgeInsets.only(right: 5.0),
                               child: SizedBox(
-                                width: 60,
-                                height: 13,
+                                // width: 60,
+                                // height: 13,
                                 child: Text(
                                   '150/-',
                                   style: TextStyle(color: Colors.white70),

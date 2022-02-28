@@ -49,7 +49,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               const SizedBox(height: 50.0),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, LoginPage.id);
+                  Navigator.pushReplacementNamed(context, LoginPage.id);
                 },
                 style: ElevatedButton.styleFrom(
                     elevation: 0.0,
