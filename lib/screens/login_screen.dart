@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:mr_cafe/constants.dart';
 
 import 'package:mr_cafe/screens/home_screen.dart';
+import 'package:mr_cafe/screens/mainscreen.dart';
 
 import 'package:mr_cafe/screens/registration_screen.dart';
 
@@ -95,7 +96,10 @@ class _LoginPageState extends State<LoginPage> {
                     final user = await _auth.signInWithEmailAndPassword(
                         email: email, password: password);
                     if (user != null) {
-                      Navigator.pushNamed(context, HomePage.id);
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: ((context) {
+                        return MainHome();
+                      })));
                     }
                   } catch (e) {
                     print(e);

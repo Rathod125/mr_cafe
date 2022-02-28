@@ -18,7 +18,7 @@ class CategoriesList extends StatelessWidget {
                 onpress: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: ((context) {
-                    return const Categories(title: 'capuccino');
+                    return const Categories();
                   })));
                 },
               ),
