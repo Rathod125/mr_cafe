@@ -78,6 +78,12 @@ class _LoginPageState extends State<LoginPage> {
                   onChanged: (value) {
                     email = value;
                   },
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'Please enter valid email enter';
+                    }
+                    return null;
+                  },
                 ),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * .02,
@@ -91,16 +97,12 @@ class _LoginPageState extends State<LoginPage> {
                   onChanged: (value) {
                     password = value;
                   },
-                  
                 ),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.04,
                 ),
                 TextButton(
                   onPressed: () async {
-                    setState(() {
-                      spinner = true;
-                    });
                     try {
                       final user = await _auth.signInWithEmailAndPassword(
                           email: email, password: password);
