@@ -21,18 +21,27 @@ class CategoriesList extends StatelessWidget {
                     return const Categories();
                   })));
                 },
+                images: AssetImage(
+                  'assets/logo.png',
+                ),
               ),
             ),
             Expanded(
               child: CategoryLogo(
                 cname: 'Tea',
                 onpress: () {},
+                images: AssetImage(
+                  'assets/logo.png',
+                ),
               ),
             ),
             Expanded(
               child: CategoryLogo(
                 cname: 'Desserts',
                 onpress: () {},
+                images: AssetImage(
+                  'assets/logo.png',
+                ),
               ),
             ),
           ],
@@ -48,18 +57,27 @@ class CategoriesList extends StatelessWidget {
               child: CategoryLogo(
                 cname: 'capaccino',
                 onpress: () {},
+                images: AssetImage(
+                  'assets/logo.png',
+                ),
               ),
             ),
             Expanded(
               child: CategoryLogo(
                 cname: 'Tea',
                 onpress: () {},
+                images: AssetImage(
+                  'assets/cofee.jpg',
+                ),
               ),
             ),
             Expanded(
               child: CategoryLogo(
                 cname: 'Desserts',
                 onpress: () {},
+                images: AssetImage(
+                  'assets/coldbrew.jpeg',
+                ),
               ),
             ),
           ],
@@ -70,28 +88,30 @@ class CategoriesList extends StatelessWidget {
 }
 
 class CategoryLogo extends StatelessWidget {
-  const CategoryLogo({Key? key, required this.cname, required this.onpress}) : super(key: key);
+  const CategoryLogo(
+      {Key? key,
+      required this.cname,
+      required this.onpress,
+      required this.images})
+      : super(key: key);
   final String cname;
   final VoidCallback onpress;
+  final ImageProvider images;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onpress,
       child: Column(children: [
-        const CircleAvatar(
+        CircleAvatar(
           backgroundColor: Color(0xFF212325),
           radius: 42,
           child: CircleAvatar(
             backgroundColor: Color(0xFFEADBCC),
             radius: 40,
-            child: Image(
-              image: AssetImage(
-                'assets/logo.png',
-              ),
-              // height: 100,
-              // width: 100,
-            ),
+            backgroundImage: images,
+            // height: 100,
+            // width: 100,
           ),
         ),
         Text(
