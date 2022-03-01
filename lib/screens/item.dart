@@ -107,22 +107,26 @@ class _ItemState extends State<Item> with SingleTickerProviderStateMixin {
                             //  SizedBox(
                             //   height: 15,
                             // ),
-                            const Text(
+                            Text(
                               "Espresso",
                               textAlign: TextAlign.left,
                               style: TextStyle(
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 30,
+                                  fontSize:
+                                      MediaQuery.of(context).size.width * 0.075,
                                   fontFamily: 'Libre Baskerville',
                                   color: Color(0xFFEADBCC)),
                             ),
                             SizedBox(
                               height: MediaQuery.of(context).size.height * 0.01,
                             ),
-                            const Text(
+                            Text(
                               'Dark Roast',
                               textAlign: TextAlign.left,
-                              style: TextStyle(color: Colors.grey),
+                              style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: MediaQuery.of(context).size.width *
+                                      0.037),
                             ),
                             SizedBox(
                               height: MediaQuery.of(context).size.height * 0.02,
@@ -132,7 +136,9 @@ class _ItemState extends State<Item> with SingleTickerProviderStateMixin {
                               child: Text(
                                 'Description',
                                 style: TextStyle(
-                                    fontSize: 22,
+                                    fontSize:
+                                        MediaQuery.of(context).size.width *
+                                            0.06,
                                     fontFamily: 'Libre Baskerville',
                                     color: Colors.grey),
                               ),
@@ -150,7 +156,9 @@ class _ItemState extends State<Item> with SingleTickerProviderStateMixin {
                                     textAlign: TextAlign.left,
                                     overflow: TextOverflow.visible,
                                     style: TextStyle(
-                                      fontSize: 18,
+                                      fontSize:
+                                          MediaQuery.of(context).size.width *
+                                              0.045,
                                       color: Colors.grey.shade600,
                                     ),
                                   ),
@@ -158,15 +166,18 @@ class _ItemState extends State<Item> with SingleTickerProviderStateMixin {
                               ],
                             ),
                             SizedBox(
-                              height: MediaQuery.of(context).size.height * .08,
+                              height: MediaQuery.of(context).size.height * .06,
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                const Text(
+                                Text(
                                   "150/-",
                                   style: TextStyle(
-                                      fontSize: 22, color: Color(0xFFD4A056)),
+                                      fontSize:
+                                          MediaQuery.of(context).size.width *
+                                              0.07,
+                                      color: Color(0xFFD4A056)),
                                 ),
                                 Container(
                                   decoration: BoxDecoration(
