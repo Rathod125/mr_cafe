@@ -41,7 +41,8 @@ class ItemCard extends StatelessWidget {
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.only(left: 10, right: 10, top: 10),
+          padding:
+              const EdgeInsets.only(left: 10, right: 10, top: 5, bottom: 5),
           child: GestureDetector(
             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (contex) {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mr_cafe/Item_List/itemlist1.dart';
+import 'package:mr_cafe/Item_List/itemlist2.dart';
 import 'package:mr_cafe/widgets/itemlist.dart';
 
 class Categories extends StatelessWidget {
@@ -18,7 +19,7 @@ class Categories extends StatelessWidget {
         ),
         backgroundColor: const Color(0xFFEADBCC),
       ),
-      body: Itemlist1(),
+      body: Itemlist2(),
     );
   }
 }

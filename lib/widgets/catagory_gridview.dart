@@ -112,8 +112,8 @@ class CategoryLogo extends StatelessWidget {
         ),
         Text(
           cname,
-          maxLines: 1,
-          style: const TextStyle(fontSize: 20, color: Color(0xFF212325)),
+          // maxLines: 1,
+          style: const TextStyle(fontSize: 15, color: Color(0xFF212325)),
         ),
       ]),
     );
