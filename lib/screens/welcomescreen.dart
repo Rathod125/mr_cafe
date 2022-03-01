@@ -35,33 +35,35 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 radius: 150.0,
                 backgroundImage: AssetImage('assets/cofee.jpg'),
               ),
-              const SizedBox(height: 20.0),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.02),
               const Text(
                 'Star bucks',
                 style: kItemLableTextStyle,
               ),
-              const SizedBox(height: 20.0),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.02),
               const Text(
                 'Coffee is a brewed drink prepared from roasted coffee beans, the seeds of berries from certain flowering plants in the Coffea genus. ',
                 style: kNormalTextStyle,
                 textAlign: TextAlign.center,
               ),
-              const SizedBox(height: 50.0),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.pushReplacementNamed(context, LoginPage.id);
-                },
-                style: ElevatedButton.styleFrom(
-                    elevation: 0.0,
-                    primary: kBackGroundColor,
-                    fixedSize: const Size(70.0, 70.0),
-                    shadowColor: Colors.amber.shade50,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15.0))),
-                child: const Icon(
-                  Icons.arrow_forward,
-                  color: Colors.black,
-                  size: 25.0,
+              SizedBox(height: MediaQuery.of(context).size.height * 0.05),
+              Flexible(
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushReplacementNamed(context, LoginPage.id);
+                  },
+                  style: ElevatedButton.styleFrom(
+                      elevation: 0.0,
+                      primary: kBackGroundColor,
+                      fixedSize: const Size(70, 70.0),
+                      shadowColor: Colors.amber.shade50,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15.0))),
+                  child: const Icon(
+                    Icons.arrow_forward,
+                    color: Colors.black,
+                    size: 25.0,
+                  ),
                 ),
               ),
             ],

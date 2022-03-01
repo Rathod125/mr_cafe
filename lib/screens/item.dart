@@ -2,9 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mr_cafe/constants.dart';
 
-class Item extends StatelessWidget {
+class Item extends StatefulWidget {
   const Item({Key? key, required this.itemname}) : super(key: key);
   final String itemname;
+
+  @override
+  State<Item> createState() => _ItemState();
+}
+
+class _ItemState extends State<Item> with SingleTickerProviderStateMixin {
+  int count = 0;
+  Icon icon = Icon(Icons.shopping_cart);
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +21,6 @@ class Item extends StatelessWidget {
       builder: () {
         return Scaffold(
           backgroundColor: const Color(0xFF212325),
-
           appBar: AppBar(
             elevation: 0,
             leading: IconButton(
@@ -30,144 +37,12 @@ class Item extends StatelessWidget {
             ),
             backgroundColor: const Color(0xFFE212325),
             actions: [
-              IconButton(onPressed: () {}, icon: Icon(Icons.shopping_cart))
+              IconButton(
+                onPressed: () {},
+                icon: icon,
+              )
             ],
           ),
-          // body: SingleChildScrollView(
-          //   physics: const BouncingScrollPhysics(),
-          //   child: Column(
-          //     crossAxisAlignment: CrossAxisAlignment.center,
-          //     // mainAxisAlignment: MainAxisAlignment.center,
-          //     children: [
-          //       Center(
-          //         child: Padding(
-          //           padding: const EdgeInsets.only(top: 20.0),
-          //           child: Container(
-          //             decoration: const BoxDecoration(
-          //               color: Colors.white,
-          //               shape: BoxShape.circle,
-          //               boxShadow: [
-          //                 BoxShadow(
-          //                     blurRadius: 15,
-          //                     color: Color.fromARGB(255, 102, 90, 78),
-          //                     spreadRadius: 4)
-          //               ],
-          //             ),
-          //             // child: const CircleAvatar(
-          //             //   radius: 153,
-          //             //   backgroundColor: Color.fromARGB(255, 102, 90, 78),
-          //             child: CircleAvatar(
-          //               backgroundImage:
-          //                   const AssetImage('assets/coldbrew.jpeg'),
-          //               radius: MediaQuery.of(context).size.width * 0.32,
-          //             ),
-          //           ),
-          //         ),
-          //       ),
-          //       // ),
-          //       Padding(
-          //         padding: const EdgeInsets.all(15.0),
-          //   child: Container(
-          //     padding:
-          //         const EdgeInsets.only(top: 15, left: 25, right: 25),
-          //     decoration: BoxDecoration(
-          //         color: const Color(0xFF212325),
-          //         borderRadius: BorderRadius.circular(30)),
-          //     child: Column(
-          //       // mainAxisAlignment: MainAxisAlignment.start,
-          //       crossAxisAlignment: CrossAxisAlignment.start,
-          //       children: [
-          //         const Padding(
-          //           padding: EdgeInsets.symmetric(horizontal: 15),
-          //         ),
-          //         const SizedBox(
-          //           height: 15,
-          //         ),
-          //         const Text(
-          //           "Espresso",
-          //           textAlign: TextAlign.left,
-          //           style: TextStyle(
-          //               fontWeight: FontWeight.bold,
-          //               fontSize: 30,
-          //               fontFamily: 'Libre Baskerville',
-          //               color: Color(0xFFEADBCC)),
-          //         ),
-          //         const SizedBox(
-          //           height: 5,
-          //         ),
-          //         const Text(
-          //           'Dark Roast',
-          //           textAlign: TextAlign.left,
-          //           style: TextStyle(color: Colors.grey),
-          //         ),
-          //         const SizedBox(
-          //           height: 20,
-          //         ),
-          //         Row(
-          //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          //           children: [
-          //             const Text(
-          //               "150/-",
-          //               style: TextStyle(
-          //                   fontSize: 22, color: Color(0xFFD4A056)),
-          //             ),
-          //             RawMaterialButton(
-          //               padding: EdgeInsets.symmetric(horizontal: 10),
-          //               onPressed: () {},
-          //               child: const Text(
-          //                 'Add to cart',
-          //                 maxLines: 1,
-          //                 style: TextStyle(
-          //                     fontSize: 15,
-          //                     fontFamily: 'Libre Baskerville'),
-          //               ),
-          //               // elevation: 6,
-          //               shape: RoundedRectangleBorder(
-          //                   borderRadius: BorderRadius.circular(10)),
-          //               fillColor: const Color(0xFFD4A056),
-          //               // constraints: const BoxConstraints.tightFor(
-          //               //   width: 110.0,
-          //               //   height: 43.0,
-          //               // ),
-          //             ),
-          //           ],
-          //         ),
-          //         const SizedBox(
-          //           height: 20,
-          //         ),
-          //       ],
-          //     ),
-          //   ),
-          // ),
-          //       const Padding(
-          //         padding: EdgeInsets.fromLTRB(20, 8, 0, 6),
-          //         child: Align(
-          //           alignment: Alignment.centerLeft,
-          //           child: Text(
-          //             'Description',
-          //             style: TextStyle(
-          //                 fontSize: 22,
-          //                 fontFamily: 'Libre Baskerville',
-          //                 color: Color(0xFF212325)),
-          //           ),
-          //         ),
-          //       ),
-
-          //       Padding(
-          //         padding: const EdgeInsets.fromLTRB(20, 5, 20, 0),
-          //         child: Wrap(
-          //           children: const [
-          //             Text(
-          //               'A concentrated shot of thick syrupy flavourful liquid prepared by passing pressurized water through coffee.',
-          //               textAlign: TextAlign.left,
-          //               style:
-          //                   TextStyle(fontSize: 17, color: Color(0xFF212325)),
-          //             )
-          //           ],
-          //         ),
-          //       )
-          //     ],
-          //   ),
           body: SafeArea(
             child: Column(
               children: [
@@ -177,7 +52,7 @@ class Item extends StatelessWidget {
                   ),
                 ),
                 Expanded(
-                  flex: 3,
+                  flex: 4,
                   child: Container(
                     // width: double.infinity,
                     decoration: const BoxDecoration(
@@ -213,7 +88,7 @@ class Item extends StatelessWidget {
                           ),
                         ),
                         Positioned(
-                          top: 150,
+                          top: 160,
                           child: Container(
                             width: MediaQuery.of(context).size.width * .95,
                             padding: const EdgeInsets.only(
@@ -298,26 +173,39 @@ class Item extends StatelessWidget {
                                           fontSize: 22,
                                           color: Color(0xFFD4A056)),
                                     ),
-                                    RawMaterialButton(
-                                      padding:
-                                          EdgeInsets.symmetric(horizontal: 10),
-                                      onPressed: () {},
-                                      child: const Text(
-                                        'Add to cart',
-                                        maxLines: 1,
-                                        style: TextStyle(
-                                            fontSize: 15,
-                                            fontFamily: 'Libre Baskerville'),
+                                    Container(
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(15),
+                                        color: Color(0xFFD4A056),
                                       ),
-                                      // elevation: 6,
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(10)),
-                                      fillColor: const Color(0xFFD4A056),
-                                      // constraints: const BoxConstraints.tightFor(
-                                      //   width: 110.0,
-                                      //   height: 43.0,
-                                      // ),
+                                      child: Row(
+                                        children: [
+                                          IconButton(
+                                            onPressed: () {
+                                              setState(() {
+                                                if (count > 0) {
+                                                  count--;
+                                                }
+                                              });
+                                            },
+                                            icon: Icon(Icons.remove),
+                                          ),
+                                          Text(
+                                            count.toString(),
+                                            style: TextStyle(fontSize: 18.0),
+                                          ),
+                                          IconButton(
+                                            onPressed: () {
+                                              setState(() {
+                                                if (count < 10) {
+                                                  count++;
+                                                }
+                                              });
+                                            },
+                                            icon: Icon(Icons.add),
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ],
                                 ),
