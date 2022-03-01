@@ -91,7 +91,7 @@ class _ItemState extends State<Item> with SingleTickerProviderStateMixin {
                         top: 160,
                         child: SingleChildScrollView(
                           child: Container(
-                            height: MediaQuery.of(context).size.height * .45,
+                            // height: MediaQuery.of(context).size.height * .45,
                             width: MediaQuery.of(context).size.width * .95,
                             padding: const EdgeInsets.only(
                                 top: 15, left: 25, right: 25),
