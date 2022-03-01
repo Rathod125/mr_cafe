@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:mr_cafe/screens/categories.dart';
 import 'package:mr_cafe/screens/home_screen.dart';
 import 'package:mr_cafe/screens/login_screen.dart';
+import 'package:mr_cafe/screens/profile.dart';
 
 class MainHome extends StatefulWidget {
   const MainHome({Key? key}) : super(key: key);
@@ -41,10 +42,10 @@ class _MainHomeState extends State<MainHome> {
     Navigator.pushReplacementNamed(context, LoginPage.id);
   }
 
-  static const List _pages = [
+  static final List _pages = [
     HomePage(),
     Categories(),
-    HomePage(),
+    ProfilePage(),
   ];
   @override
   Widget build(BuildContext context) {
