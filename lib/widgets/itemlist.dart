@@ -8,15 +8,19 @@ class Itemlist extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Column(
-        children: const [
+        children: [
           SizedBox(
             height: 10,
           ),
           ItemCard(
             title: 'Espresso',
+            image: AssetImage('assets/coldbrew.jpeg'),
+            price: '150/-',
           ),
           ItemCard(
             title: 'Coffee',
+            image: AssetImage('assets/cofee.jpg'),
+            price: '100/-',
           ),
         ],
       ),
@@ -25,16 +29,19 @@ class Itemlist extends StatelessWidget {
 }
 
 class ItemCard extends StatelessWidget {
-  const ItemCard({Key? key, required this.title}) : super(key: key);
+  const ItemCard(
+      {Key? key, required this.title, required this.image, required this.price})
+      : super(key: key);
   final String title;
-  
+  final ImageProvider image;
+  final String price;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.only(left: 10, right: 10),
+          padding: const EdgeInsets.only(left: 10, right: 10, bottom: 10),
           child: GestureDetector(
             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (contex) {
@@ -59,8 +66,8 @@ class ItemCard extends StatelessWidget {
                       padding: const EdgeInsets.all(8.0),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(10),
-                        child: Image.asset(
-                          'assets/coldbrew.jpeg',
+                        child: Image(
+                          image: image,
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -89,7 +96,7 @@ class ItemCard extends StatelessWidget {
                               ),
                             ),
                           ),
-                          const Padding(
+                          Padding(
                             padding: EdgeInsets.only(left: 15.0),
                             child: Padding(
                               padding: EdgeInsets.only(right: 5.0),
@@ -97,7 +104,7 @@ class ItemCard extends StatelessWidget {
                                 // width: 60,
                                 // height: 13,
                                 child: Text(
-                                  '150/-',
+                                  price,
                                   style: TextStyle(color: Colors.white70),
                                 ),
                               ),
@@ -115,13 +122,6 @@ class ItemCard extends StatelessWidget {
                 ],
               ),
             ),
-          ),
-        ),
-        const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 10),
-          child: Divider(
-            color: Colors.black45,
-            thickness: 0.5,
           ),
         ),
       ],
