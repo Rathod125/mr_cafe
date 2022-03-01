@@ -66,7 +66,7 @@ class _ItemState extends State<Item> with SingleTickerProviderStateMixin {
                   alignment: Alignment.topCenter,
                   children: [
                     Positioned(
-                      top: -120.0,
+                      top: MediaQuery.of(context).size.height * -0.15,
                       child: Container(
                         decoration: const BoxDecoration(
                           shape: BoxShape.circle,
@@ -87,7 +87,7 @@ class _ItemState extends State<Item> with SingleTickerProviderStateMixin {
                       ),
                     ),
                     Positioned(
-                      top: 160,
+                      top: MediaQuery.of(context).size.height * .22,
                       child: Container(
                         // height: MediaQuery.of(context).size.height * .45,
                         width: MediaQuery.of(context).size.width * .95,
