@@ -12,8 +12,12 @@ class Itemlist extends StatelessWidget {
           SizedBox(
             height: 10,
           ),
-          ItemCard(),
-          ItemCard()
+          ItemCard(
+            title: 'Espresso',
+          ),
+          ItemCard(
+            title: 'Coffee',
+          ),
         ],
       ),
     );
@@ -21,9 +25,9 @@ class Itemlist extends StatelessWidget {
 }
 
 class ItemCard extends StatelessWidget {
-  const ItemCard({
-    Key? key,
-  }) : super(key: key);
+  const ItemCard({Key? key, required this.title}) : super(key: key);
+  final String title;
+  
 
   @override
   Widget build(BuildContext context) {
@@ -76,8 +80,8 @@ class ItemCard extends StatelessWidget {
                             child: SizedBox(
                               // height: 25,
                               width: MediaQuery.of(context).size.width * 0.5,
-                              child: const Text(
-                                'Espresso',
+                              child: Text(
+                                title,
                                 style: TextStyle(
                                     fontSize: 20,
                                     color: Colors.white70,
