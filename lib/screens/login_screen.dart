@@ -48,15 +48,15 @@ class _LoginPageState extends State<LoginPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                const Image(
+                Image(
                   image: AssetImage(
                     'assets/logo.png',
                   ),
-                  height: 100,
-                  width: 100,
+                  height: MediaQuery.of(context).size.height * .15,
+                  width: MediaQuery.of(context).size.height * .15,
                 ),
-                const SizedBox(
-                  height: 10,
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * .001,
                 ),
                 const Text(
                   "Login",
@@ -67,8 +67,8 @@ class _LoginPageState extends State<LoginPage> {
                     color: Color(0xFF212325),
                   ),
                 ),
-                const SizedBox(
-                  height: 20,
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.017,
                 ),
                 TextFormField(
                   decoration: kTextFieldDecoration.copyWith(
