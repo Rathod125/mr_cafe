@@ -43,7 +43,7 @@ class _MainHomeState extends State<MainHome> {
 
   static const List _pages = [
     HomePage(),
-    Categories(),
+    HomePage(),
     HomePage(),
   ];
   @override
