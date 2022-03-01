@@ -14,7 +14,7 @@ class CategoriesList extends StatelessWidget {
           children: [
             Expanded(
               child: CategoryLogo(
-                cname: 'capaccino',
+                cname: 'Hot Coffee',
                 onpress: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: ((context) {
@@ -22,25 +22,25 @@ class CategoriesList extends StatelessWidget {
                   })));
                 },
                 images: AssetImage(
-                  'assets/logo.png',
+                  'assets/hotcoffee/capuccino.jpeg',
                 ),
               ),
             ),
             Expanded(
               child: CategoryLogo(
-                cname: 'Tea',
+                cname: 'Cold Coffee',
                 onpress: () {},
                 images: AssetImage(
-                  'assets/logo.png',
+                  'assets/coldcoffee/icedespresso.jpeg',
                 ),
               ),
             ),
             Expanded(
               child: CategoryLogo(
-                cname: 'Desserts',
+                cname: 'Manual Brew',
                 onpress: () {},
                 images: AssetImage(
-                  'assets/logo.png',
+                  'assets/manualbrew/Frenchpress.jpeg',
                 ),
               ),
             ),
@@ -55,19 +55,19 @@ class CategoriesList extends StatelessWidget {
           children: [
             Expanded(
               child: CategoryLogo(
-                cname: 'capaccino',
+                cname: 'Frappe',
                 onpress: () {},
                 images: AssetImage(
-                  'assets/logo.png',
+                  'assets/frappe/mocha.jpeg',
                 ),
               ),
             ),
             Expanded(
               child: CategoryLogo(
-                cname: 'Tea',
+                cname: 'Lemonade',
                 onpress: () {},
                 images: AssetImage(
-                  'assets/cofee.jpg',
+                  'assets/lemonade/classic.jpeg',
                 ),
               ),
             ),
@@ -76,7 +76,7 @@ class CategoriesList extends StatelessWidget {
                 cname: 'Desserts',
                 onpress: () {},
                 images: AssetImage(
-                  'assets/coldbrew.jpeg',
+                  'assets/desserts/nutellacheesecake.jpeg',
                 ),
               ),
             ),
@@ -104,15 +104,11 @@ class CategoryLogo extends StatelessWidget {
       onTap: onpress,
       child: Column(children: [
         CircleAvatar(
-          backgroundColor: Color(0xFF212325),
-          radius: 42,
-          child: CircleAvatar(
-            backgroundColor: Color(0xFFEADBCC),
-            radius: 40,
-            backgroundImage: images,
-            // height: 100,
-            // width: 100,
-          ),
+          backgroundColor: Color(0xFFEADBCC),
+          radius: 40,
+          backgroundImage: images,
+          // height: 100,
+          // width: 100,
         ),
         Text(
           cname,
