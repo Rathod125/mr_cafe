@@ -89,131 +89,136 @@ class _ItemState extends State<Item> with SingleTickerProviderStateMixin {
                         ),
                         Positioned(
                           top: 160,
-                          child: Container(
-                            width: MediaQuery.of(context).size.width * .95,
-                            padding: const EdgeInsets.only(
-                                top: 15, left: 25, right: 25),
-                            decoration: BoxDecoration(
-                                color: const Color(0xFF212325),
-                                borderRadius: BorderRadius.circular(30)),
-                            child: Column(
-                              // mainAxisAlignment: MainAxisAlignment.center
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const Padding(
-                                  padding: EdgeInsets.symmetric(
-                                      horizontal: 15, vertical: 7.0),
-                                ),
-                                //  SizedBox(
-                                //   height: 15,
-                                // ),
-                                const Text(
-                                  "Espresso",
-                                  textAlign: TextAlign.left,
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 30,
-                                      fontFamily: 'Libre Baskerville',
-                                      color: Color(0xFFEADBCC)),
-                                ),
-                                SizedBox(
-                                  height:
-                                      MediaQuery.of(context).size.height * 0.01,
-                                ),
-                                const Text(
-                                  'Dark Roast',
-                                  textAlign: TextAlign.left,
-                                  style: TextStyle(color: Colors.grey),
-                                ),
-                                SizedBox(
-                                  height:
-                                      MediaQuery.of(context).size.height * 0.02,
-                                ),
-                                Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: Text(
-                                    'Description',
-                                    style: TextStyle(
-                                        fontSize: 22,
-                                        fontFamily: 'Libre Baskerville',
-                                        color: Colors.grey),
+                          child: SingleChildScrollView(
+                            child: Container(
+                              height: MediaQuery.of(context).size.height * .45,
+                              width: MediaQuery.of(context).size.width * .95,
+                              padding: const EdgeInsets.only(
+                                  top: 15, left: 25, right: 25),
+                              decoration: BoxDecoration(
+                                  color: const Color(0xFF212325),
+                                  borderRadius: BorderRadius.circular(30)),
+                              child: Column(
+                                // mainAxisAlignment: MainAxisAlignment.center
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  const Padding(
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal: 15, vertical: 7.0),
                                   ),
-                                ),
-                                Wrap(
-                                  children: [
-                                    Container(
-                                      margin: EdgeInsets.only(top: 20),
-                                      // padding: const EdgeInsets.symmetric(
-                                      //     horizontal: 10.0),
-                                      width: MediaQuery.of(context).size.width *
-                                          .98,
-                                      child: Text(
-                                        'A concentrated shot of thick syrupy flavourful liquid prepared by passing pressurized water through coffee.',
-                                        textAlign: TextAlign.left,
-                                        overflow: TextOverflow.visible,
-                                        style: TextStyle(
-                                          fontSize: 18,
-                                          color: Colors.grey.shade600,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(
-                                  height:
-                                      MediaQuery.of(context).size.height * .08,
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    const Text(
-                                      "150/-",
+                                  //  SizedBox(
+                                  //   height: 15,
+                                  // ),
+                                  const Text(
+                                    "Espresso",
+                                    textAlign: TextAlign.left,
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 30,
+                                        fontFamily: 'Libre Baskerville',
+                                        color: Color(0xFFEADBCC)),
+                                  ),
+                                  SizedBox(
+                                    height: MediaQuery.of(context).size.height *
+                                        0.01,
+                                  ),
+                                  const Text(
+                                    'Dark Roast',
+                                    textAlign: TextAlign.left,
+                                    style: TextStyle(color: Colors.grey),
+                                  ),
+                                  SizedBox(
+                                    height: MediaQuery.of(context).size.height *
+                                        0.02,
+                                  ),
+                                  Align(
+                                    alignment: Alignment.centerLeft,
+                                    child: Text(
+                                      'Description',
                                       style: TextStyle(
                                           fontSize: 22,
-                                          color: Color(0xFFD4A056)),
+                                          fontFamily: 'Libre Baskerville',
+                                          color: Colors.grey),
                                     ),
-                                    Container(
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(15),
-                                        color: Color(0xFFD4A056),
+                                  ),
+                                  Wrap(
+                                    children: [
+                                      Container(
+                                        margin: EdgeInsets.only(top: 20),
+                                        // padding: const EdgeInsets.symmetric(
+                                        //     horizontal: 10.0),
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                .98,
+                                        child: Text(
+                                          'A concentrated shot of thick syrupy flavourful liquid prepared by passing pressurized water through coffee.',
+                                          textAlign: TextAlign.left,
+                                          overflow: TextOverflow.visible,
+                                          style: TextStyle(
+                                            fontSize: 18,
+                                            color: Colors.grey.shade600,
+                                          ),
+                                        ),
                                       ),
-                                      child: Row(
-                                        children: [
-                                          IconButton(
-                                            onPressed: () {
-                                              setState(() {
-                                                if (count > 0) {
-                                                  count--;
-                                                }
-                                              });
-                                            },
-                                            icon: Icon(Icons.remove),
-                                          ),
-                                          Text(
-                                            count.toString(),
-                                            style: TextStyle(fontSize: 18.0),
-                                          ),
-                                          IconButton(
-                                            onPressed: () {
-                                              setState(() {
-                                                if (count < 10) {
-                                                  count++;
-                                                }
-                                              });
-                                            },
-                                            icon: Icon(Icons.add),
-                                          ),
-                                        ],
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: MediaQuery.of(context).size.height *
+                                        .08,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      const Text(
+                                        "150/-",
+                                        style: TextStyle(
+                                            fontSize: 22,
+                                            color: Color(0xFFD4A056)),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(
-                                  height:
-                                      MediaQuery.of(context).size.height * .02,
-                                ),
-                              ],
+                                      Container(
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(15),
+                                          color: Color(0xFFD4A056),
+                                        ),
+                                        child: Row(
+                                          children: [
+                                            IconButton(
+                                              onPressed: () {
+                                                setState(() {
+                                                  if (count > 0) {
+                                                    count--;
+                                                  }
+                                                });
+                                              },
+                                              icon: Icon(Icons.remove),
+                                            ),
+                                            Text(
+                                              count.toString(),
+                                              style: TextStyle(fontSize: 18.0),
+                                            ),
+                                            IconButton(
+                                              onPressed: () {
+                                                setState(() {
+                                                  if (count < 10) {
+                                                    count++;
+                                                  }
+                                                });
+                                              },
+                                              icon: Icon(Icons.add),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: MediaQuery.of(context).size.height *
+                                        .02,
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
