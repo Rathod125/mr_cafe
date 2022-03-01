@@ -44,7 +44,7 @@ class _MainHomeState extends State<MainHome> {
 
   static final List _pages = [
     HomePage(),
-    Categories(),
+    HomePage(),
     ProfilePage(),
   ];
   @override
