@@ -67,7 +67,7 @@ class CategoriesList extends StatelessWidget {
                 cname: 'Lemonade',
                 onpress: () {},
                 images: AssetImage(
-                  'assets/lemonade/classic.jpeg',
+                  'assets/lemonade/kiwi.jpeg',
                 ),
               ),
             ),

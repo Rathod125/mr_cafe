@@ -6,18 +6,20 @@ class Itemlist5 extends StatelessWidget {
   Itemlist5({Key? key}) : super(key: key);
 
   List itemname = [
-    'Frappe Caramel',
-    'Frappe Espresso',
-    'Frappe Hazelnut',
-    'Frappe Mocha'
+    'Blended Strawberry Lemonade',
+    'Classic Lemonade',
+    'Dragonfruit Lemonade',
+    'Kiwi Lemonade',
+    'Strawberry Lemonade'
   ];
   List<ImageProvider> images = [
-    AssetImage('assets/frappe/caramel.jpeg'),
-    AssetImage('assets/frappe/espresso.jpeg'),
-    AssetImage('assets/frappe/hazelnut.jpeg'),
-    AssetImage('assets/frappe/mocha.jpeg'),
+    AssetImage('assets/lemonade/blendedstrawbery.jpeg'),
+    AssetImage('assets/lemonade/classic.jpeg'),
+    AssetImage('assets/lemonade/dragonfruit.jpeg'),
+    AssetImage('assets/lemonade/kiwi.jpeg'),
+    AssetImage('assets/lemonade/strawbery.jpeg'),
   ];
-  List prices = ['150/-', '100/-', '150/-', '100'];
+  List prices = ['150/-', '100/-', '150/-', '100/-', '150/-'];
 
   @override
   Widget build(BuildContext context) {
