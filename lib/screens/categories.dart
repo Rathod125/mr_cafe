@@ -3,6 +3,8 @@ import 'package:mr_cafe/Item_List/itemlist1.dart';
 import 'package:mr_cafe/Item_List/itemlist2.dart';
 import 'package:mr_cafe/widgets/itemlist.dart';
 
+import '../Item_List/itemlist3.dart';
+
 class Categories extends StatelessWidget {
   const Categories({Key? key, required this.title}) : super(key: key);
   final String title;
@@ -19,7 +21,7 @@ class Categories extends StatelessWidget {
         ),
         backgroundColor: const Color(0xFFEADBCC),
       ),
-      body: Itemlist2(),
+      body: Itemlist3(),
     );
   }
 }

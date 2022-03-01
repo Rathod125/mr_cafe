@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../widgets/itemlist.dart';
 
-class Itemlist2 extends StatelessWidget {
-  Itemlist2({Key? key}) : super(key: key);
+class Itemlist3 extends StatelessWidget {
+  Itemlist3({Key? key}) : super(key: key);
 
   List itemname = [
     'Aero Press',
