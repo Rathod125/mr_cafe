@@ -226,11 +226,12 @@ class Item extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 const Padding(
-                                  padding: EdgeInsets.symmetric(horizontal: 15),
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: 15, vertical: 7.0),
                                 ),
-                                const SizedBox(
-                                  height: 15,
-                                ),
+                                //  SizedBox(
+                                //   height: 15,
+                                // ),
                                 const Text(
                                   "Espresso",
                                   textAlign: TextAlign.left,
@@ -240,16 +241,18 @@ class Item extends StatelessWidget {
                                       fontFamily: 'Libre Baskerville',
                                       color: Color(0xFFEADBCC)),
                                 ),
-                                const SizedBox(
-                                  height: 5,
+                                SizedBox(
+                                  height:
+                                      MediaQuery.of(context).size.height * 0.01,
                                 ),
                                 const Text(
                                   'Dark Roast',
                                   textAlign: TextAlign.left,
                                   style: TextStyle(color: Colors.grey),
                                 ),
-                                const SizedBox(
-                                  height: 20,
+                                SizedBox(
+                                  height:
+                                      MediaQuery.of(context).size.height * 0.02,
                                 ),
                                 Align(
                                   alignment: Alignment.centerLeft,
@@ -283,7 +286,7 @@ class Item extends StatelessWidget {
                                 ),
                                 SizedBox(
                                   height:
-                                      MediaQuery.of(context).size.height * .02,
+                                      MediaQuery.of(context).size.height * .08,
                                 ),
                                 Row(
                                   mainAxisAlignment:
@@ -318,8 +321,9 @@ class Item extends StatelessWidget {
                                     ),
                                   ],
                                 ),
-                                const SizedBox(
-                                  height: 20,
+                                SizedBox(
+                                  height:
+                                      MediaQuery.of(context).size.height * .02,
                                 ),
                               ],
                             ),
