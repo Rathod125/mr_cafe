@@ -91,6 +91,7 @@ class _LoginPageState extends State<LoginPage> {
                   onChanged: (value) {
                     password = value;
                   },
+                  
                 ),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.04,
@@ -104,14 +105,15 @@ class _LoginPageState extends State<LoginPage> {
                       final user = await _auth.signInWithEmailAndPassword(
                           email: email, password: password);
                       if (user != null) {
-                        Navigator.pushReplacement(context,
-                            MaterialPageRoute(builder: ((context) {
-                          return MainHome();
-                        })));
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: ((context) {
+                              return MainHome();
+                            }),
+                          ),
+                        );
                       }
-                      setState(() {
-                        spinner = false;
-                      });
                     } catch (e) {
                       print(e);
                     }
