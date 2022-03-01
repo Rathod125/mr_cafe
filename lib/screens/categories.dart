@@ -17,7 +17,7 @@ class Categories extends StatelessWidget {
         ),
         backgroundColor: const Color(0xFFEADBCC),
       ),
-      body: const Itemlist(),
+      body: Itemlist(),
     );
   }
 }

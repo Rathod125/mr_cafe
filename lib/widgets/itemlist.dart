@@ -2,27 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:mr_cafe/screens/item.dart';
 
 class Itemlist extends StatelessWidget {
-  const Itemlist({Key? key}) : super(key: key);
+  Itemlist({Key? key}) : super(key: key);
+
+  List itemname = ['Espresso', 'Coffee'];
+  List<ImageProvider> images = [
+    AssetImage('assets/coldbrew.jpeg'),
+    AssetImage('assets/cofee.jpg'),
+  ];
+  List prices = ['150/-', '100/-'];
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Column(
-        children: [
-          SizedBox(
-            height: 10,
-          ),
-          ItemCard(
-            title: 'Espresso',
-            image: AssetImage('assets/coldbrew.jpeg'),
-            price: '150/-',
-          ),
-          ItemCard(
-            title: 'Coffee',
-            image: AssetImage('assets/cofee.jpg'),
-            price: '100/-',
-          ),
-        ],
+      child: ListView.builder(
+        itemCount: itemname.length,
+        itemBuilder: ((context, index) {
+          return ItemCard(
+            title: itemname[index],
+            image: images[index],
+            price: prices[index],
+          );
+        }),
       ),
     );
   }
@@ -41,7 +41,7 @@ class ItemCard extends StatelessWidget {
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.only(left: 10, right: 10, bottom: 10),
+          padding: const EdgeInsets.only(left: 10, right: 10, top: 10),
           child: GestureDetector(
             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (contex) {
