@@ -8,7 +8,7 @@ class ProfilePage extends StatelessWidget {
     'My Orders',
     'My Profile',
     'Payment Method',
-    'Çontact Us',
+    'Contact Us',
     'Settings'
   ];
 
@@ -19,6 +19,7 @@ class ProfilePage extends StatelessWidget {
     Icon(Icons.contact_page),
     Icon(Icons.settings),
   ];
+  IconThemeData iconTheme = IconThemeData(color: Color(0xFF212325));
 
   @override
   Widget build(BuildContext context) {
@@ -52,6 +53,7 @@ class ProfilePage extends StatelessWidget {
                 itemCount: infoitems.length,
                 itemBuilder: (context, index) {
                   return ListTile(
+                    iconColor: Color(0xFF212325),
                     leading: icons[index],
                     title: Text(infoitems[index]),
                   );
