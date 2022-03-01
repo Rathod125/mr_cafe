@@ -54,6 +54,8 @@ class _ItemState extends State<Item> with SingleTickerProviderStateMixin {
                 Expanded(
                   flex: 4,
                   child: Container(
+                    height: MediaQuery.of(context).size.height * .45,
+                    // width: MediaQuery.of(context).size.width * .95,
                     // width: double.infinity,
                     decoration: const BoxDecoration(
                       color: kBackGroundColor,
