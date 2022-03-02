@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:mr_cafe/Item_List/itemlist1.dart';
+import 'package:mr_cafe/Item_List/itemlist2.dart';
+import 'package:mr_cafe/Item_List/itemlist3.dart';
+import 'package:mr_cafe/Item_List/itemlist4.dart';
+import 'package:mr_cafe/Item_List/itemlist5.dart';
 import 'package:mr_cafe/screens/categories.dart';
 
 class CategoriesList extends StatelessWidget {
@@ -18,7 +23,7 @@ class CategoriesList extends StatelessWidget {
                 onpress: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: ((context) {
-                    return const Categories(title: 'Hot Coffee');
+                    return Itemlist1(title: 'Hot Coffee');
                   })));
                 },
                 images: AssetImage(
@@ -29,7 +34,12 @@ class CategoriesList extends StatelessWidget {
             Expanded(
               child: CategoryLogo(
                 cname: 'Cold Coffee',
-                onpress: () {},
+                onpress: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: ((context) {
+                    return Itemlist2(title: 'Cold Coffee');
+                  })));
+                },
                 images: AssetImage(
                   'assets/coldcoffee/icedespresso.jpeg',
                 ),
@@ -38,7 +48,12 @@ class CategoriesList extends StatelessWidget {
             Expanded(
               child: CategoryLogo(
                 cname: 'Manual Brew',
-                onpress: () {},
+                onpress: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: ((context) {
+                    return Itemlist3(title: 'Manual Brew');
+                  })));
+                },
                 images: AssetImage(
                   'assets/manualbrew/Frenchpress.jpeg',
                 ),
@@ -56,7 +71,12 @@ class CategoriesList extends StatelessWidget {
             Expanded(
               child: CategoryLogo(
                 cname: 'Frappe',
-                onpress: () {},
+                onpress: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: ((context) {
+                    return Itemlist4(title: 'Frappe');
+                  })));
+                },
                 images: AssetImage(
                   'assets/frappe/mocha.jpeg',
                 ),
@@ -65,7 +85,12 @@ class CategoriesList extends StatelessWidget {
             Expanded(
               child: CategoryLogo(
                 cname: 'Lemonade',
-                onpress: () {},
+                onpress: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: ((context) {
+                    return Itemlist5(title: 'Lemonade');
+                  })));
+                },
                 images: AssetImage(
                   'assets/lemonade/kiwi.jpeg',
                 ),
@@ -74,7 +99,12 @@ class CategoriesList extends StatelessWidget {
             Expanded(
               child: CategoryLogo(
                 cname: 'Desserts',
-                onpress: () {},
+                onpress: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: ((context) {
+                    return Itemlist1(title: 'Desserts');
+                  })));
+                },
                 images: AssetImage(
                   'assets/desserts/nutellacheesecake.jpeg',
                 ),

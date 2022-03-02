@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../widgets/itemlist.dart';
 
 class Itemlist1 extends StatelessWidget {
-  Itemlist1({Key? key}) : super(key: key);
-
+  Itemlist1({Key? key, required this.title}) : super(key: key);
+  final String title;
   List itemname = [
     'Capuccino',
     'Espresso',
@@ -25,8 +25,16 @@ class Itemlist1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: ListView.builder(
+    return Scaffold(
+      appBar: AppBar(
+        iconTheme: const IconThemeData(color: Color(0xFF212325)),
+        title: Text(
+          title,
+          style: const TextStyle(color: Color(0xFF212325)),
+        ),
+        backgroundColor: const Color(0xFFEADBCC),
+      ),
+      body: ListView.builder(
         itemCount: itemname.length,
         itemBuilder: ((context, index) {
           return ItemCard(
