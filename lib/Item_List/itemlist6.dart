@@ -1,0 +1,42 @@
+import 'package:flutter/material.dart';
+
+import '../widgets/itemlist.dart';
+
+class Itemlist6 extends StatelessWidget {
+  Itemlist6({Key? key}) : super(key: key);
+
+  List itemname = [
+    'Caramel Brownie',
+    'Walnut Brownie',
+    'Nutella Cheesecake',
+    'Raspberry Cheesecake'
+  ];
+  List<ImageProvider> images = [
+    AssetImage('assets/desserts/caramelbrownie.jpeg'),
+    AssetImage('assets/desserts/walnutbrownie.jpeg'),
+    AssetImage('assets/desserts/nutellacheesecake.jpeg'),
+    AssetImage('assets/desserts/raspberrycheesecake.jpeg'),
+  ];
+  List prices = [
+    '150/-',
+    '100/-',
+    '150/-',
+    '100/-',
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: ListView.builder(
+        itemCount: itemname.length,
+        itemBuilder: ((context, index) {
+          return ItemCard(
+            title: itemname[index],
+            image: images[index],
+            price: prices[index],
+          );
+        }),
+      ),
+    );
+  }
+}
