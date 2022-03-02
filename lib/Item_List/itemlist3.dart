@@ -16,7 +16,7 @@ class Itemlist3 extends StatelessWidget {
     AssetImage('assets/manualbrew/Frenchpress.jpeg'),
     AssetImage('assets/manualbrew/V60pourover.jpeg'),
   ];
-  List prices = ['150', '100', '150'];
+  List prices = ['180', '180', '180'];
 
   @override
   Widget build(BuildContext context) {

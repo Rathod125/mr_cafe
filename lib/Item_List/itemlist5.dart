@@ -20,7 +20,7 @@ class Itemlist5 extends StatelessWidget {
     AssetImage('assets/lemonade/kiwi.jpeg'),
     AssetImage('assets/lemonade/strawbery.jpeg'),
   ];
-  List prices = ['150', '100', '150', '100', '150'];
+  List prices = ['250', '180', '200', '220', '220'];
 
   @override
   Widget build(BuildContext context) {

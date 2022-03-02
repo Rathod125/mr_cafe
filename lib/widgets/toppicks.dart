@@ -9,16 +9,28 @@ class Toppickes extends StatelessWidget {
       children: [
         Row(
           // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: const [
-            ToppicksCard(),
-            ToppicksCard(),
+          children: [
+            ToppicksCard(
+                image: AssetImage('assets/hotcoffee/latte.jpeg'),
+                itemname: 'Latte',
+                rate: '₹160'),
+            ToppicksCard(
+                image: AssetImage('assets/coldcoffee/coldbrew.jpeg'),
+                itemname: 'Cold Brew',
+                rate: '₹180'),
           ],
         ),
         Row(
           // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: const [
-            ToppicksCard(),
-            ToppicksCard(),
+          children: [
+            ToppicksCard(
+                image: AssetImage('assets/frappe/caramel.jpeg'),
+                itemname: 'Caramel \nFrappe',
+                rate: '₹200'),
+            ToppicksCard(
+                image: AssetImage('assets/desserts/raspberrycheesecake.jpeg'),
+                itemname: 'Raspberry \nCheesecake',
+                rate: '₹240'),
           ],
         ),
       ],
@@ -27,12 +39,44 @@ class Toppickes extends StatelessWidget {
 }
 
 class ToppicksCard extends StatelessWidget {
-  const ToppicksCard({
+  ToppicksCard({
     Key? key,
+    required this.image,
+    required this.itemname,
+    required this.rate,
   }) : super(key: key);
+
+  final ImageProvider image;
+  final String itemname;
+  final String rate;
+
+  // List<ImageProvider> image = [
+  //   AssetImage('assets/hotcoffee/espresso.jpeg'),
+  //   AssetImage('assets/coldcoffee/coldbrew.jpeg'),
+  //   AssetImage('assets/frappe/caramel.jpeg'),
+  //   AssetImage('assets/desserts/raspberrycheesecake.jpeg')
+  // ];
+
+  // List itemname = [
+  //   'Espresso',
+  //   'Cold Brew',
+  //   'Caramel \nFrappe',
+  //   'Raspberry \nCheesecake'
+  // ];
+
+  // List rate = ['₹140', '180', '200', '240'];
 
   @override
   Widget build(BuildContext context) {
+    // return
+    // Container(
+    //   height: MediaQuery.of(context).size.height * 0.5,
+    //   width: MediaQuery.of(context).size.width * 0.475,
+    // child:
+    //  ListView.builder(
+    //     shrinkWrap: true,
+    //     itemCount: image.length,
+    //     itemBuilder: ((context, index) {
     return Expanded(
       child: Padding(
         padding: const EdgeInsets.only(right: 5, top: 5),
@@ -45,18 +89,18 @@ class ToppicksCard extends StatelessWidget {
             // mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Padding(
+              Padding(
                 padding: EdgeInsets.symmetric(horizontal: 15),
                 child: CircleAvatar(
                   radius: 60,
-                  backgroundImage: AssetImage('assets/cofee.jpg'),
+                  backgroundImage: image,
                 ),
               ),
               const SizedBox(
                 height: 15,
               ),
-              const Text(
-                "Espresso \nCapuccino",
+              Text(
+                itemname,
                 textAlign: TextAlign.left,
                 style: TextStyle(
                     fontSize: 20,
@@ -66,19 +110,14 @@ class ToppicksCard extends StatelessWidget {
               const SizedBox(
                 height: 5,
               ),
-              const Text(
-                'Dark Roast',
-                textAlign: TextAlign.left,
-                style: TextStyle(color: Colors.grey),
-              ),
               const SizedBox(
                 height: 20,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(
-                    "\$68",
+                  Text(
+                    rate,
                     style: TextStyle(fontSize: 22, color: Color(0xFFD4A056)),
                   ),
                   RawMaterialButton(
@@ -102,5 +141,7 @@ class ToppicksCard extends StatelessWidget {
         ),
       ),
     );
+    // })),
+    // );
   }
 }
