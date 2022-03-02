@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:mr_cafe/screens/categories.dart';
+import 'package:mr_cafe/screens/cart_screen.dart';
+
 import 'package:mr_cafe/screens/home_screen.dart';
 import 'package:mr_cafe/screens/login_screen.dart';
 import 'package:mr_cafe/screens/profile.dart';
@@ -44,7 +45,7 @@ class _MainHomeState extends State<MainHome> {
 
   static final List _pages = [
     HomePage(),
-    HomePage(),
+    CartScreen(),
     ProfilePage(),
   ];
   @override

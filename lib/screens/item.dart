@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mr_cafe/constants.dart';
+import 'package:mr_cafe/screens/cart.dart';
+import 'package:mr_cafe/screens/cart_screen.dart';
+import 'package:mr_cafe/screens/mainscreen.dart';
+
+List<Widget> cartviewlist = [];
 
 class Item extends StatefulWidget {
   const Item(
@@ -44,7 +49,21 @@ class _ItemState extends State<Item> with SingleTickerProviderStateMixin {
         backgroundColor: const Color(0xFFE212325),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              cartviewlist.add(CartVeiw(
+                  imageProvider: widget.imageProvider,
+                  title: widget.itemname,
+                  price: widget.price,
+                  count: count));
+              print(cartviewlist);
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => CartScreen(),
+                  maintainState: false,
+                ),
+              );
+            },
             icon: icon,
           )
         ],
@@ -159,7 +178,7 @@ class _ItemState extends State<Item> with SingleTickerProviderStateMixin {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  widget.price,
+                                  '${widget.price}/-',
                                   style: TextStyle(
                                       fontSize:
                                           MediaQuery.of(context).size.width *
@@ -219,7 +238,3 @@ class _ItemState extends State<Item> with SingleTickerProviderStateMixin {
     );
   }
 }
-// child: CircleAvatar(
-//                   backgroundImage: const AssetImage('assets/coldbrew.jpeg'),
-//                   radius: MediaQuery.of(context).size.width * 0.32,
-//                 ),

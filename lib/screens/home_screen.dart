@@ -1,5 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:mr_cafe/screens/login_screen.dart';
 import 'package:mr_cafe/widgets/catagory_gridview.dart';
@@ -14,7 +12,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  
   FocusNode focusNode = FocusNode();
   bool colour = true;
   String hintText = 'Search';
@@ -31,13 +28,10 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
- 
-
   // ScrollController _scroll = ScrollController(initialScrollOffset: 50.0);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-     
       body: GestureDetector(
         onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
         child: SingleChildScrollView(

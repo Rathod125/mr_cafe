@@ -78,7 +78,7 @@ class ItemCard extends StatelessWidget {
                                 // width: 60,
                                 // height: 13,
                                 child: Text(
-                                  price,
+                                  '$price/-',
                                   style: TextStyle(color: Colors.white70),
                                 ),
                               ),
