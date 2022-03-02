@@ -55,7 +55,6 @@ class _ItemState extends State<Item> with SingleTickerProviderStateMixin {
                   title: widget.itemname,
                   price: widget.price,
                   count: count));
-              print(cartviewlist);
               setState(() {
                 selectedIndex = 1;
               });

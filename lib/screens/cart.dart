@@ -78,10 +78,20 @@ class CartVeiw extends StatelessWidget {
                           child: Padding(
                             padding: EdgeInsets.only(right: 5.0),
                             child: SizedBox(
-                              // width: 60,
-                              // height: 13,
                               child: Text(
-                                amount.toString(),
+                                'Total Amount : ${amount.toString()}/-',
+                                style: TextStyle(color: Colors.white70),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(left: 15.0, top: 5.0),
+                          child: Padding(
+                            padding: EdgeInsets.only(right: 5.0),
+                            child: SizedBox(
+                              child: Text(
+                                'Total Quantity : $count',
                                 style: TextStyle(color: Colors.white70),
                               ),
                             ),

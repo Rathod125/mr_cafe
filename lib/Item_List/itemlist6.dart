@@ -39,6 +39,7 @@ class Itemlist6 extends StatelessWidget {
       ),
       body: ListView.builder(
         itemCount: itemname.length,
+        physics: BouncingScrollPhysics(),
         itemBuilder: ((context, index) {
           return ItemCard(
             title: itemname[index],
