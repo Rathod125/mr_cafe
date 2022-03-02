@@ -4,6 +4,7 @@ import 'package:mr_cafe/Item_List/itemlist2.dart';
 import 'package:mr_cafe/Item_List/itemlist3.dart';
 import 'package:mr_cafe/Item_List/itemlist4.dart';
 import 'package:mr_cafe/Item_List/itemlist5.dart';
+import 'package:mr_cafe/Item_List/itemlist6.dart';
 import 'package:mr_cafe/screens/categories.dart';
 
 class CategoriesList extends StatelessWidget {
@@ -102,7 +103,7 @@ class CategoriesList extends StatelessWidget {
                 onpress: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: ((context) {
-                    return Itemlist1(title: 'Desserts');
+                    return Itemlist6(title: 'Desserts');
                   })));
                 },
                 images: AssetImage(
