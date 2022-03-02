@@ -14,12 +14,13 @@ class MainHome extends StatefulWidget {
   _MainHomeState createState() => _MainHomeState();
 }
 
+int selectedIndex = 0;
+
 class _MainHomeState extends State<MainHome> {
-  int _selectedIndex = 0;
   final FirebaseAuth _auth = FirebaseAuth.instance;
   void _onItemTapped(int index) {
     setState(() {
-      _selectedIndex = index;
+      selectedIndex = index;
       // print(index);
       if (index == 0) {
         // Navigator.pushNamed(context, HomePage.id);
@@ -43,7 +44,7 @@ class _MainHomeState extends State<MainHome> {
     Navigator.pushReplacementNamed(context, LoginPage.id);
   }
 
-  static final List _pages = [
+  static final List pages = [
     HomePage(),
     CartScreen(),
     ProfilePage(),
@@ -69,7 +70,7 @@ class _MainHomeState extends State<MainHome> {
         ],
       ),
       body: Center(
-        child: _pages.elementAt(_selectedIndex),
+        child: pages.elementAt(selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
         // mouseCursor: SystemMouseCursors.grab,
@@ -90,7 +91,7 @@ class _MainHomeState extends State<MainHome> {
           ),
         ],
         // type: BottomNavigationBarType.shifting,
-        currentIndex: _selectedIndex,
+        currentIndex: selectedIndex,
         // fixedColor: Colors.red,
         // selectedFontSize: 20,
         selectedIconTheme: const IconThemeData(

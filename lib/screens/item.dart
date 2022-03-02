@@ -56,11 +56,15 @@ class _ItemState extends State<Item> with SingleTickerProviderStateMixin {
                   price: widget.price,
                   count: count));
               print(cartviewlist);
+              setState(() {
+                selectedIndex = 1;
+              });
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => CartScreen(),
-                  maintainState: false,
+                  builder: (context) {
+                    return MainHome();
+                  },
                 ),
               );
             },
