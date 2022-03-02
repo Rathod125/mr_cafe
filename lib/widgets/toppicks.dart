@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mr_cafe/screens/item.dart';
 
 class Toppickes extends StatelessWidget {
   const Toppickes({Key? key}) : super(key: key);
@@ -13,11 +14,33 @@ class Toppickes extends StatelessWidget {
             ToppicksCard(
                 image: AssetImage('assets/hotcoffee/latte.jpeg'),
                 itemname: 'Latte',
-                rate: '₹160'),
+                rate: '₹160',
+                onpress: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: ((context) {
+                    return Item(
+                        itemname: 'Latte',
+                        description: 'd',
+                        price: '₹160',
+                        imageProvider:
+                            AssetImage('assets/hotcoffee/latte.jpeg'));
+                  })));
+                }),
             ToppicksCard(
                 image: AssetImage('assets/coldcoffee/coldbrew.jpeg'),
                 itemname: 'Cold Brew',
-                rate: '₹180'),
+                rate: '₹180',
+                onpress: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: ((context) {
+                    return Item(
+                        itemname: 'Cold Brew',
+                        description: 'd',
+                        price: '₹180',
+                        imageProvider:
+                            AssetImage('assets/coldcoffee/coldbrew.jpeg'));
+                  })));
+                }),
           ],
         ),
         Row(
@@ -26,11 +49,33 @@ class Toppickes extends StatelessWidget {
             ToppicksCard(
                 image: AssetImage('assets/frappe/caramel.jpeg'),
                 itemname: 'Caramel \nFrappe',
-                rate: '₹200'),
+                rate: '₹200',
+                onpress: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: ((context) {
+                    return Item(
+                        itemname: 'Caramel \nFrappe',
+                        description: 'd',
+                        price: '₹200',
+                        imageProvider:
+                            AssetImage('assets/frappe/caramel.jpeg'));
+                  })));
+                }),
             ToppicksCard(
                 image: AssetImage('assets/desserts/raspberrycheesecake.jpeg'),
                 itemname: 'Raspberry \nCheesecake',
-                rate: '₹240'),
+                rate: '₹240',
+                onpress: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: ((context) {
+                    return Item(
+                        itemname: 'Raspberry \nCheesecake',
+                        description: 'd',
+                        price: '₹240',
+                        imageProvider: AssetImage(
+                            'assets/desserts/raspberrycheesecake.jpeg'));
+                  })));
+                }),
           ],
         ),
       ],
@@ -44,11 +89,13 @@ class ToppicksCard extends StatelessWidget {
     required this.image,
     required this.itemname,
     required this.rate,
+    required this.onpress,
   }) : super(key: key);
 
   final ImageProvider image;
   final String itemname;
   final String rate;
+  final VoidCallback onpress;
 
   // List<ImageProvider> image = [
   //   AssetImage('assets/hotcoffee/espresso.jpeg'),
@@ -77,66 +124,71 @@ class ToppicksCard extends StatelessWidget {
     //     shrinkWrap: true,
     //     itemCount: image.length,
     //     itemBuilder: ((context, index) {
-    return Expanded(
-      child: Padding(
-        padding: const EdgeInsets.only(right: 5, top: 5),
-        child: Container(
-          padding: const EdgeInsets.only(top: 15, left: 25, right: 25),
-          decoration: BoxDecoration(
-              color: const Color(0xFF212325),
-              borderRadius: BorderRadius.circular(20)),
-          child: Column(
-            // mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 15),
-                child: CircleAvatar(
-                  radius: 60,
-                  backgroundImage: image,
+    return Container(
+      height: MediaQuery.of(context).size.height * 0.42,
+      width: MediaQuery.of(context).size.width * 0.478,
+      child: GestureDetector(
+        onTap: onpress,
+        child: Padding(
+          padding: const EdgeInsets.only(right: 5, top: 5),
+          child: Container(
+            padding: const EdgeInsets.only(top: 15, left: 25, right: 25),
+            decoration: BoxDecoration(
+                color: const Color(0xFF212325),
+                borderRadius: BorderRadius.circular(20)),
+            child: Column(
+              // mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 15),
+                  child: CircleAvatar(
+                    radius: 60,
+                    backgroundImage: image,
+                  ),
                 ),
-              ),
-              const SizedBox(
-                height: 15,
-              ),
-              Text(
-                itemname,
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                    fontSize: 20,
-                    fontFamily: 'Libre Baskerville',
-                    color: Color(0xFFEADBCC)),
-              ),
-              const SizedBox(
-                height: 5,
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    rate,
-                    style: TextStyle(fontSize: 22, color: Color(0xFFD4A056)),
-                  ),
-                  RawMaterialButton(
-                    onPressed: () {},
-                    child: const Icon(Icons.add),
-                    // elevation: 6,
-                    shape: const CircleBorder(),
-                    fillColor: const Color(0xFFD4A056),
-                    constraints: const BoxConstraints.tightFor(
-                      width: 46.0,
-                      height: 46.0,
+                const SizedBox(
+                  height: 15,
+                ),
+                Text(
+                  itemname,
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontFamily: 'Libre Baskerville',
+                      color: Color(0xFFEADBCC)),
+                ),
+                const SizedBox(
+                  height: 5,
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      rate,
+                      style: TextStyle(fontSize: 22, color: Color(0xFFD4A056)),
                     ),
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-            ],
+                    // RawMaterialButton(
+                    //   onPressed: () {},
+                    //   child: const Icon(Icons.add),
+                    //   // elevation: 6,
+                    //   shape: const CircleBorder(),
+                    //   fillColor: const Color(0xFFD4A056),
+                    //   constraints: const BoxConstraints.tightFor(
+                    //     width: 46.0,
+                    //     height: 46.0,
+                    //   ),
+                    // ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+              ],
+            ),
           ),
         ),
       ),
