@@ -20,10 +20,10 @@ class Itemlist6 extends StatelessWidget {
     AssetImage('assets/desserts/raspberrycheesecake.jpeg'),
   ];
   List prices = [
-    '150',
-    '100',
-    '150',
-    '100',
+    '90',
+    '90',
+    '260',
+    '240',
   ];
 
   @override
