@@ -1,40 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:mr_cafe/screens/item.dart';
-
-class Itemlist extends StatelessWidget {
-  Itemlist({Key? key}) : super(key: key);
-
-  List itemname = ['Espresso', 'Coffee'];
-  List<ImageProvider> images = [
-    AssetImage('assets/coldbrew.jpeg'),
-    AssetImage('assets/cofee.jpg'),
-  ];
-  List prices = ['150/-', '100/-'];
-
-  @override
-  Widget build(BuildContext context) {
-    return SafeArea(
-      child: ListView.builder(
-        itemCount: itemname.length,
-        itemBuilder: ((context, index) {
-          return ItemCard(
-            title: itemname[index],
-            image: images[index],
-            price: prices[index],
-          );
-        }),
-      ),
-    );
-  }
-}
 
 class ItemCard extends StatelessWidget {
   const ItemCard(
-      {Key? key, required this.title, required this.image, required this.price})
+      {Key? key,
+      required this.title,
+      required this.image,
+      required this.price,
+      required this.onpress})
       : super(key: key);
   final String title;
   final ImageProvider image;
   final String price;
+  final VoidCallback onpress;
 
   @override
   Widget build(BuildContext context) {
@@ -44,11 +21,7 @@ class ItemCard extends StatelessWidget {
           padding:
               const EdgeInsets.only(left: 10, right: 10, top: 5, bottom: 5),
           child: GestureDetector(
-            onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (contex) {
-                return const Item(itemname: 'Espresso');
-              }));
-            },
+            onTap: onpress,
             child: Container(
               decoration: const BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(10.0)),

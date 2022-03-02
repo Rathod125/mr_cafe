@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../screens/item.dart';
 import '../widgets/itemlist.dart';
 
 class Itemlist2 extends StatelessWidget {
@@ -41,6 +42,20 @@ class Itemlist2 extends StatelessWidget {
             title: itemname[index],
             image: images[index],
             price: prices[index],
+            onpress: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return Item(
+                        itemname: itemname[index],
+                        description: 'Helllo',
+                        price: prices[index],
+                        imageProvider: images[index]);
+                  },
+                ),
+              );
+            },
           );
         }),
       ),

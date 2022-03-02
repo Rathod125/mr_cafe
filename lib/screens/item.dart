@@ -3,8 +3,17 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mr_cafe/constants.dart';
 
 class Item extends StatefulWidget {
-  const Item({Key? key, required this.itemname}) : super(key: key);
+  const Item(
+      {Key? key,
+      required this.itemname,
+      required this.description,
+      required this.price,
+      required this.imageProvider})
+      : super(key: key);
   final String itemname;
+  final String description;
+  final String price;
+  final ImageProvider imageProvider;
 
   @override
   State<Item> createState() => _ItemState();
@@ -51,9 +60,6 @@ class _ItemState extends State<Item> with SingleTickerProviderStateMixin {
             Expanded(
               flex: 4,
               child: Container(
-                // height: MediaQuery.of(context).size.height * .68,
-                // width: MediaQuery.of(context).size.width * .95,
-                // width: double.infinity,
                 decoration: const BoxDecoration(
                   color: kBackGroundColor,
                   borderRadius: BorderRadius.only(
@@ -73,15 +79,12 @@ class _ItemState extends State<Item> with SingleTickerProviderStateMixin {
                           boxShadow: [
                             BoxShadow(
                                 blurRadius: 15,
-                                // color: Color.fromARGB(255, 102, 90, 78),
                                 color: Color(0xFF212325),
                                 spreadRadius: 4)
                           ],
                         ),
                         child: CircleAvatar(
-                          backgroundImage: const AssetImage(
-                            'assets/coldbrew.jpeg',
-                          ),
+                          backgroundImage: widget.imageProvider,
                           radius: MediaQuery.of(context).size.width * 0.32,
                         ),
                       ),
@@ -89,7 +92,6 @@ class _ItemState extends State<Item> with SingleTickerProviderStateMixin {
                     Positioned(
                       top: MediaQuery.of(context).size.height * .22,
                       child: Container(
-                        // height: MediaQuery.of(context).size.height * .45,
                         width: MediaQuery.of(context).size.width * .95,
                         padding:
                             const EdgeInsets.only(top: 15, left: 25, right: 25),
@@ -97,18 +99,14 @@ class _ItemState extends State<Item> with SingleTickerProviderStateMixin {
                             color: const Color(0xFF212325),
                             borderRadius: BorderRadius.circular(30)),
                         child: Column(
-                          // mainAxisAlignment: MainAxisAlignment.center
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             const Padding(
                               padding: EdgeInsets.symmetric(
                                   horizontal: 15, vertical: 7.0),
                             ),
-                            //  SizedBox(
-                            //   height: 15,
-                            // ),
                             Text(
-                              "Espresso",
+                              widget.itemname,
                               textAlign: TextAlign.left,
                               style: TextStyle(
                                   fontWeight: FontWeight.bold,
@@ -116,17 +114,6 @@ class _ItemState extends State<Item> with SingleTickerProviderStateMixin {
                                       MediaQuery.of(context).size.width * 0.075,
                                   fontFamily: 'Libre Baskerville',
                                   color: Color(0xFFEADBCC)),
-                            ),
-                            SizedBox(
-                              height: MediaQuery.of(context).size.height * 0.01,
-                            ),
-                            Text(
-                              'Dark Roast',
-                              textAlign: TextAlign.left,
-                              style: TextStyle(
-                                  color: Colors.grey,
-                                  fontSize: MediaQuery.of(context).size.width *
-                                      0.037),
                             ),
                             SizedBox(
                               height: MediaQuery.of(context).size.height * 0.02,
@@ -152,7 +139,7 @@ class _ItemState extends State<Item> with SingleTickerProviderStateMixin {
                                   width:
                                       MediaQuery.of(context).size.width * .98,
                                   child: Text(
-                                    'A concentrated shot of thick syrupy flavourful liquid prepared by passing pressurized water through coffee.',
+                                    widget.description,
                                     textAlign: TextAlign.left,
                                     overflow: TextOverflow.visible,
                                     style: TextStyle(
@@ -172,7 +159,7 @@ class _ItemState extends State<Item> with SingleTickerProviderStateMixin {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  "150/-",
+                                  widget.price,
                                   style: TextStyle(
                                       fontSize:
                                           MediaQuery.of(context).size.width *
