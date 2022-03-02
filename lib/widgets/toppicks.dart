@@ -14,14 +14,14 @@ class Toppickes extends StatelessWidget {
             ToppicksCard(
                 image: AssetImage('assets/hotcoffee/latte.jpeg'),
                 itemname: 'Latte',
-                rate: '₹160',
+                rate: '160/-',
                 onpress: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: ((context) {
                     return Item(
                         itemname: 'Latte',
                         description: 'd',
-                        price: '₹160',
+                        price: '160',
                         imageProvider:
                             AssetImage('assets/hotcoffee/latte.jpeg'));
                   })));
@@ -29,14 +29,14 @@ class Toppickes extends StatelessWidget {
             ToppicksCard(
                 image: AssetImage('assets/coldcoffee/coldbrew.jpeg'),
                 itemname: 'Cold Brew',
-                rate: '₹180',
+                rate: '180/-',
                 onpress: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: ((context) {
                     return Item(
                         itemname: 'Cold Brew',
                         description: 'd',
-                        price: '₹180',
+                        price: '180',
                         imageProvider:
                             AssetImage('assets/coldcoffee/coldbrew.jpeg'));
                   })));
@@ -49,14 +49,14 @@ class Toppickes extends StatelessWidget {
             ToppicksCard(
                 image: AssetImage('assets/frappe/caramel.jpeg'),
                 itemname: 'Caramel \nFrappe',
-                rate: '₹200',
+                rate: '200/-',
                 onpress: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: ((context) {
                     return Item(
                         itemname: 'Caramel \nFrappe',
                         description: 'd',
-                        price: '₹200',
+                        price: '200',
                         imageProvider:
                             AssetImage('assets/frappe/caramel.jpeg'));
                   })));
@@ -64,14 +64,14 @@ class Toppickes extends StatelessWidget {
             ToppicksCard(
                 image: AssetImage('assets/desserts/raspberrycheesecake.jpeg'),
                 itemname: 'Raspberry \nCheesecake',
-                rate: '₹240',
+                rate: '240/-',
                 onpress: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: ((context) {
                     return Item(
                         itemname: 'Raspberry \nCheesecake',
                         description: 'd',
-                        price: '₹240',
+                        price: '240',
                         imageProvider: AssetImage(
                             'assets/desserts/raspberrycheesecake.jpeg'));
                   })));
