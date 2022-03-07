@@ -15,7 +15,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  FocusNode focusNod = FocusNode();
+  FocusNode focusNode = FocusNode();
   bool colour = true;
   String hintText = 'Search';
   bool isLoding = false;
@@ -45,14 +45,7 @@ class _HomePageState extends State<HomePage> {
     // TODO: implement initState
     super.initState();
     fetchAutoCompleteData();
-    focusNod.addListener(() {
-      if (focusNod.hasFocus) {
-        hintText = '';
-      } else {
-        hintText = 'Search';
-      }
-      setState(() {});
-    });
+    
   }
 
   // ScrollController _scroll = ScrollController(initialScrollOffset: 50.0);
@@ -88,11 +81,17 @@ class _HomePageState extends State<HomePage> {
                         height: 50,
                         child: TextField(
                           focusNode: focusNode,
-                          // onTap: () {
-                          //   setState(() {
-                          //     focusNode = focusNod;
-                          //   });
-                          // },
+                          onTap: () {
+                            setState(() {
+                              focusNode.addListener(() {
+                                if (focusNode.hasFocus) {
+                                  hintText = '';
+                                } else {
+                                  hintText = 'Search';
+                                }
+                              });
+                            });
+                          },
                           controller: controller,
                           onEditingComplete: onEditingComplete,
                           cursorColor: Color.fromARGB(255, 81, 85, 90),
