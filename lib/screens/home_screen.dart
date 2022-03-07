@@ -87,7 +87,12 @@ class _HomePageState extends State<HomePage> {
                       return SizedBox(
                         height: 50,
                         child: TextField(
-                          focusNode: focusNod,
+                          focusNode: focusNode,
+                          // onTap: () {
+                          //   setState(() {
+                          //     focusNode = focusNod;
+                          //   });
+                          // },
                           controller: controller,
                           onEditingComplete: onEditingComplete,
                           cursorColor: Color.fromARGB(255, 81, 85, 90),
