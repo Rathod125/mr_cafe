@@ -155,7 +155,7 @@ class _ItemState extends State<Item> with SingleTickerProviderStateMixin {
                             Wrap(
                               children: [
                                 Container(
-                                  margin: EdgeInsets.only(top: 20),
+                                  margin: EdgeInsets.only(top: 11),
                                   // padding: const EdgeInsets.symmetric(
                                   //     horizontal: 10.0),
                                   width:

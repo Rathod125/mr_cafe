@@ -22,6 +22,13 @@ class Itemlist5 extends StatelessWidget {
   ];
   List prices = ['250', '180', '200', '220', '220'];
 
+  List desc = [
+    'blended Strawberry Lemonade is a sweetened lemon-flavored beverage with puree of strawberry.',
+    'Lemonade is a sweetened lemon-flavored beverage.',
+    'Dragonfruit Lemonade is a sweetened lemon-flavored beverage with pieces of Dragonfruit.',
+    'Kiwi Lemonade is a sweetened lemon-flavored beverage with pieces of Kiwi.',
+    'Strawberry Lemonade is a sweetened lemon-flavored beverage with pieces of Strawberry.'
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,7 +55,7 @@ class Itemlist5 extends StatelessWidget {
                   builder: (context) {
                     return Item(
                         itemname: itemname[index],
-                        description: 'Helllo',
+                        description: desc[index],
                         price: prices[index],
                         imageProvider: images[index]);
                   },
