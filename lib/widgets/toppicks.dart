@@ -125,7 +125,7 @@ class ToppicksCard extends StatelessWidget {
     //     itemCount: image.length,
     //     itemBuilder: ((context, index) {
     return Container(
-      height: MediaQuery.of(context).size.height * 0.42,
+      height: MediaQuery.of(context).size.height * 0.35,
       width: MediaQuery.of(context).size.width * 0.478,
       child: GestureDetector(
         onTap: onpress,
