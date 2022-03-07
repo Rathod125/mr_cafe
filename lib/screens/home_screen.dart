@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:mr_cafe/screens/login_screen.dart';
 import 'package:mr_cafe/widgets/catagory_gridview.dart';
 import 'package:mr_cafe/widgets/toppicks.dart';
@@ -31,6 +32,7 @@ class _HomePageState extends State<HomePage> {
   // ScrollController _scroll = ScrollController(initialScrollOffset: 50.0);
   @override
   Widget build(BuildContext context) {
+    timeDilation = 1;
     return Scaffold(
       body: GestureDetector(
         onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
