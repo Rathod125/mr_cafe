@@ -69,6 +69,15 @@ class _RegistrationPageState extends State<RegistrationPage> {
                 decoration: kTextFieldDecoration.copyWith(
                   hintText: 'xyz@gmail.com',
                 ),
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+                validator: (value) {
+                  if (value!.isEmpty ||
+                      !RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                          .hasMatch(value)) {
+                    return 'Enter a valid email!';
+                  }
+                  return null;
+                },
                 onChanged: (value) {
                   email = value;
                 },
@@ -78,9 +87,19 @@ class _RegistrationPageState extends State<RegistrationPage> {
                 height: MediaQuery.of(context).size.height * .02,
               ),
               TextFormField(
+                autovalidateMode: AutovalidateMode.onUserInteraction,
                 decoration: kTextFieldDecoration.copyWith(
                   hintText: 'password',
                 ),
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return "Required";
+                  } else if (value.length < 6) {
+                    return "At least 6 charechter";
+                  } else if (value.length > 15) {
+                    return "Not more than 15 charecter";
+                  }
+                },
                 onChanged: (value) {
                   password = value;
                 },
@@ -91,6 +110,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
               ),
               TextButton(
                 onPressed: () async {
+                  Navigator.pop(context);
                   try {
                     final newuser = await _auth.createUserWithEmailAndPassword(
                         email: email, password: password);
