@@ -24,6 +24,14 @@ class Itemlist2 extends StatelessWidget {
   ];
   List prices = ['210', '180', '220', '220', '180', '200'];
 
+  List desc = [
+    'Italian dessert prepared by pouring a double ristratto over 2 scoops of vanilla icecream.',
+    'Prepared by steeping coffee with cold water overnight. This coffee is less acidic & has 67% less coffee oils.',
+    'It is little less intense than the Espresso tonic,we use Cold Brew instead of Espresso to prepare this drink.',
+    'A refreshing fizzy drink prepared by pouring a shot of espresso over ice & tonic water. \n"A virtual treat"',
+    'A shot of espresso is pulled directly over ice. This coffee is prepared in a way to highlight the bright notes of Espresso.',
+    'This coffee is for the ones with a sweet tooth, generous amount of condensed milk is added to cold brew to make a sweet yet strong coffee.'
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,7 +58,7 @@ class Itemlist2 extends StatelessWidget {
                   builder: (context) {
                     return Item(
                         itemname: itemname[index],
-                        description: 'Helllo',
+                        description: desc[index],
                         price: prices[index],
                         imageProvider: images[index]);
                   },
