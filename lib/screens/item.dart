@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mr_cafe/constants.dart';
 import 'package:mr_cafe/screens/cart.dart';
-import 'package:mr_cafe/screens/cart_screen.dart';
+// import 'package:mr_cafe/screens/cart_scr, String descriptioneen.dart';
 import 'package:mr_cafe/screens/mainscreen.dart';
 
 List<Widget> cartviewlist = [];
@@ -155,7 +155,7 @@ class _ItemState extends State<Item> with SingleTickerProviderStateMixin {
                             Wrap(
                               children: [
                                 Container(
-                                  margin: EdgeInsets.only(top: 20),
+                                  margin: EdgeInsets.only(top: 11),
                                   // padding: const EdgeInsets.symmetric(
                                   //     horizontal: 10.0),
                                   width:

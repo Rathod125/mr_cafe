@@ -25,6 +25,12 @@ class Itemlist6 extends StatelessWidget {
     '260',
     '240',
   ];
+  List desc = [
+    'Caramel Brownie is a chocolate baked confection with caramel on it.',
+    'Walnut Brownie is a chocolate baked confection with piece of walnut in it.',
+    'Nutella Cheesecake is consists of cheese cream and cookie crust on bottom and nutella on top.',
+    'Raspberry Cheesecake is consists of cheese cream and cookie crust on bottom and raspberry jelly on top.'
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +58,7 @@ class Itemlist6 extends StatelessWidget {
                   builder: (context) {
                     return Item(
                         itemname: itemname[index],
-                        description: 'Helllo',
+                        description: desc[index],
                         price: prices[index],
                         imageProvider: images[index]);
                   },

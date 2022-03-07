@@ -24,6 +24,14 @@ class Itemlist1 extends StatelessWidget {
   ];
   List prices = ['160', '140', '160', '160', '150', '180'];
 
+  List desc = [
+    'A drink that originated in Italy. It consists of double ristretto, warm milk & nicely textured microfoam which is 1-1.5cm thick.',
+    'A concentrated shot of thick syrupy flavourful liquid prepared by passing pressuro ized water through coffee.',
+    'It is commonly found in NZ & Australia, it is similar to latte but with less milk.',
+    'It consists of double espresso, warm milk & microfoam which is thinner than that of cappuccino.',
+    'It is commonly found in NZ & Australia. A long / short black is prepared by pouring o double ristretto over hot water.',
+    'A drink prepared by pouring warm milk & microfoam over a shot of espresso with chocolate syrup.'
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,7 +58,7 @@ class Itemlist1 extends StatelessWidget {
                   builder: (context) {
                     return Item(
                         itemname: itemname[index],
-                        description: 'Helllo',
+                        description: desc[index],
                         price: prices[index],
                         imageProvider: images[index]);
                   },

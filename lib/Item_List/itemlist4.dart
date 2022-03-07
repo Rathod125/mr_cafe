@@ -20,6 +20,12 @@ class Itemlist4 extends StatelessWidget {
   ];
   List prices = ['200', '180', '200', '200'];
 
+  List desc = [
+    'Caramel Frappe is made with rich caramel flavor and a hint of coffee, blended with ice and topped with whipped topping and caramel drizzle.',
+    'Espresso Frappe is made with rich chocolate flavor and a hint of coffee, blended with ice.',
+    'Hazelnut Frappe is made with rich hazelnut flavor and a hint of coffee, blended with ice and topped with whipped cream.',
+    'Mocha Frappe is made with rich coffee flavor and blended with ice and topped with whipped topping and chocolate drizzle.'
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,7 +52,7 @@ class Itemlist4 extends StatelessWidget {
                   builder: (context) {
                     return Item(
                         itemname: itemname[index],
-                        description: 'Helllo',
+                        description: desc[index],
                         price: prices[index],
                         imageProvider: images[index]);
                   },
