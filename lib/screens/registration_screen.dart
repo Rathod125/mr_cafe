@@ -1,8 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:mr_cafe/screens/home_screen.dart';
+import 'package:intl_phone_field/intl_phone_field.dart';
+import 'package:intl_phone_field/phone_number.dart';
+import 'package:mr_cafe/screens/login_screen.dart';
 import 'package:mr_cafe/screens/mainscreen.dart';
-
+import 'package:mr_cafe/screens/otp_verification.dart';
 import '../constants.dart';
 
 class RegistrationPage extends StatefulWidget {
@@ -14,131 +16,180 @@ class RegistrationPage extends StatefulWidget {
 
 class _RegistrationPageState extends State<RegistrationPage> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
-  String email = '';
-  String password = '';
-  @override
-  void dispose() {
-    super.dispose();
-  }
+  late String email;
+  late String password;
+  late String name;
+  late String number;
+  late PhoneNumber phoneNumber;
+  bool isLoading = false;
+
+  TextEditingController phone_controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFFEADBCC),
-      body: Column(children: [
-        Flexible(
-          child: Container(
-            height: MediaQuery.of(context).size.height * .35,
-            decoration: const BoxDecoration(
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(30),
-                  bottomRight: Radius.circular(30),
+      body: SafeArea(
+        child: isLoading
+            ? const Center(
+                child: CircularProgressIndicator(
+                  color: Colors.black,
                 ),
-                image: DecorationImage(
-                    image: AssetImage('assets/Cafes-in-Indore.jpg'),
-                    fit: BoxFit.cover)),
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              const Image(
-                image: AssetImage(
-                  'assets/logo.png',
-                ),
-                height: 100,
-                width: 100,
+              )
+            : SingleChildScrollView(
+                child: Column(children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 24),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        const Image(
+                          image: AssetImage(
+                            'assets/logo.png',
+                          ),
+                          height: 100,
+                          width: 100,
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        const Text(
+                          "Registration",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontSize: 25,
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xFF212325)),
+                        ),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height * .02,
+                        ),
+                        TextFormField(
+                          decoration: kTextFieldDecoration.copyWith(
+                              hintText: 'Enter Name'),
+                          keyboardType: TextInputType.name,
+                          onChanged: (value) {
+                            name = value;
+                          },
+                        ),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height * .02,
+                        ),
+                        IntlPhoneField(
+                          controller: phone_controller,
+                          decoration: kTextFieldDecoration.copyWith(
+                              hintText: 'Enter phone number'),
+                          initialCountryCode: 'IN',
+                          showDropdownIcon: false,
+                          flagsButtonPadding: EdgeInsets.only(
+                              left: MediaQuery.of(context).size.width * 0.05),
+                          onChanged: (value) {
+                            phoneNumber = value;
+                            setState(() {
+                              number = phoneNumber.completeNumber;
+                            });
+                            print(number);
+                          },
+                        ),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height * .01,
+                        ),
+                        TextFormField(
+                          decoration: kTextFieldDecoration.copyWith(
+                            hintText: 'xyz@gmail.com',
+                          ),
+                          autovalidateMode: AutovalidateMode.onUserInteraction,
+                          validator: (value) {
+                            if (value!.isEmpty ||
+                                !RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                                    .hasMatch(value)) {
+                              return 'Enter a valid email!';
+                            }
+                            return null;
+                          },
+                          onChanged: (value) {
+                            email = value;
+                          },
+                          keyboardType: TextInputType.emailAddress,
+                        ),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height * .02,
+                        ),
+                        TextFormField(
+                          autovalidateMode: AutovalidateMode.onUserInteraction,
+                          decoration: kTextFieldDecoration.copyWith(
+                            hintText: 'password',
+                          ),
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return "Required";
+                            } else if (value.length < 6) {
+                              return "At least 6 charechter";
+                            } else if (value.length > 15) {
+                              return "Not more than 15 charecter";
+                            }
+                          },
+                          onChanged: (value) {
+                            password = value;
+                          },
+                          keyboardType: TextInputType.visiblePassword,
+                        ),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.04,
+                        ),
+                        TextButton(
+                          onPressed: () async {
+                            // Navigator.pop(context);
+                            setState(() {
+                              isLoading = true;
+                            });
+                            try {
+                              final newuser =
+                                  await _auth.createUserWithEmailAndPassword(
+                                      email: email, password: password);
+                              setState(() {
+                                isLoading = false;
+                              });
+                              Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => OTPVERIFICATION(
+                                      phoneNumber: phoneNumber,
+                                    ),
+                                  ));
+                            } on FirebaseAuthException catch (e) {
+                              setState(() {
+                                isLoading = false;
+                              });
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => Alert(text: e.code),
+                                ),
+                              );
+                            }
+                          },
+                          child: const Text(
+                            "Register",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          style: TextButton.styleFrom(
+                            backgroundColor: const Color(0xFF212325),
+                            minimumSize: const Size(200, 50),
+                            shape: const RoundedRectangleBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(30))),
+                          ),
+                        ),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.02,
+                        ),
+                      ],
+                    ),
+                  )
+                ]),
               ),
-              const SizedBox(
-                height: 10,
-              ),
-              const Text(
-                "Registration",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                    fontSize: 25,
-                    fontWeight: FontWeight.bold,
-                    color: Color(0xFF212325)),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              TextFormField(
-                decoration: kTextFieldDecoration.copyWith(
-                  hintText: 'xyz@gmail.com',
-                ),
-                autovalidateMode: AutovalidateMode.onUserInteraction,
-                validator: (value) {
-                  if (value!.isEmpty ||
-                      !RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                          .hasMatch(value)) {
-                    return 'Enter a valid email!';
-                  }
-                  return null;
-                },
-                onChanged: (value) {
-                  email = value;
-                },
-                keyboardType: TextInputType.emailAddress,
-              ),
-              SizedBox(
-                height: MediaQuery.of(context).size.height * .02,
-              ),
-              TextFormField(
-                autovalidateMode: AutovalidateMode.onUserInteraction,
-                decoration: kTextFieldDecoration.copyWith(
-                  hintText: 'password',
-                ),
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return "Required";
-                  } else if (value.length < 6) {
-                    return "At least 6 charechter";
-                  } else if (value.length > 15) {
-                    return "Not more than 15 charecter";
-                  }
-                },
-                onChanged: (value) {
-                  password = value;
-                },
-                keyboardType: TextInputType.visiblePassword,
-              ),
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.04,
-              ),
-              TextButton(
-                onPressed: () async {
-                  Navigator.pop(context);
-                  try {
-                    final newuser = await _auth.createUserWithEmailAndPassword(
-                        email: email, password: password);
-                    if (newuser != null) {
-                      Navigator.pushReplacementNamed(context, MainHome.id);
-                    }
-                  } catch (e) {
-                    print(e);
-                  }
-                },
-                child: const Text(
-                  "Register",
-                  style: TextStyle(color: Colors.white),
-                ),
-                style: TextButton.styleFrom(
-                  backgroundColor: const Color(0xFF212325),
-                  minimumSize: const Size(200, 50),
-                  shape: const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(30))),
-                ),
-              ),
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.02,
-              ),
-            ],
-          ),
-        )
-      ]),
+      ),
     );
   }
 }

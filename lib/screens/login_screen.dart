@@ -135,9 +135,6 @@ class _LoginPageState extends State<LoginPage> {
                                   }),
                                 ),
                               );
-                              // setState(() {
-                              //   isLoading = false;
-                              // });
                             }
                           } on FirebaseAuthException catch (e) {
                             setState(() {
