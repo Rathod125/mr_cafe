@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:mr_cafe/screens/item.dart';
 import 'package:mr_cafe/screens/login_screen.dart';
 import 'package:mr_cafe/widgets/catagory_gridview.dart';
 import 'package:mr_cafe/widgets/toppicks.dart';
@@ -20,7 +21,8 @@ class _HomePageState extends State<HomePage> {
   String hintText = 'Search';
   bool isLoding = false;
   late List<String> names;
-  // late List<String> photos;
+  late int j;
+  late List<String> photos;
 
   Future fetchAutoCompleteData() async {
     setState(() {
@@ -31,12 +33,12 @@ class _HomePageState extends State<HomePage> {
     print(jsonD.runtimeType);
     List iname = jsonD['iname'];
     List<String> name = iname.cast<String>();
-    // List<dynamic> iphoto = json[0]['iphoto'];
-    // List<String> photo = iphoto.cast<String>();
+    List<dynamic> iphoto = jsonD['iphoto'];
+    List<String> photo = iphoto.cast<String>();
 
     setState(() {
       names = name;
-      // photos = photo;
+      photos = photo;
       isLoding = false;
     });
   }
@@ -45,12 +47,12 @@ class _HomePageState extends State<HomePage> {
     // TODO: implement initState
     super.initState();
     fetchAutoCompleteData();
-    
   }
 
   // ScrollController _scroll = ScrollController(initialScrollOffset: 50.0);
   @override
   Widget build(BuildContext context) {
+    // Navigator.pop(context);
     return Scaffold(
       body: GestureDetector(
         onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
@@ -74,6 +76,79 @@ class _HomePageState extends State<HomePage> {
                             .toLowerCase()
                             .contains(textEditingValue.text.toLowerCase()));
                       }
+                    },
+                    onSelected: (selectedValue) {
+                      // for (int i = 0; i < names.length; i++) {
+                      //   if (selectedValue == names[i]) {
+                      //     j = i;
+                      //   }
+                    },
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //     builder: ((context) {
+                    //       return Item(
+                    //           itemname: selectedValue.toString(),
+                    //           description: 'd',
+                    //           price: '240',
+                    //           imageProvider: AssetImage(photos[j]));
+                    //     }),
+                    //   ),
+                    // );
+
+                    optionsViewBuilder:
+                        (context, Function(String) onSelected, options) {
+                      // Navigator.pop(context);
+
+                      return Material(
+                        elevation: 50,
+                        child: Container(
+                          height: 100,
+                          color: Color(0xFFEADBCC),
+                          child: ListView.builder(
+                            shrinkWrap: true,
+                            padding: EdgeInsets.zero,
+                            itemCount: options.length,
+                            itemBuilder: (context, index) {
+                              var option = options.elementAt(index);
+                              var photo = photos.elementAt(index);
+                              return ListTile(
+                                tileColor: Color(0xFFEADBCC),
+                                onTap: () {
+                                  for (int i = 0; i < names.length; i++) {
+                                    if (option.toString() == names[i]) {
+                                      j = i;
+                                    }
+                                  }
+
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: ((context) {
+                                        return Item(
+                                            itemname: option.toString(),
+                                            description: 'd',
+                                            price: '240',
+                                            imageProvider:
+                                                AssetImage(photos[j]));
+                                      }),
+                                    ),
+                                  );
+                                },
+                                leading: Image(
+                                  image: AssetImage('assets/logo.png'),
+                                ),
+                                title: Text(option.toString()),
+                                // shape: RoundedRectangleBorder(
+                                //   borderRadius: BorderRadius.circular(10),
+                                // ),
+                              );
+                            },
+
+                            // shrinkWrap: true,
+                          ),
+                        ),
+                      );
                     },
                     fieldViewBuilder:
                         (context, controller, focusNode, onEditingComplete) {

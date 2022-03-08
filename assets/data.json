@@ -6,5 +6,13 @@
         "Espresso Tonic",
         "Iced Espresso",
         "Vietnamese"
+    ],
+    "iphoto": [
+        "assets/coldcoffee/affogoto.jpeg",
+        "assets/coldcoffee/coldbrew.jpeg",
+        "assets/coldcoffee/coldbrewtonic.jpeg",
+        "assets/coldcoffee/espressotonic.jpeg",
+        "assets/coldcoffee/icedespresso.jpeg",
+        "assets/coldcoffee/vietnamese.jpeg"
     ]
 }
