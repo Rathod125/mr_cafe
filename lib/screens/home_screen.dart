@@ -6,6 +6,7 @@ import 'package:mr_cafe/screens/item.dart';
 import 'package:mr_cafe/screens/login_screen.dart';
 import 'package:mr_cafe/widgets/catagory_gridview.dart';
 import 'package:mr_cafe/widgets/toppicks.dart';
+import 'package:substring_highlight/substring_highlight.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -23,6 +24,9 @@ class _HomePageState extends State<HomePage> {
   late List<String> names;
   late int j;
   late List<String> photos;
+  late List<String> descriptions;
+  late List<String> prices;
+  late TextEditingController controller;
 
   Future fetchAutoCompleteData() async {
     setState(() {
@@ -33,12 +37,18 @@ class _HomePageState extends State<HomePage> {
     print(jsonD.runtimeType);
     List iname = jsonD['iname'];
     List<String> name = iname.cast<String>();
+    List<dynamic> description = jsonD['description'];
+    List<String> des = description.cast<String>();
     List<dynamic> iphoto = jsonD['iphoto'];
     List<String> photo = iphoto.cast<String>();
+    List<dynamic> iprice = jsonD['prices'];
+    List<String> price = iprice.cast<String>();
 
     setState(() {
       names = name;
+      descriptions = des;
       photos = photo;
+      prices = price;
       isLoding = false;
     });
   }
@@ -68,7 +78,9 @@ class _HomePageState extends State<HomePage> {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                   child: Autocomplete(
+                    optionsMaxHeight: 30,
                     optionsBuilder: (TextEditingValue textEditingValue) {
+                      
                       if (textEditingValue.text.isEmpty) {
                         return const Iterable<String>.empty();
                       } else {
@@ -100,58 +112,83 @@ class _HomePageState extends State<HomePage> {
                         (context, Function(String) onSelected, options) {
                       // Navigator.pop(context);
 
-                      return Material(
-                        elevation: 50,
-                        child: Container(
-                          height: 100,
-                          color: Color(0xFFEADBCC),
-                          child: ListView.builder(
-                            shrinkWrap: true,
-                            padding: EdgeInsets.zero,
-                            itemCount: options.length,
-                            itemBuilder: (context, index) {
-                              var option = options.elementAt(index);
-                              var photo = photos.elementAt(index);
-                              return ListTile(
-                                tileColor: Color(0xFFEADBCC),
-                                onTap: () {
-                                  for (int i = 0; i < names.length; i++) {
-                                    if (option.toString() == names[i]) {
-                                      j = i;
-                                    }
+                      return Padding(
+                        padding: const EdgeInsets.only(right: 30),
+                        child: ListView.builder(
+                          // shrinkWrap: true,
+                          padding: EdgeInsets.zero,
+                          itemCount: options.length,
+                          itemBuilder: (context, index) {
+                            var option = options.elementAt(index);
+                            // var photo = photos.elementAt(index);
+                            return GestureDetector(
+                              onTap: () {
+                                for (int i = 0; i < names.length; i++) {
+                                  if (option.toString() == names[i]) {
+                                    j = i;
                                   }
+                                }
 
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: ((context) {
-                                        return Item(
-                                            itemname: option.toString(),
-                                            description: 'd',
-                                            price: '240',
-                                            imageProvider:
-                                                AssetImage(photos[j]));
-                                      }),
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: ((context) {
+                                      return Item(
+                                          itemname: option.toString(),
+                                          description: descriptions[j],
+                                          price: prices[j],
+                                          imageProvider: AssetImage(photos[j]));
+                                    }),
+                                  ),
+                                );
+                              },
+                              child: Material(
+                                color: Color(0xFFEADBCC).withOpacity(0.9),
+                                child: Container(
+                                  // color: Color(0xFFEADBCC),
+                                  height:
+                                      MediaQuery.of(context).size.height * .07,
+                                  decoration:
+                                      BoxDecoration(color: Colors.transparent),
+
+                                  // leading: Image(
+                                  //   image: AssetImage('assets/logo.png'),
+                                  // ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 20, vertical: 10),
+                                    child: SubstringHighlight(
+                                      text: option.toString(),
+                                      term: controller.text,
+                                      textStyle: TextStyle(
+                                          fontSize: 19,
+                                          color: Color(0xFF212325)),
+                                      textStyleHighlight: TextStyle(
+                                          fontWeight: FontWeight.w700),
                                     ),
-                                  );
-                                },
-                                leading: Image(
-                                  image: AssetImage('assets/logo.png'),
+                                    // child: Text(
+                                    //   option.toString(),
+                                    //   textAlign: TextAlign.left,
+                                    //   style: TextStyle(
+                                    //       color: Color(0xFF212325),
+                                    //       fontSize: 19),
+                                    // ),
+                                  ),
+                                  // shape: RoundedRectangleBorder(
+                                  //   borderRadius: BorderRadius.circular(10),
+                                  // ),
                                 ),
-                                title: Text(option.toString()),
-                                // shape: RoundedRectangleBorder(
-                                //   borderRadius: BorderRadius.circular(10),
-                                // ),
-                              );
-                            },
+                              ),
+                            );
+                          },
 
-                            // shrinkWrap: true,
-                          ),
+                          // shrinkWrap: true,
                         ),
                       );
                     },
                     fieldViewBuilder:
                         (context, controller, focusNode, onEditingComplete) {
+                      this.controller = controller;
                       return SizedBox(
                         height: 50,
                         child: TextField(
