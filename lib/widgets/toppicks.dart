@@ -20,7 +20,8 @@ class Toppickes extends StatelessWidget {
                       MaterialPageRoute(builder: ((context) {
                     return Item(
                         itemname: 'Latte',
-                        description: 'd',
+                        description:
+                            'It consists of double espresso, warm milk & microfoam which is thinner than that of cappuccino.',
                         price: '160',
                         imageProvider:
                             AssetImage('assets/hotcoffee/latte.jpeg'));
@@ -35,7 +36,8 @@ class Toppickes extends StatelessWidget {
                       MaterialPageRoute(builder: ((context) {
                     return Item(
                         itemname: 'Cold Brew',
-                        description: 'd',
+                        description:
+                            'Prepared by steeping coffee with cold water overnight. This coffee is less acidic & has 67% less coffee oils.',
                         price: '180',
                         imageProvider:
                             AssetImage('assets/coldcoffee/coldbrew.jpeg'));
@@ -55,7 +57,8 @@ class Toppickes extends StatelessWidget {
                       MaterialPageRoute(builder: ((context) {
                     return Item(
                         itemname: 'Caramel \nFrappe',
-                        description: 'd',
+                        description:
+                            'Caramel Frappe is made with rich caramel flavor and a hint of coffee, blended with ice and topped with whipped topping and caramel drizzle.',
                         price: '200',
                         imageProvider:
                             AssetImage('assets/frappe/caramel.jpeg'));
@@ -70,7 +73,8 @@ class Toppickes extends StatelessWidget {
                       MaterialPageRoute(builder: ((context) {
                     return Item(
                         itemname: 'Raspberry \nCheesecake',
-                        description: 'd',
+                        description:
+                            'Raspberry Cheesecake is consists of cheese cream and cookie crust on bottom and raspberry jelly on top.',
                         price: '240',
                         imageProvider: AssetImage(
                             'assets/desserts/raspberrycheesecake.jpeg'));

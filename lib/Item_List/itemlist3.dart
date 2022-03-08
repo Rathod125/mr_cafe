@@ -11,12 +11,18 @@ class Itemlist3 extends StatelessWidget {
     'French Press',
     'V60 Pour-Over',
   ];
-  List<ImageProvider> images = [
+  List<ImageProvider> images = const [
     AssetImage('assets/manualbrew/Aeropress.jpeg'),
     AssetImage('assets/manualbrew/Frenchpress.jpeg'),
     AssetImage('assets/manualbrew/V60pourover.jpeg'),
   ];
   List prices = ['180', '180', '180'];
+
+  List desc = [
+    'Comparitively a new kid on the black. It is made of high quality plastic which makes it ideal to use during traveling. It is capable to make coffees as intense as Espresso and light as pourovers. We at Meraki aim for medium body and a very clean finish.',
+    'An age old classic method dated back to 1929 which is used to make strong black o coffee. We at Meraki have modified it in a way to highlight the delicate flavours of the single origins with a very smooth body.',
+    'Pour-over involves pouring hot water over a bed of coffee kept in a cone containing a paper filter. The water seeps through the coffee due to gravity. Watching a V60 prepared is almost therapeutic, it tends to be light bodied & flavourful.'
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +50,7 @@ class Itemlist3 extends StatelessWidget {
                   builder: (context) {
                     return Item(
                         itemname: itemname[index],
-                        description: 'Helllo',
+                        description: desc[index],
                         price: prices[index],
                         imageProvider: images[index]);
                   },
