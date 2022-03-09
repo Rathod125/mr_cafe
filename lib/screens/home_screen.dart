@@ -80,7 +80,6 @@ class _HomePageState extends State<HomePage> {
                   child: Autocomplete(
                     optionsMaxHeight: 30,
                     optionsBuilder: (TextEditingValue textEditingValue) {
-                      
                       if (textEditingValue.text.isEmpty) {
                         return const Iterable<String>.empty();
                       } else {
