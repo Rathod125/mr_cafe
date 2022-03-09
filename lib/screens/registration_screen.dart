@@ -1,10 +1,12 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:intl_phone_field/phone_number.dart';
 import 'package:mr_cafe/screens/login_screen.dart';
-import 'package:mr_cafe/screens/mainscreen.dart';
+
 import 'package:mr_cafe/screens/otp_verification.dart';
+
 import '../constants.dart';
 
 class RegistrationPage extends StatefulWidget {
@@ -22,7 +24,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
   late String number;
   late PhoneNumber phoneNumber;
   bool isLoading = false;
-
+  TextEditingController textEditingController = TextEditingController();
   TextEditingController phone_controller = TextEditingController();
 
   @override
@@ -144,9 +146,21 @@ class _RegistrationPageState extends State<RegistrationPage> {
                               isLoading = true;
                             });
                             try {
-                              final newuser =
-                                  await _auth.createUserWithEmailAndPassword(
-                                      email: email, password: password);
+                              final newuser = await _auth
+                                  .createUserWithEmailAndPassword(
+                                      email: email, password: password)
+                                  .then((signedInUser) {})
+                                  .catchError((e) {
+                                print(e);
+                              });
+                              textEditingController.clear();
+                              FirebaseFirestore.instance
+                                  .collection('user')
+                                  .add({
+                                'name': name,
+                                'Mobile number': number,
+                                'email': email,
+                              });
                               setState(() {
                                 isLoading = false;
                               });
