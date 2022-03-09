@@ -43,11 +43,7 @@ dependencies:
   flutter_screenutil: ^5.3.1
   modal_progress_hud_nsn: ^0.1.0-nullsafety-1
   font_awesome_flutter: ^9.2.0
-<<<<<<< HEAD
   cloud_firestore: ^3.1.10
-=======
-  substring_highlight: ^1.0.33
->>>>>>> 48e1a279d99fc2023a457f4fcc1770440249471a
 
 dev_dependencies:
   flutter_test:
