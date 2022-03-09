@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "879700960632",
+    "firebase_url": "https://mr-cafe-76c99-default-rtdb.asia-southeast1.firebasedatabase.app",
     "project_id": "mr-cafe-76c99",
     "storage_bucket": "mr-cafe-76c99.appspot.com"
   },
@@ -13,6 +14,22 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "879700960632-fp8m7vreeusolt88jcghem76cqjlvesm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mr_cafe",
+            "certificate_hash": "8713be74aad8705dc85ab25995d2c0cdfc6c0670"
+          }
+        },
+        {
+          "client_id": "879700960632-fstol684on3mni71ui1rtfk4b62o3ako.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mr_cafe",
+            "certificate_hash": "02314077b5b97b6dfe6fad470199a942ad05d02d"
+          }
+        },
         {
           "client_id": "879700960632-a0vm5lan2h75peb4df312feeslvptla5.apps.googleusercontent.com",
           "client_type": 3
@@ -29,6 +46,13 @@
             {
               "client_id": "879700960632-a0vm5lan2h75peb4df312feeslvptla5.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "879700960632-vasmqklctlki8nnnn9hvomdr9qintmau.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.mrCafe"
+              }
             }
           ]
         }

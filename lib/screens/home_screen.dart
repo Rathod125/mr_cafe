@@ -2,11 +2,13 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:mr_cafe/constants.dart';
 import 'package:mr_cafe/screens/item.dart';
 import 'package:mr_cafe/screens/login_screen.dart';
 import 'package:mr_cafe/widgets/catagory_gridview.dart';
 import 'package:mr_cafe/widgets/toppicks.dart';
 import 'package:substring_highlight/substring_highlight.dart';
+import 'package:flutter_typeahead/flutter_typeahead.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -26,8 +28,9 @@ class _HomePageState extends State<HomePage> {
   late List<String> photos;
   late List<String> descriptions;
   late List<String> prices;
-  late TextEditingController controller;
-
+  TextEditingController controller = TextEditingController();
+  SuggestionsBoxController suggestionsBoxController =
+      SuggestionsBoxController();
   Future fetchAutoCompleteData() async {
     setState(() {
       isLoding = true;
@@ -77,156 +80,94 @@ class _HomePageState extends State<HomePage> {
                 Padding(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                  child: Autocomplete(
-                    optionsMaxHeight: 30,
-                    optionsBuilder: (TextEditingValue textEditingValue) {
-                      if (textEditingValue.text.isEmpty) {
+                  child: TypeAheadField(
+                    // suggestionsBoxController: suggestionsBoxController,
+                    suggestionsBoxDecoration: SuggestionsBoxDecoration(
+                        elevation: 0.0,
+                        color: kBackGroundColor.withOpacity(0.9)),
+                    textFieldConfiguration: TextFieldConfiguration(
+                      focusNode: focusNode,
+                      onTap: () {
+                        setState(() {
+                          focusNode.addListener(() {
+                            if (focusNode.hasFocus) {
+                              hintText = '';
+                            } else {
+                              hintText = 'Search';
+                            }
+                          });
+                        });
+                      },
+                      decoration: InputDecoration(
+                        prefixIcon: Icon(
+                          Icons.search,
+                          color: Color(0xFF212325),
+                        ),
+                        focusColor: Color.fromARGB(255, 81, 85, 90),
+                        filled: true,
+                        fillColor: Color(0xFFDACABD),
+                        hintText: hintText,
+                        hintStyle: TextStyle(
+                            // height: 2.7,
+                            color: Color.fromARGB(255, 81, 85, 90),
+                            fontSize: MediaQuery.of(context).size.width * 0.05),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(30),
+                          ),
+                          borderSide: BorderSide.none,
+                        ),
+                      ),
+                    ),
+                    suggestionsCallback: (String pattern) {
+                      if (pattern.isEmpty) {
                         return const Iterable<String>.empty();
                       } else {
-                        return names.where((word) => word
-                            .toLowerCase()
-                            .contains(textEditingValue.text.toLowerCase()));
+                        return names.where(
+                          (word) => word.toLowerCase().contains(
+                                pattern.toLowerCase(),
+                              ),
+                        );
                       }
                     },
-                    onSelected: (selectedValue) {
-                      // for (int i = 0; i < names.length; i++) {
-                      //   if (selectedValue == names[i]) {
-                      //     j = i;
-                      //   }
-                    },
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //     builder: ((context) {
-                    //       return Item(
-                    //           itemname: selectedValue.toString(),
-                    //           description: 'd',
-                    //           price: '240',
-                    //           imageProvider: AssetImage(photos[j]));
-                    //     }),
-                    //   ),
-                    // );
+                    itemBuilder: (BuildContext context, names) {
+                      return Container(
+                        height: MediaQuery.of(context).size.height * .07,
+                        decoration: BoxDecoration(color: Colors.transparent),
 
-                    optionsViewBuilder:
-                        (context, Function(String) onSelected, options) {
-                      // Navigator.pop(context);
-
-                      return Padding(
-                        padding: const EdgeInsets.only(right: 30),
-                        child: ListView.builder(
-                          // shrinkWrap: true,
-                          padding: EdgeInsets.zero,
-                          itemCount: options.length,
-                          itemBuilder: (context, index) {
-                            var option = options.elementAt(index);
-                            // var photo = photos.elementAt(index);
-                            return GestureDetector(
-                              onTap: () {
-                                for (int i = 0; i < names.length; i++) {
-                                  if (option.toString() == names[i]) {
-                                    j = i;
-                                  }
-                                }
-
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: ((context) {
-                                      return Item(
-                                          itemname: option.toString(),
-                                          description: descriptions[j],
-                                          price: prices[j],
-                                          imageProvider: AssetImage(photos[j]));
-                                    }),
-                                  ),
-                                );
-                              },
-                              child: Material(
-                                color: Color(0xFFEADBCC).withOpacity(0.9),
-                                child: Container(
-                                  // color: Color(0xFFEADBCC),
-                                  height:
-                                      MediaQuery.of(context).size.height * .07,
-                                  decoration:
-                                      BoxDecoration(color: Colors.transparent),
-
-                                  // leading: Image(
-                                  //   image: AssetImage('assets/logo.png'),
-                                  // ),
-                                  child: Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 20, vertical: 10),
-                                    child: SubstringHighlight(
-                                      text: option.toString(),
-                                      term: controller.text,
-                                      textStyle: TextStyle(
-                                          fontSize: 19,
-                                          color: Color(0xFF212325)),
-                                      textStyleHighlight: TextStyle(
-                                          fontWeight: FontWeight.w700),
-                                    ),
-                                    // child: Text(
-                                    //   option.toString(),
-                                    //   textAlign: TextAlign.left,
-                                    //   style: TextStyle(
-                                    //       color: Color(0xFF212325),
-                                    //       fontSize: 19),
-                                    // ),
-                                  ),
-                                  // shape: RoundedRectangleBorder(
-                                  //   borderRadius: BorderRadius.circular(10),
-                                  // ),
-                                ),
-                              ),
-                            );
-                          },
-
-                          // shrinkWrap: true,
+                        // leading: Image(
+                        //   image: AssetImage('assets/logo.png'),
+                        // ),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 20, vertical: 10),
+                          child: SubstringHighlight(
+                            text: names.toString(),
+                            term: controller.text,
+                            textStyle: TextStyle(
+                                fontSize: 19, color: Color(0xFF212325)),
+                            textStyleHighlight:
+                                TextStyle(fontWeight: FontWeight.w700),
+                          ),
                         ),
                       );
                     },
-                    fieldViewBuilder:
-                        (context, controller, focusNode, onEditingComplete) {
-                      this.controller = controller;
-                      return SizedBox(
-                        height: 50,
-                        child: TextField(
-                          focusNode: focusNode,
-                          onTap: () {
-                            setState(() {
-                              focusNode.addListener(() {
-                                if (focusNode.hasFocus) {
-                                  hintText = '';
-                                } else {
-                                  hintText = 'Search';
-                                }
-                              });
-                            });
-                          },
-                          controller: controller,
-                          onEditingComplete: onEditingComplete,
-                          cursorColor: Color.fromARGB(255, 81, 85, 90),
-                          cursorHeight: 25,
-                          decoration: InputDecoration(
-                            prefixIcon: Icon(
-                              Icons.search,
-                              color: Color(0xFF212325),
-                            ),
-                            focusColor: Color.fromARGB(255, 81, 85, 90),
-                            filled: true,
-                            fillColor: Color(0xFFDACABD),
-                            hintText: hintText,
-                            hintStyle: TextStyle(
-                                height: 2.7,
-                                color: Color.fromARGB(255, 81, 85, 90),
-                                fontSize: 20),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(30),
-                              ),
-                              borderSide: BorderSide.none,
-                            ),
-                          ),
+                    onSuggestionSelected: (String name) {
+                      for (int i = 0; i < names.length; i++) {
+                        if (name == names[i]) {
+                          j = i;
+                        }
+                      }
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: ((context) {
+                            return Item(
+                                itemname: name,
+                                description: descriptions[j],
+                                price: prices[j],
+                                imageProvider: AssetImage(photos[j]));
+                          }),
                         ),
                       );
                     },
@@ -261,7 +202,6 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
-      // bottomNavigationBar: const Bottombar(),
     );
   }
 }
