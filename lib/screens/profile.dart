@@ -41,44 +41,44 @@ class ProfilePage extends StatelessWidget {
                 ),
               ),
             ),
-            StreamBuilder<QuerySnapshot>(
-              stream: FirebaseFirestore.instance.collection('user').snapshots(),
-              builder: (context, snapshot) {
-                if (!snapshot.hasData) {
-                  return const Center(
-                    child: CircularProgressIndicator(color: Colors.black),
-                  );
-                }
-                final userData = snapshot.data?.docs;
-                var userName;
-                var number;
-                for (var data in userData!) {
-                  final username = data.get('name');
-                  final phonenumber = data.get('Mobile number');
-                  userName = username;
-                  number = phonenumber;
-                }
-                return Column(
-                  children: [
-                    Text(
-                      userName,
-                      style: TextStyle(color: Colors.black),
-                    ),
-                    Text(
-                      number,
-                      style: TextStyle(color: Colors.black),
-                    ),
-                  ],
-                );
-              },
-            ),
-            // Padding(
-            //   padding: const EdgeInsets.all(12.0),
-            //   child: Text(
-            //     'Name SurName',
-            //     style: TextStyle(fontSize: 20, fontFamily: 'Libre Baskerville'),
-            //   ),
+            // StreamBuilder<QuerySnapshot>(
+            //   stream: FirebaseFirestore.instance.collection('user').snapshots(),
+            //   builder: (context, snapshot) {
+            //     if (!snapshot.hasData) {
+            //       return const Center(
+            //         child: CircularProgressIndicator(color: Colors.black),
+            //       );
+            //     }
+            //     final userData = snapshot.data?.docs;
+            //     var userName;
+            //     var number;
+            //     for (var data in userData!) {
+            //       final username = data.get('name');
+            //       final phonenumber = data.get('Mobile number');
+            //       userName = username;
+            //       number = phonenumber;
+            //     }
+            //     return Column(
+            //       children: [
+            //         Text(
+            //           userName,
+            //           style: TextStyle(color: Colors.black),
+            //         ),
+            //         Text(
+            //           number,
+            //           style: TextStyle(color: Colors.black),
+            //         ),
+            //       ],
+            //     );
+            //   },
             // ),
+            Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Text(
+                'Name SurName',
+                style: TextStyle(fontSize: 20, fontFamily: 'Libre Baskerville'),
+              ),
+            ),
             Expanded(
               child: ListView.builder(
                 itemCount: infoitems.length,
