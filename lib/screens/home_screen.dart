@@ -166,7 +166,7 @@ class _HomePageState extends State<HomePage> {
                                 itemname: name,
                                 description: descriptions[j],
                                 price: prices[j],
-                                imageProvider: AssetImage(photos[j]));
+                                imageProvider: photos[j]);
                           }),
                         ),
                       );

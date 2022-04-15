@@ -11,75 +11,83 @@ class Toppickes extends StatelessWidget {
         Row(
           // mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            ToppicksCard(
-                image: AssetImage('assets/hotcoffee/latte.jpeg'),
-                itemname: 'Latte',
-                rate: '160/-',
-                onpress: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: ((context) {
-                    return Item(
-                        itemname: 'Latte',
-                        description:
-                            'It consists of double espresso, warm milk & microfoam which is thinner than that of cappuccino.',
-                        price: '160',
-                        imageProvider:
-                            AssetImage('assets/hotcoffee/latte.jpeg'));
-                  })));
-                }),
-            ToppicksCard(
-                image: AssetImage('assets/coldcoffee/coldbrew.jpeg'),
-                itemname: 'Cold Brew',
-                rate: '180/-',
-                onpress: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: ((context) {
-                    return Item(
-                        itemname: 'Cold Brew',
-                        description:
-                            'Prepared by steeping coffee with cold water overnight. This coffee is less acidic & has 67% less coffee oils.',
-                        price: '180',
-                        imageProvider:
-                            AssetImage('assets/coldcoffee/coldbrew.jpeg'));
-                  })));
-                }),
+            Expanded(
+              child: ToppicksCard(
+                  image: AssetImage('assets/hotcoffee/latte.jpeg'),
+                  itemname: 'Latte',
+                  rate: '160/-',
+                  onpress: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: ((context) {
+                      return Item(
+                          itemname: 'Latte',
+                          description:
+                              'It consists of double espresso, warm milk & microfoam which is thinner than that of cappuccino.',
+                          price: '160',
+                          imageProvider:
+                              'assets/hotcoffee/latte.jpeg');
+                    })));
+                  }),
+            ),
+            Expanded(
+              child: ToppicksCard(
+                  image: AssetImage('assets/coldcoffee/coldbrew.jpeg'),
+                  itemname: 'Cold Brew',
+                  rate: '180/-',
+                  onpress: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: ((context) {
+                      return Item(
+                          itemname: 'Cold Brew',
+                          description:
+                              'Prepared by steeping coffee with cold water overnight. This coffee is less acidic & has 67% less coffee oils.',
+                          price: '180',
+                          imageProvider:
+                              'assets/coldcoffee/coldbrew.jpeg');
+                    })));
+                  }),
+            ),
           ],
         ),
         Row(
           // mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            ToppicksCard(
-                image: AssetImage('assets/frappe/caramel.jpeg'),
-                itemname: 'Caramel \nFrappe',
-                rate: '200/-',
-                onpress: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: ((context) {
-                    return Item(
-                        itemname: 'Caramel \nFrappe',
-                        description:
-                            'Caramel Frappe is made with rich caramel flavor and a hint of coffee, blended with ice and topped with whipped topping and caramel drizzle.',
-                        price: '200',
-                        imageProvider:
-                            AssetImage('assets/frappe/caramel.jpeg'));
-                  })));
-                }),
-            ToppicksCard(
-                image: AssetImage('assets/desserts/raspberrycheesecake.jpeg'),
-                itemname: 'Raspberry \nCheesecake',
-                rate: '240/-',
-                onpress: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: ((context) {
-                    return Item(
-                        itemname: 'Raspberry \nCheesecake',
-                        description:
-                            'Raspberry Cheesecake is consists of cheese cream and cookie crust on bottom and raspberry jelly on top.',
-                        price: '240',
-                        imageProvider: AssetImage(
-                            'assets/desserts/raspberrycheesecake.jpeg'));
-                  })));
-                }),
+            Expanded(
+              child: ToppicksCard(
+                  image: AssetImage('assets/frappe/caramel.jpeg'),
+                  itemname: 'Caramel \nFrappe',
+                  rate: '200/-',
+                  onpress: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: ((context) {
+                      return Item(
+                          itemname: 'Caramel \nFrappe',
+                          description:
+                              'Caramel Frappe is made with rich caramel flavor and a hint of coffee, blended with ice and topped with whipped topping and caramel drizzle.',
+                          price: '200',
+                          imageProvider:
+                              'assets/frappe/caramel.jpeg');
+                    })));
+                  }),
+            ),
+            Expanded(
+              child: ToppicksCard(
+                  image: AssetImage('assets/desserts/raspberrycheesecake.jpeg'),
+                  itemname: 'Raspberry \nCheesecake',
+                  rate: '240/-',
+                  onpress: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: ((context) {
+                      return Item(
+                          itemname: 'Raspberry \nCheesecake',
+                          description:
+                              'Raspberry Cheesecake is consists of cheese cream and cookie crust on bottom and raspberry jelly on top.',
+                          price: '240',
+                          imageProvider: 
+                              'assets/desserts/raspberrycheesecake.jpeg');
+                    })));
+                  }),
+            ),
           ],
         ),
       ],
@@ -129,7 +137,7 @@ class ToppicksCard extends StatelessWidget {
     //     itemCount: image.length,
     //     itemBuilder: ((context, index) {
     return Container(
-      height: MediaQuery.of(context).size.height * 0.37,
+      height: MediaQuery.of(context).size.height * 0.35,
       width: MediaQuery.of(context).size.width * 0.478,
       child: GestureDetector(
         onTap: onpress,
@@ -151,8 +159,8 @@ class ToppicksCard extends StatelessWidget {
                     backgroundImage: image,
                   ),
                 ),
-                const SizedBox(
-                  height: 15,
+                SizedBox(
+                  height: MediaQuery.of(context).size.width * 0.03,
                 ),
                 Text(
                   itemname,
@@ -162,12 +170,12 @@ class ToppicksCard extends StatelessWidget {
                       fontFamily: 'Libre Baskerville',
                       color: Color(0xFFEADBCC)),
                 ),
-                const SizedBox(
-                  height: 5,
+                 SizedBox(
+                  height: MediaQuery.of(context).size.width * 0.03,
                 ),
-                const SizedBox(
-                  height: 20,
-                ),
+                // const SizedBox(
+                //   height: 20,
+                // ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -188,9 +196,9 @@ class ToppicksCard extends StatelessWidget {
                     // ),
                   ],
                 ),
-                const SizedBox(
-                  height: 20,
-                ),
+                // SizedBox(
+                //   height: MediaQuery.of(context).size.width * 0.04,
+                // ),
               ],
             ),
           ),

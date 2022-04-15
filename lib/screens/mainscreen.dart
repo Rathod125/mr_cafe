@@ -22,9 +22,9 @@ class _MainHomeState extends State<MainHome> {
     setState(() {
       selectedIndex = index;
       // print(index);
-      if (index == 0) {
+      // if (index == 0) {
         // Navigator.pushNamed(context, HomePage.id);
-      } else if (index == 1) {
+      // } else if (index == 1) {
         // Navigator.push(
         //   context,
         //   MaterialPageRoute(
@@ -33,9 +33,9 @@ class _MainHomeState extends State<MainHome> {
         //     }),
         //   ),
         // );
-      } else if (index == 2) {
+      // } else if (index == 2) {
         // Navigator.pushNamed(context, HomePage.id);
-      }
+      // }
     });
   }
 

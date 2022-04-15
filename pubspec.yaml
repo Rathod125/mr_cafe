@@ -46,6 +46,12 @@ dependencies:
   cloud_firestore: ^3.1.10
   substring_highlight: ^1.0.33
   flutter_typeahead: ^3.2.4
+  provider: ^6.0.2
+  shared_preferences: ^2.0.13
+  path_provider: ^2.0.9
+  sqflite: ^2.0.2
+  badges: ^2.0.2
+  fluttertoast: ^8.0.7
 
 dev_dependencies:
   flutter_test:

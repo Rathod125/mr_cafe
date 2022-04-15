@@ -13,12 +13,12 @@ class Itemlist5 extends StatelessWidget {
     'Kiwi Lemonade',
     'Strawberry Lemonade'
   ];
-  List<ImageProvider> images = [
-    AssetImage('assets/lemonade/blendedstrawbery.jpeg'),
-    AssetImage('assets/lemonade/classic.jpeg'),
-    AssetImage('assets/lemonade/dragonfruit.jpeg'),
-    AssetImage('assets/lemonade/kiwi.jpeg'),
-    AssetImage('assets/lemonade/strawbery.jpeg'),
+  List<String> images = [
+    'assets/lemonade/blendedstrawbery.jpeg',
+    'assets/lemonade/classic.jpeg',
+    'assets/lemonade/dragonfruit.jpeg',
+    'assets/lemonade/kiwi.jpeg',
+    'assets/lemonade/strawbery.jpeg',
   ];
   List prices = ['250', '180', '200', '220', '220'];
 
@@ -46,7 +46,7 @@ class Itemlist5 extends StatelessWidget {
         itemBuilder: ((context, index) {
           return ItemCard(
             title: itemname[index],
-            image: images[index],
+            image: AssetImage(images[index]),
             price: prices[index],
             onpress: () {
               Navigator.push(

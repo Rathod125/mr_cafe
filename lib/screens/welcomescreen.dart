@@ -6,19 +6,21 @@ import 'package:mr_cafe/constants.dart';
 import 'package:mr_cafe/screens/login_screen.dart';
 import 'package:flutter/scheduler.dart';
 
-class WelcomeScreen extends StatefulWidget {
-  WelcomeScreen({Key? key}) : super(key: key);
+class WelcomeScreen extends StatelessWidget {
+  const WelcomeScreen({Key? key}) : super(key: key);
+  
+
+//   @override
+//   State<WelcomeScreen> createState() => _WelcomeScreenState();
+// }
+
+// class _WelcomeScreenState extends State<WelcomeScreen> {
   static const String id = 'welcome_screen';
 
-  @override
-  State<WelcomeScreen> createState() => _WelcomeScreenState();
-}
-
-class _WelcomeScreenState extends State<WelcomeScreen> {
-  @override
-  void initState() {
-    super.initState();
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  // }
 
   @override
   Widget build(BuildContext context) {
