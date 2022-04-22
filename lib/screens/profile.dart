@@ -75,7 +75,7 @@ class ProfilePage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(12.0),
               child: Text(
-                'Name SurName',
+                'Tushar Rathod',
                 style: TextStyle(fontSize: 20, fontFamily: 'Libre Baskerville'),
               ),
             ),

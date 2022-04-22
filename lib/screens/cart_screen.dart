@@ -4,9 +4,11 @@ import 'package:mr_cafe/screens/cart_provider.dart';
 import 'package:mr_cafe/screens/db_helper.dart';
 import 'package:mr_cafe/screens/item.dart';
 import 'package:provider/provider.dart';
+import 'package:pay/pay.dart';
 
 class CartScreen extends StatelessWidget {
   CartScreen({Key? key}) : super(key: key);
+  final paymentItem = <PaymentItem>[];
 
   DBHelper? dbHelper = DBHelper();
 
@@ -22,17 +24,30 @@ class CartScreen extends StatelessWidget {
               if (snapshot.hasData) {
                 if (snapshot.data!.isEmpty) {
                   return Expanded(
-                    child: Column(mainAxisAlignment: MainAxisAlignment.center,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [ 
-                        Icon(Icons.shopping_cart_outlined,size: MediaQuery.of(context).size.height*0.25,),
+                      children: [
+                        Icon(
+                          Icons.shopping_cart_outlined,
+                          size: MediaQuery.of(context).size.height * 0.25,
+                        ),
                         Center(
-                          child: Text('Your Cart is Empty!',style: TextStyle(fontSize: MediaQuery.of(context).size.height*0.025,fontWeight: FontWeight.bold),),
+                          child: Text(
+                            'Your Cart is Empty!',
+                            style: TextStyle(
+                                fontSize:
+                                    MediaQuery.of(context).size.height * 0.025,
+                                fontWeight: FontWeight.bold),
+                          ),
                         ),
                       ],
                     ),
                   );
                 } else {
+                  paymentItem.add(PaymentItem(
+                      amount: cart.getTotalPrice().toString(),
+                      label: 'Final Payment',status: PaymentItemStatus.final_price));
                   return Expanded(
                       child: ListView.builder(
                           itemCount: snapshot.data!.length,
@@ -122,18 +137,22 @@ class CartScreen extends StatelessWidget {
                                                     },
                                                     child: Icon(
                                                       Icons.delete_forever,
-                                                      size: MediaQuery.of(context).size.height*0.032,
+                                                      size:
+                                                          MediaQuery.of(context)
+                                                                  .size
+                                                                  .height *
+                                                              0.032,
                                                       color: Color.fromARGB(
                                                           255, 111, 99, 81),
                                                     )),
                                               ],
                                             ),
                                             Padding(
-                                              padding:
-                                                  const EdgeInsets.only(left: 15.0),
+                                              padding: const EdgeInsets.only(
+                                                  left: 15.0),
                                               child: Padding(
-                                                padding:
-                                                    const EdgeInsets.only(right: 5.0),
+                                                padding: const EdgeInsets.only(
+                                                    right: 5.0),
                                                 child: SizedBox(
                                                   child: Text(
                                                     'Total Price : ${snapshot.data![index].productPrice}/-',
@@ -143,37 +162,42 @@ class CartScreen extends StatelessWidget {
                                                 ),
                                               ),
                                             ),
-                                            
                                             Padding(
-                                              padding: const EdgeInsets.only(top: 8),
+                                              padding:
+                                                  const EdgeInsets.only(top: 8),
                                               child: Align(
-                                                alignment: Alignment.centerRight,
+                                                alignment:
+                                                    Alignment.centerRight,
                                                 child: Container(
                                                   height: MediaQuery.of(context)
                                                           .size
                                                           .height *
                                                       0.05,
-                                                  width: snapshot
-                                                              .data![index]
-                                                              .quantity! >= 10? MediaQuery.of(context)
-                                                          .size
-                                                          .width *
-                                                      0.33:MediaQuery.of(context)
-                                                          .size
-                                                          .width *
-                                                      0.3,
+                                                  width: snapshot.data![index]
+                                                              .quantity! >=
+                                                          10
+                                                      ? MediaQuery.of(context)
+                                                              .size
+                                                              .width *
+                                                          0.33
+                                                      : MediaQuery.of(context)
+                                                              .size
+                                                              .width *
+                                                          0.3,
                                                   decoration: BoxDecoration(
                                                     borderRadius:
-                                                        BorderRadius.circular(10),
+                                                        BorderRadius.circular(
+                                                            10),
                                                     color: Color(0xFFD4A056),
                                                   ),
                                                   child: Row(
                                                     children: [
                                                       IconButton(
                                                         onPressed: () {
-                                                          int quantity = snapshot
-                                                              .data![index]
-                                                              .quantity!;
+                                                          int quantity =
+                                                              snapshot
+                                                                  .data![index]
+                                                                  .quantity!;
                                                           int price = snapshot
                                                               .data![index]
                                                               .intialPrice!;
@@ -225,11 +249,12 @@ class CartScreen extends StatelessWidget {
                                                             });
                                                           }
                                                         },
-                                                        icon: Icon(Icons.remove),
+                                                        icon:
+                                                            Icon(Icons.remove),
                                                       ),
                                                       Text(
-                                                        snapshot
-                                                            .data![index].quantity
+                                                        snapshot.data![index]
+                                                            .quantity
                                                             .toString(),
                                                         style: TextStyle(
                                                             fontSize: MediaQuery.of(
@@ -240,9 +265,10 @@ class CartScreen extends StatelessWidget {
                                                       ),
                                                       IconButton(
                                                         onPressed: () {
-                                                          int quantity = snapshot
-                                                              .data![index]
-                                                              .quantity!;
+                                                          int quantity =
+                                                              snapshot
+                                                                  .data![index]
+                                                                  .quantity!;
                                                           int price = snapshot
                                                               .data![index]
                                                               .intialPrice!;
@@ -283,13 +309,14 @@ class CartScreen extends StatelessWidget {
                                                             quantity = 0;
                                                             cart.addTotalPrice(
                                                                 double.parse(snapshot
-                                                                    .data![index]
+                                                                    .data![
+                                                                        index]
                                                                     .intialPrice!
                                                                     .toString()));
                                                           }).onError((error,
                                                                   stackTrace) {
-                                                            print(
-                                                                error.toString());
+                                                            print(error
+                                                                .toString());
                                                           });
                                                         },
                                                         icon: Icon(Icons.add),
@@ -337,6 +364,21 @@ class CartScreen extends StatelessWidget {
                           (value.getTotalPrice() - value.getTotalPrice() * 0.05)
                                   .toStringAsFixed(2) +
                               '/-'),
+                  GooglePayButton(
+                    paymentConfigurationAsset: 'gpay.json',
+                    paymentItems: paymentItem,
+                    width: 200,
+                    height: 50,
+                    style: GooglePayButtonStyle.black,
+                    type: GooglePayButtonType.pay,
+                    margin: const EdgeInsets.only(top: 15.0),
+                    onPaymentResult: (data) {
+                      print(data);
+                    },
+                    loadingIndicator: const Center(
+                      child: CircularProgressIndicator(),
+                    ),
+                  ),
                 ],
               ),
             ),

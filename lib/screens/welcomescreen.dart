@@ -39,7 +39,7 @@ class WelcomeScreen extends StatelessWidget {
               ),
               SizedBox(height: MediaQuery.of(context).size.height * 0.02),
               const Text(
-                'Star bucks',
+                'Mr. Cafe',
                 style: kItemLableTextStyle,
               ),
               SizedBox(height: MediaQuery.of(context).size.height * 0.02),
