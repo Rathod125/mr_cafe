@@ -3,12 +3,14 @@ import 'package:mr_cafe/screens/cart.dart';
 import 'package:mr_cafe/screens/cart_provider.dart';
 import 'package:mr_cafe/screens/db_helper.dart';
 import 'package:mr_cafe/screens/item.dart';
+import 'package:mr_cafe/screens/payment.dart';
 import 'package:provider/provider.dart';
 import 'package:pay/pay.dart';
+final paymentItem = <PaymentItem>[];
 
 class CartScreen extends StatelessWidget {
   CartScreen({Key? key}) : super(key: key);
-  final paymentItem = <PaymentItem>[];
+  
 
   DBHelper? dbHelper = DBHelper();
 
@@ -45,9 +47,6 @@ class CartScreen extends StatelessWidget {
                     ),
                   );
                 } else {
-                  paymentItem.add(PaymentItem(
-                      amount: cart.getTotalPrice().toString(),
-                      label: 'Final Payment',status: PaymentItemStatus.final_price));
                   return Expanded(
                       child: ListView.builder(
                           itemCount: snapshot.data!.length,
@@ -351,34 +350,61 @@ class CartScreen extends StatelessWidget {
               child: Column(
                 children: [
                   ReusableWidget(
-                      title: 'Sub Total',
+                      title: Text('Sub Total',style: TextStyle(fontFamily: 'Libre Baskerville', fontSize: 15)),
                       value: value.getTotalPrice().toStringAsFixed(2) + '/-'),
                   ReusableWidget(
-                      title: 'Discount 5%',
+                      title: Text('Discount 5%',style: TextStyle(fontFamily: 'Libre Baskerville', fontSize: 15)),
                       value: '-' +
                           (value.getTotalPrice() * 0.05).toStringAsFixed(2) +
                           '/-'),
                   ReusableWidget(
-                      title: 'Total Amount',
+                      title: Text('Total Amount',style: TextStyle(fontFamily: 'Libre Baskerville', fontSize: 15)),
                       value:
                           (value.getTotalPrice() - value.getTotalPrice() * 0.05)
                                   .toStringAsFixed(2) +
                               '/-'),
-                  GooglePayButton(
-                    paymentConfigurationAsset: 'gpay.json',
-                    paymentItems: paymentItem,
-                    width: 200,
-                    height: 50,
-                    style: GooglePayButtonStyle.black,
-                    type: GooglePayButtonType.pay,
-                    margin: const EdgeInsets.only(top: 15.0),
-                    onPaymentResult: (data) {
-                      print(data);
-                    },
-                    loadingIndicator: const Center(
-                      child: CircularProgressIndicator(),
+
+                  Padding(
+                    padding: const EdgeInsets.only(top: 8),
+                    child: GestureDetector(
+                      onTap: (() {
+                        paymentItem.add(PaymentItem(
+                      amount: cart.getTotalPrice().toString(),
+                      label: 'Final Payment',
+                      status: PaymentItemStatus.final_price));
+                        Navigator.pushNamed(context, Payment.id);
+                      }),
+                      child: Container(
+                        decoration: BoxDecoration(
+                            color: Color(0xFFD4A056),
+                            borderRadius: BorderRadius.circular(10)),
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                              left: 25, top: 15, right: 25, bottom: 15),
+                          child: Text(
+                            'Proceed To Pay',
+                            style: TextStyle(
+                                fontSize: 17, fontFamily: 'Libre Baskerville'),
+                          ),
+                        ),
+                      ),
                     ),
                   ),
+                  // GooglePayButton(
+                  //   paymentConfigurationAsset: 'gpay.json',
+                  //   paymentItems: paymentItem,
+                  //   width: 200,
+                  //   height: 50,
+                  //   style: GooglePayButtonStyle.black,
+                  //   type: GooglePayButtonType.pay,
+                  //   margin: const EdgeInsets.only(top: 15.0),
+                  //   onPaymentResult: (data) {
+                  //     print(data);
+                  //   },
+                  //   loadingIndicator: const Center(
+                  //     child: CircularProgressIndicator(),
+                  //   ),
+                  // ),
                 ],
               ),
             ),
@@ -390,7 +416,8 @@ class CartScreen extends StatelessWidget {
 }
 
 class ReusableWidget extends StatelessWidget {
-  final String title, value;
+  final String value;
+  final Text title;
   const ReusableWidget({required this.title, required this.value});
 
   @override
@@ -398,10 +425,7 @@ class ReusableWidget extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(
-          title,
-          style: TextStyle(fontFamily: 'Libre Baskerville', fontSize: 15),
-        ),
+        title,
         Text(
           value.toString(),
           style: TextStyle(fontFamily: 'Libre Baskerville', fontSize: 15),

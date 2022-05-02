@@ -99,7 +99,7 @@ class _HomePageState extends State<HomePage> {
                         });
                       },
                       decoration: InputDecoration(
-                        prefixIcon: Icon(
+                        prefixIcon: const Icon(
                           Icons.search,
                           color: Color(0xFF212325),
                         ),
@@ -109,9 +109,9 @@ class _HomePageState extends State<HomePage> {
                         hintText: hintText,
                         hintStyle: TextStyle(
                             // height: 2.7,
-                            color: Color.fromARGB(255, 81, 85, 90),
+                            color: const Color.fromARGB(255, 81, 85, 90),
                             fontSize: MediaQuery.of(context).size.width * 0.05),
-                        border: OutlineInputBorder(
+                        border: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(
                             Radius.circular(30),
                           ),

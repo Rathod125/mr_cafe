@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mr_cafe/screens/item.dart';
+import 'package:provider/provider.dart';
 
+import '../screens/cart_provider.dart';
 import '../widgets/itemlist.dart';
 
 class Itemlist1 extends StatelessWidget {
@@ -34,6 +36,7 @@ class Itemlist1 extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
+    final cart = Provider.of<CartProvider>(context);
     return Scaffold(
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Color(0xFF212325)),

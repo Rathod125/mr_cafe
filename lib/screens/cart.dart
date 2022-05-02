@@ -1,5 +1,3 @@
-
-
 class Cart {
   late final int? id;
   final String? productId;

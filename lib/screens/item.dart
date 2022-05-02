@@ -1,23 +1,22 @@
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mr_cafe/constants.dart';
 import 'package:mr_cafe/screens/cart.dart';
 import 'package:mr_cafe/screens/cart_provider.dart';
 import 'package:mr_cafe/screens/db_helper.dart';
-// import 'package:mr_cafe/screens/cart_scr, String descriptioneen.dart';
 import 'package:mr_cafe/screens/mainscreen.dart';
 import 'package:provider/provider.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class Item extends StatefulWidget {
-  const Item(
+  Item(
       {Key? key,
       required this.itemname,
       required this.description,
       required this.price,
       required this.imageProvider})
       : super(key: key);
+
   final String itemname;
   final String description;
   final String price;
@@ -30,6 +29,7 @@ class Item extends StatefulWidget {
 class _ItemState extends State<Item> with SingleTickerProviderStateMixin {
   int count = 0;
   int index = 0;
+  double raating = 0;
   DBHelper? dbHelper = DBHelper();
   late FToast fToast;
 
@@ -73,37 +73,20 @@ class _ItemState extends State<Item> with SingleTickerProviderStateMixin {
                 ),
                 badgeColor: Color(0xFFD4A056),
                 child:
-                    // Icon(Icons.shopping_cart),
-                    // position: BadgePosition(end: 20),
-                    // child:
-                  //   IconButton(
-                  // onPressed: () {
-                    // selectedIndex = cart.selectedIndex();
+                    InkWell(
+                        onTap: (() {
+                          selectedIndex = cart.selectedIndex();
 
-                    // Navigator.pushReplacement(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //     builder: (context) {
-                    //       return MainHome();
-                    //     },
-                    //   ),
-                    // );
-                  // },
-                  InkWell(
-                    onTap: (() {
-                      selectedIndex = cart.selectedIndex();
-
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return MainHome();
-                        },
-                      ),
-                    );
-                    }),
-                    child: Icon(Icons.shopping_cart)),
-                
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return MainHome();
+                              },
+                            ),
+                          );
+                        }),
+                        child: Icon(Icons.shopping_cart)),
               ),
             ),
           )
@@ -241,8 +224,9 @@ class _ItemState extends State<Item> with SingleTickerProviderStateMixin {
                                             productPrice:
                                                 int.parse(widget.price),
                                             quantity: 1,
-                                            image: widget.imageProvider
-                                                .toString()))
+                                            image:
+                                                widget.imageProvider.toString(),
+                                            ))
                                         .then((value) {
                                       print('Product is added to cart');
                                       cart.addTotalPrice(
@@ -252,8 +236,10 @@ class _ItemState extends State<Item> with SingleTickerProviderStateMixin {
                                         toastDuration:
                                             Duration(milliseconds: 1500),
                                         child: Material(
-                                          borderRadius: BorderRadius.circular(50),
-                                          color: Color.fromARGB(255, 237, 231, 224),
+                                          borderRadius:
+                                              BorderRadius.circular(50),
+                                          color: Color.fromARGB(
+                                              255, 237, 231, 224),
                                           child: Padding(
                                             padding: const EdgeInsets.all(10),
                                             child: Row(
@@ -278,8 +264,10 @@ class _ItemState extends State<Item> with SingleTickerProviderStateMixin {
                                         toastDuration:
                                             Duration(milliseconds: 1500),
                                         child: Material(
-                                          borderRadius: BorderRadius.circular(50),
-                                          color: Color.fromARGB(255, 237, 231, 224),
+                                          borderRadius:
+                                              BorderRadius.circular(50),
+                                          color: Color.fromARGB(
+                                              255, 237, 231, 224),
                                           child: Padding(
                                             padding: const EdgeInsets.all(10),
                                             child: Row(
@@ -321,38 +309,11 @@ class _ItemState extends State<Item> with SingleTickerProviderStateMixin {
                                         ),
                                       ),
                                     ),
-                                    // Row(
-                                    //   children: [
-                                    //     IconButton(
-                                    //       onPressed: () {
-                                    //         setState(() {
-                                    //           if (count > 0) {
-                                    //             count--;
-                                    //           }
-                                    //         });
-                                    //       },
-                                    //       icon: Icon(Icons.remove),
-                                    //     ),
-                                    //     Text(
-                                    //       count.toString(),
-                                    //       style: TextStyle(fontSize: 18.0),
-                                    //     ),
-                                    //     IconButton(
-                                    //       onPressed: () {
-                                    //         setState(() {
-                                    //           if (count < 10) {
-                                    //             count++;
-                                    //           }
-                                    //         });
-                                    //       },
-                                    //       icon: Icon(Icons.add),
-                                    //     ),
-                                    //   ],
-                                    // ),
                                   ),
                                 ),
                               ],
                             ),
+                            
                             SizedBox(
                               height: MediaQuery.of(context).size.height * .02,
                             ),

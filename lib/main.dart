@@ -6,6 +6,7 @@ import 'package:mr_cafe/screens/cart_provider.dart';
 import 'package:mr_cafe/screens/home_screen.dart';
 import 'package:mr_cafe/screens/login_screen.dart';
 import 'package:mr_cafe/screens/mainscreen.dart';
+import 'package:mr_cafe/screens/payment.dart';
 import 'package:mr_cafe/screens/registration_screen.dart';
 import 'package:mr_cafe/screens/splash_screen.dart';
 import 'package:mr_cafe/screens/welcomescreen.dart';
@@ -45,6 +46,8 @@ class MyApp extends StatelessWidget {
                 LoginPage.id: (context) => const LoginPage(),
                 RegistrationPage.id: (context) => RegistrationPage(),
                 MainHome.id: (context) => const MainHome(),
+                Payment.id:(context) => Payment(),
+
               });
         }));
   }
