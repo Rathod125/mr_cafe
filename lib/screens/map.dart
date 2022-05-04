@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geocoding/geocoding.dart';
+import 'package:mr_cafe/screens/payment.dart';
 
 class MapSample extends StatefulWidget {
   @override
@@ -204,7 +205,12 @@ class MapSampleState extends State<MapSample> {
                                     children: [
                                       ElevatedButton(
                                           onPressed: () {
-                                            // widget.takeaway = true;
+                                            Payment.takeaway = true;
+                                            Navigator.push(context,
+                                                MaterialPageRoute(
+                                                    builder: ((context) {
+                                              return Payment();
+                                            })));
                                           },
                                           style: ElevatedButton.styleFrom(
                                               primary: Color(0xFF212325)),

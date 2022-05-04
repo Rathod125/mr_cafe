@@ -55,4 +55,9 @@ class DBHelper {
     where: 'id = ?',
     whereArgs: [cart.id]);
   }
+
+  Future deleteAll() async{
+    var dbClient = await db;
+    await dbClient!.delete('cart');
+  }
 }

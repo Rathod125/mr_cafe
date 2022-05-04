@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mr_cafe/screens/cart_provider.dart';
 import 'package:mr_cafe/screens/cart_screen.dart';
+import 'package:mr_cafe/screens/db_helper.dart';
 import 'package:mr_cafe/screens/mainscreen.dart';
 import 'package:mr_cafe/screens/map.dart';
 import 'package:pay/pay.dart';
@@ -9,7 +10,8 @@ import 'package:provider/provider.dart';
 class Payment extends StatelessWidget {
   Payment({Key? key}) : super(key: key);
   static const String id = 'payment';
-  bool takeaway = false;
+  static bool takeaway = false;
+  DBHelper? dbHelper = DBHelper();
 
   @override
   Widget build(BuildContext context) {
@@ -132,8 +134,8 @@ class Payment extends StatelessWidget {
                                             primary: Color(0xFF212325)),
                                         onPressed: (() {
                                           Dialog dialog = Dialog(
-                                            backgroundColor:Color(0xFF212325) ,
-                                            shape: RoundedRectangleBorder(                                         
+                                            backgroundColor: Color(0xFF212325),
+                                            shape: RoundedRectangleBorder(
                                                 borderRadius:
                                                     BorderRadius.circular(
                                                         12.0)), //this right here
@@ -142,7 +144,10 @@ class Payment extends StatelessWidget {
                                               //   borderRadius: BorderRadius.circular(12)
                                               // ),
                                               // color:Color.fromARGB(255, 232, 179, 105),
-                                              height: MediaQuery.of(context).size.height*0.3,
+                                              height: MediaQuery.of(context)
+                                                      .size
+                                                      .height *
+                                                  0.3,
                                               width: 300.0,
                                               child: Column(
                                                 mainAxisAlignment:
@@ -154,8 +159,9 @@ class Payment extends StatelessWidget {
                                                     child: Text(
                                                       'Thank You!',
                                                       style: TextStyle(
-                                                        fontSize: 20,
-                                                          color: Color(0xFFEADBCC)),
+                                                          fontSize: 20,
+                                                          color: Color(
+                                                              0xFFEADBCC)),
                                                     ),
                                                   ),
                                                   Padding(
@@ -163,10 +169,12 @@ class Payment extends StatelessWidget {
                                                         EdgeInsets.all(15.0),
                                                     child: Text(
                                                       'Your order will ready in few minutus.',
-                                                      textAlign: TextAlign.center,
-                                                      style: TextStyle(fontSize: 18,
-                                                      
-                                                          color: Color(0xFFEADBCC)),
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                      style: TextStyle(
+                                                          fontSize: 18,
+                                                          color: Color(
+                                                              0xFFEADBCC)),
                                                     ),
                                                   ),
                                                   Padding(
@@ -178,12 +186,19 @@ class Payment extends StatelessWidget {
                                                         Navigator.of(context)
                                                             .pushReplacementNamed(
                                                                 MainHome.id);
+                                                        cart.deleteTotalPrice();
+                                                        cart.deleteCounter();
+                                                        dbHelper?.deleteAll();
                                                       },
                                                       child: Text(
                                                         'Got It!',
                                                         style: TextStyle(
                                                             color:
-                                                                Color.fromARGB(255, 232, 179, 105),
+                                                                Color.fromARGB(
+                                                                    255,
+                                                                    232,
+                                                                    179,
+                                                                    105),
                                                             fontSize: 18.0),
                                                       ))
                                                 ],

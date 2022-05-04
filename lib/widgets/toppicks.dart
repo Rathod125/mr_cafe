@@ -166,7 +166,7 @@ class ToppicksCard extends StatelessWidget {
                   itemname,
                   textAlign: TextAlign.left,
                   style: TextStyle(
-                      fontSize: 20,
+                      fontSize: MediaQuery.of(context).size.height*0.023,
                       fontFamily: 'Libre Baskerville',
                       color: Color(0xFFEADBCC)),
                 ),
