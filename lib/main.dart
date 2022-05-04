@@ -37,6 +37,7 @@ class MyApp extends StatelessWidget {
               theme: ThemeData(
                 primaryColor: const Color(0xFF212325),
                 scaffoldBackgroundColor: kBackGroundColor,
+                appBarTheme: AppBarTheme(elevation: 0.5),
               ),
               initialRoute: SplashScreen.id,
               routes: {
@@ -46,8 +47,7 @@ class MyApp extends StatelessWidget {
                 LoginPage.id: (context) => const LoginPage(),
                 RegistrationPage.id: (context) => RegistrationPage(),
                 MainHome.id: (context) => const MainHome(),
-                Payment.id:(context) => Payment(),
-
+                Payment.id: (context) => Payment(),
               });
         }));
   }

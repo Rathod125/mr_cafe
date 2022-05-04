@@ -149,24 +149,85 @@ class MapSampleState extends State<MapSample> {
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(12.0)),
                           child: Container(
-                            height: MediaQuery.of(context).size.height * 0.3,
+                            height: MediaQuery.of(context).size.height * 0.25,
                             width: 300,
                             child: Column(
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Text("Enter Address",textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    color: Color(0xFF212325),
-                                    fontSize: 17,
-                                  ),),
-                                ),
-                                TextField(
-                                  decoration: InputDecoration(
-                                    
-                                    hintText: 'Enter HouseNo. and StreetName'
+                                  padding: EdgeInsets.all(12.0),
+                                  child: Text(
+                                    "Enter Address",
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      color: Color(0xFF212325),
+                                      fontSize: 17,
+                                    ),
                                   ),
                                 ),
+                                Padding(
+                                  padding: EdgeInsets.all(10.0),
+                                  child: Container(
+                                    height: 50,
+                                    child: TextField(
+                                      decoration: InputDecoration(
+                                        contentPadding: EdgeInsets.symmetric(
+                                            vertical: 2, horizontal: 10),
+                                        hintText:
+                                            'Enter HouseNo. and StreetName',
+                                        hintStyle:
+                                            TextStyle(color: Colors.grey),
+                                        border: OutlineInputBorder(
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(12.0)),
+                                        ),
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                              color: Color(0xFF212325),
+                                              width: 1.0),
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(12.0)),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                              color: Color(0xFF212325),
+                                              width: 1.5),
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(12.0)),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(height: 20),
+                                Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      ElevatedButton(
+                                          onPressed: () {
+                                            // widget.takeaway = true;
+                                          },
+                                          style: ElevatedButton.styleFrom(
+                                              primary: Color(0xFF212325)),
+                                          child: Text(
+                                            'Confirm',
+                                            style: TextStyle(
+                                                color: Color(0xFFEADBCC)),
+                                          )),
+                                      SizedBox(
+                                        width: 20,
+                                      ),
+                                      ElevatedButton(
+                                          onPressed: () {
+                                            Navigator.pop(context);
+                                          },
+                                          style: ElevatedButton.styleFrom(
+                                              primary: Color(0xFF212325)),
+                                          child: Text(
+                                            'Cancel',
+                                            style: TextStyle(
+                                                color: Color(0xFFEADBCC)),
+                                          )),
+                                    ]),
                               ],
                             ),
                           ),
