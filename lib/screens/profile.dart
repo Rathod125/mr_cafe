@@ -1,9 +1,14 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:intl_phone_field/phone_number.dart';
-import 'package:mr_cafe/screens/cart_provider.dart';
+import 'package:image_picker/image_picker.dart';
+
+import 'package:mr_cafe/screens/mainscreen.dart';
 import 'package:provider/provider.dart';
+
+import 'login_screen.dart';
 
 class ProfilePage extends StatefulWidget {
   ProfilePage({Key? key}) : super(key: key);
@@ -37,7 +42,12 @@ class _ProfilePageState extends State<ProfilePage> {
     Icon(Icons.contact_page),
     Icon(Icons.settings),
   ];
-
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  void logout() async {
+    await _auth.signOut();
+    Navigator.pushReplacementNamed(context, LoginPage.id);
+    selectedIndex = 0;
+  }
   // Future<void> getCurrentUser() async {
   //   try {
   //     final user = await _auth.currentUser;
@@ -55,6 +65,25 @@ class _ProfilePageState extends State<ProfilePage> {
   //   super.initState();
   //   getCurrentUser();
   // }
+  late var _image;
+  bool isKweb = false;
+  getFromGallery() async {
+    final XFile? pickedFile = await ImagePicker().pickImage(
+      source: ImageSource.gallery,
+      maxWidth: 1800,
+      maxHeight: 1800,
+    );
+
+    setState(() {
+      _image = File(pickedFile!.path);
+
+      if (_image == null) {
+        isKweb = false;
+      } else {
+        isKweb = true;
+      }
+    });
+  }
 
   IconThemeData iconTheme = IconThemeData(color: Color(0xFF212325));
 
@@ -65,18 +94,23 @@ class _ProfilePageState extends State<ProfilePage> {
         padding: const EdgeInsets.all(10.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+          // crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Container(
-              child: CircleAvatar(
-                backgroundColor: Color(0xFF212325),
-                radius: MediaQuery.of(context).size.width * .22,
-                child: Icon(
-                  Icons.person,
-                  size: MediaQuery.of(context).size.width * .4,
-                  color: Color(0xFFEADBCC),
-                ),
-              ),
+              height: 150,
+              width: 150,
+              child: isKweb
+                  ? ClipRRect(
+                      borderRadius: BorderRadius.circular(70.0),
+                      child: Image.file(
+                        _image,
+                        fit: BoxFit.fill,
+                      ))
+                  : Icon(
+                      Icons.person,
+                      size: MediaQuery.of(context).size.width * .4,
+                      color: Colors.black,
+                    ),
             ),
             StreamBuilder<QuerySnapshot>(
               stream: _fireStore.collection('user').snapshots(),
@@ -98,6 +132,17 @@ class _ProfilePageState extends State<ProfilePage> {
                 }
                 return Column(
                   children: [
+                    TextButton(
+                      onPressed: () {
+                        getFromGallery();
+                      },
+                      child: const Text(
+                        "Upload Image",
+                        style: TextStyle(
+                          decoration: TextDecoration.underline,
+                        ),
+                      ),
+                    ),
                     //             Padding(
                     //   padding: const EdgeInsets.all(12.0),
                     //   child: Text(
@@ -260,11 +305,13 @@ class _ProfilePageState extends State<ProfilePage> {
               height: MediaQuery.of(context).size.height * 0.2,
             ),
             ListTile(
-              iconColor: Color(0xFF212325),
-              title: Text('Log Out'),
-              leading: Icon(Icons.logout),
-              tileColor: Color.fromARGB(255, 220, 201, 182),
-            )
+                iconColor: Color(0xFF212325),
+                title: Text('Log Out'),
+                leading: Icon(Icons.logout),
+                tileColor: Color.fromARGB(255, 220, 201, 182),
+                onTap: () {
+                  logout();
+                })
           ],
         ),
       ),

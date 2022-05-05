@@ -23,18 +23,18 @@ class _MainHomeState extends State<MainHome> {
       selectedIndex = index;
       // print(index);
       // if (index == 0) {
-        // Navigator.pushNamed(context, HomePage.id);
+      // Navigator.pushNamed(context, HomePage.id);
       // } else if (index == 1) {
-        // Navigator.push(
-        //   context,
-        //   MaterialPageRoute(
-        //     builder: ((context) {
-        //       return Categories();
-        //     }),
-        //   ),
-        // );
+      // Navigator.push(
+      //   context,
+      //   MaterialPageRoute(
+      //     builder: ((context) {
+      //       return Categories();
+      //     }),
+      //   ),
+      // );
       // } else if (index == 2) {
-        // Navigator.pushNamed(context, HomePage.id);
+      // Navigator.pushNamed(context, HomePage.id);
       // }
     });
   }
@@ -42,6 +42,7 @@ class _MainHomeState extends State<MainHome> {
   void logout() async {
     await _auth.signOut();
     Navigator.pushReplacementNamed(context, LoginPage.id);
+    selectedIndex = 0;
   }
 
   static final List pages = [
