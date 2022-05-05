@@ -206,7 +206,9 @@ class MapSampleState extends State<MapSample> {
                                       ElevatedButton(
                                           onPressed: () {
                                             Payment.takeaway = true;
-                                            Navigator.push(context,
+                                            Navigator.of(context).pop();
+                                            Navigator.of(context).pop();
+                                            Navigator.pushReplacement(context,
                                                 MaterialPageRoute(
                                                     builder: ((context) {
                                               return Payment();

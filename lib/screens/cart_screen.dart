@@ -6,11 +6,11 @@ import 'package:mr_cafe/screens/item.dart';
 import 'package:mr_cafe/screens/payment.dart';
 import 'package:provider/provider.dart';
 import 'package:pay/pay.dart';
+
 final paymentItem = <PaymentItem>[];
 
 class CartScreen extends StatelessWidget {
   CartScreen({Key? key}) : super(key: key);
-  
 
   DBHelper? dbHelper = DBHelper();
 
@@ -350,15 +350,21 @@ class CartScreen extends StatelessWidget {
               child: Column(
                 children: [
                   ReusableWidget(
-                      title: Text('Sub Total',style: TextStyle(fontFamily: 'Libre Baskerville', fontSize: 15)),
+                      title: Text('Sub Total',
+                          style: TextStyle(
+                              fontFamily: 'Libre Baskerville', fontSize: 15)),
                       value: value.getTotalPrice().toStringAsFixed(2) + '/-'),
                   ReusableWidget(
-                      title: Text('Discount 5%',style: TextStyle(fontFamily: 'Libre Baskerville', fontSize: 15)),
+                      title: Text('Discount 5%',
+                          style: TextStyle(
+                              fontFamily: 'Libre Baskerville', fontSize: 15)),
                       value: '-' +
                           (value.getTotalPrice() * 0.05).toStringAsFixed(2) +
                           '/-'),
                   ReusableWidget(
-                      title: Text('Total Amount',style: TextStyle(fontFamily: 'Libre Baskerville', fontSize: 15)),
+                      title: Text('Total Amount',
+                          style: TextStyle(
+                              fontFamily: 'Libre Baskerville', fontSize: 15)),
                       value:
                           (value.getTotalPrice() - value.getTotalPrice() * 0.05)
                                   .toStringAsFixed(2) +
@@ -369,9 +375,10 @@ class CartScreen extends StatelessWidget {
                     child: GestureDetector(
                       onTap: (() {
                         paymentItem.add(PaymentItem(
-                      amount: cart.getTotalPrice().toString(),
-                      label: 'Final Payment',
-                      status: PaymentItemStatus.final_price));
+                            amount: cart.getTotalPrice().toString(),
+                            label: 'Final Payment',
+                            status: PaymentItemStatus.final_price));
+                        Payment.takeaway = false;
                         Navigator.pushNamed(context, Payment.id);
                       }),
                       child: Container(

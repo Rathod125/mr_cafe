@@ -11,6 +11,9 @@ class CartProvider with ChangeNotifier {
   double _totalPrice = 0;
   double get totalPrice => _totalPrice;
 
+  String _name = 'Name';
+  String get name => _name;
+
   late Future<List<Cart>> _cart;
   Future<List<Cart>> get cart => _cart;
 
@@ -23,6 +26,7 @@ class CartProvider with ChangeNotifier {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setInt('cart_item', _counter);
     prefs.setDouble('total_price', _totalPrice);
+    prefs.setString('name', _name);
     notifyListeners();
   }
 
@@ -30,7 +34,13 @@ class CartProvider with ChangeNotifier {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     _counter = prefs.getInt('cart_item') ?? 0;
     _totalPrice = prefs.getDouble('total_price') ?? 0;
+    _name = prefs.getString('name') ?? '';
     notifyListeners();
+  }
+
+  void changeName(String name) {
+    _name = name;
+    _setPrefItems();
   }
 
   void addTotalPrice(double productPrice) {
@@ -55,6 +65,7 @@ class CartProvider with ChangeNotifier {
     _getPrefItems();
     return _totalPrice;
   }
+
   void addCounter() {
     _counter++;
     _setPrefItems();
