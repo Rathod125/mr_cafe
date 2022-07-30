@@ -30,7 +30,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFEADBCC),
+      backgroundColor: const Color(0xFFEADBCC),
       body: SafeArea(
         child: isLoading
             ? const Center(
@@ -90,7 +90,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                             setState(() {
                               number = phoneNumber.completeNumber;
                             });
-                            print(number);
+                            // print(number);
                           },
                         ),
                         SizedBox(
@@ -151,7 +151,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                       email: email, password: password)
                                   .then((signedInUser) {})
                                   .catchError((e) {
-                                print(e);
+                                // print(e);
                               });
                               textEditingController.clear();
                               FirebaseFirestore.instance

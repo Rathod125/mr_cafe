@@ -1,6 +1,3 @@
-import 'dart:async';
-
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mr_cafe/constants.dart';
 import 'package:mr_cafe/screens/login_screen.dart';
@@ -8,7 +5,6 @@ import 'package:flutter/scheduler.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({Key? key}) : super(key: key);
-  
 
 //   @override
 //   State<WelcomeScreen> createState() => _WelcomeScreenState();

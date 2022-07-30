@@ -13,7 +13,7 @@ class Toppickes extends StatelessWidget {
           children: [
             Expanded(
               child: ToppicksCard(
-                  image: AssetImage('assets/hotcoffee/latte.jpeg'),
+                  image: const AssetImage('assets/hotcoffee/latte.jpeg'),
                   itemname: 'Latte',
                   rate: '160/-',
                   onpress: () {
@@ -24,14 +24,13 @@ class Toppickes extends StatelessWidget {
                           description:
                               'It consists of double espresso, warm milk & microfoam which is thinner than that of cappuccino.',
                           price: '160',
-                          imageProvider:
-                              'assets/hotcoffee/latte.jpeg');
+                          imageProvider: 'assets/hotcoffee/latte.jpeg');
                     })));
                   }),
             ),
             Expanded(
               child: ToppicksCard(
-                  image: AssetImage('assets/coldcoffee/coldbrew.jpeg'),
+                  image: const AssetImage('assets/coldcoffee/coldbrew.jpeg'),
                   itemname: 'Cold Brew',
                   rate: '180/-',
                   onpress: () {
@@ -42,8 +41,7 @@ class Toppickes extends StatelessWidget {
                           description:
                               'Prepared by steeping coffee with cold water overnight. This coffee is less acidic & has 67% less coffee oils.',
                           price: '180',
-                          imageProvider:
-                              'assets/coldcoffee/coldbrew.jpeg');
+                          imageProvider: 'assets/coldcoffee/coldbrew.jpeg');
                     })));
                   }),
             ),
@@ -54,7 +52,7 @@ class Toppickes extends StatelessWidget {
           children: [
             Expanded(
               child: ToppicksCard(
-                  image: AssetImage('assets/frappe/caramel.jpeg'),
+                  image: const AssetImage('assets/frappe/caramel.jpeg'),
                   itemname: 'Caramel \nFrappe',
                   rate: '200/-',
                   onpress: () {
@@ -65,14 +63,14 @@ class Toppickes extends StatelessWidget {
                           description:
                               'Caramel Frappe is made with rich caramel flavor and a hint of coffee, blended with ice and topped with whipped topping and caramel drizzle.',
                           price: '200',
-                          imageProvider:
-                              'assets/frappe/caramel.jpeg');
+                          imageProvider: 'assets/frappe/caramel.jpeg');
                     })));
                   }),
             ),
             Expanded(
               child: ToppicksCard(
-                  image: AssetImage('assets/desserts/raspberrycheesecake.jpeg'),
+                  image: const AssetImage(
+                      'assets/desserts/raspberrycheesecake.jpeg'),
                   itemname: 'Raspberry \nCheesecake',
                   rate: '240/-',
                   onpress: () {
@@ -83,7 +81,7 @@ class Toppickes extends StatelessWidget {
                           description:
                               'Raspberry Cheesecake is consists of cheese cream and cookie crust on bottom and raspberry jelly on top.',
                           price: '240',
-                          imageProvider: 
+                          imageProvider:
                               'assets/desserts/raspberrycheesecake.jpeg');
                     })));
                   }),
@@ -96,7 +94,7 @@ class Toppickes extends StatelessWidget {
 }
 
 class ToppicksCard extends StatelessWidget {
-  ToppicksCard({
+  const ToppicksCard({
     Key? key,
     required this.image,
     required this.itemname,
@@ -153,7 +151,7 @@ class ToppicksCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 15),
+                  padding: const EdgeInsets.symmetric(horizontal: 15),
                   child: CircleAvatar(
                     radius: 60,
                     backgroundImage: image,
@@ -166,11 +164,11 @@ class ToppicksCard extends StatelessWidget {
                   itemname,
                   textAlign: TextAlign.left,
                   style: TextStyle(
-                      fontSize: MediaQuery.of(context).size.height*0.023,
+                      fontSize: MediaQuery.of(context).size.height * 0.023,
                       fontFamily: 'Libre Baskerville',
-                      color: Color(0xFFEADBCC)),
+                      color: const Color(0xFFEADBCC)),
                 ),
-                 SizedBox(
+                SizedBox(
                   height: MediaQuery.of(context).size.width * 0.03,
                 ),
                 // const SizedBox(
@@ -181,7 +179,8 @@ class ToppicksCard extends StatelessWidget {
                   children: [
                     Text(
                       rate,
-                      style: TextStyle(fontSize: 22, color: Color(0xFFD4A056)),
+                      style: const TextStyle(
+                          fontSize: 22, color: Color(0xFFD4A056)),
                     ),
                     // RawMaterialButton(
                     //   onPressed: () {},

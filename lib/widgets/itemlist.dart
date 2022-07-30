@@ -63,7 +63,7 @@ class ItemCard extends StatelessWidget {
                               width: MediaQuery.of(context).size.width * 0.5,
                               child: Text(
                                 title,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 20,
                                     color: Colors.white70,
                                     fontFamily: 'Libre Baskerville'),
@@ -71,7 +71,7 @@ class ItemCard extends StatelessWidget {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.only(left: 15.0),
+                            padding: const EdgeInsets.only(left: 15.0),
                             child: Padding(
                               padding: EdgeInsets.only(right: 5.0),
                               child: SizedBox(
@@ -79,7 +79,7 @@ class ItemCard extends StatelessWidget {
                                 // height: 13,
                                 child: Text(
                                   '$price/-',
-                                  style: TextStyle(color: Colors.white70),
+                                  style: const TextStyle(color: Colors.white70),
                                 ),
                               ),
                             ),

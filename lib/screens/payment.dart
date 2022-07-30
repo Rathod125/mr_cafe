@@ -35,20 +35,20 @@ class Payment extends StatelessWidget {
                     return Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
-                        color: Color.fromARGB(255, 232, 179, 105),
+                        color: const Color.fromARGB(255, 232, 179, 105),
                       ),
                       padding: const EdgeInsets.all(8.0),
                       child: Column(
                         children: [
                           ReusableWidget(
-                              title: Text('Sub Total',
+                              title: const Text('Sub Total',
                                   style: TextStyle(
                                       fontFamily: 'Libre Baskerville',
                                       fontSize: 15)),
                               value: value.getTotalPrice().toStringAsFixed(2) +
                                   '/-'),
                           ReusableWidget(
-                              title: Text('Discount 5%',
+                              title: const Text('Discount 5%',
                                   style: TextStyle(
                                       fontFamily: 'Libre Baskerville',
                                       fontSize: 15)),
@@ -57,7 +57,7 @@ class Payment extends StatelessWidget {
                                       .toStringAsFixed(2) +
                                   '/-'),
                           ReusableWidget(
-                              title: Text('Total Amount',
+                              title: const Text('Total Amount',
                                   style: TextStyle(
                                       fontFamily: 'Libre Baskerville',
                                       fontSize: 15)),
@@ -72,26 +72,25 @@ class Payment extends StatelessWidget {
                               children: [
                                 ElevatedButton(
                                   style: ElevatedButton.styleFrom(
-                                      primary: Color(0xFF212325)),
+                                      primary: const Color(0xFF212325)),
                                   onPressed: (() {
-                                    
                                     Navigator.push(context,
                                         MaterialPageRoute(builder: ((context) {
                                       return MapSample();
                                     })));
                                   }),
-                                  child: Text('Select Address To Deliver',
+                                  child: const Text('Select Address To Deliver',
                                       style: TextStyle(
                                           fontFamily: 'Libre Baskerville',
                                           fontSize: 12)),
                                 ),
                                 ElevatedButton(
                                   style: ElevatedButton.styleFrom(
-                                      primary: Color(0xFF212325)),
+                                      primary: const Color(0xFF212325)),
                                   onPressed: (() {
                                     takeaway = true;
                                   }),
-                                  child: Text('Take Away',
+                                  child: const Text('Take Away',
                                       style: TextStyle(
                                           fontFamily: 'Libre Baskerville',
                                           fontSize: 12)),
@@ -112,7 +111,7 @@ class Payment extends StatelessWidget {
                                   type: GooglePayButtonType.pay,
                                   margin: const EdgeInsets.only(top: 15.0),
                                   onPaymentResult: (data) {
-                                    print(data);
+                                    // print(data);
                                   },
                                   loadingIndicator: const Center(
                                     child: CircularProgressIndicator(),
@@ -125,10 +124,11 @@ class Payment extends StatelessWidget {
                                     height: 50,
                                     child: ElevatedButton(
                                       style: ElevatedButton.styleFrom(
-                                          primary: Color(0xFF212325)),
+                                          primary: const Color(0xFF212325)),
                                       onPressed: (() {
                                         Dialog dialog = Dialog(
-                                          backgroundColor: Color(0xFF212325),
+                                          backgroundColor:
+                                              const Color(0xFF212325),
                                           shape: RoundedRectangleBorder(
                                               borderRadius:
                                                   BorderRadius.circular(
@@ -147,7 +147,7 @@ class Payment extends StatelessWidget {
                                               mainAxisAlignment:
                                                   MainAxisAlignment.center,
                                               children: <Widget>[
-                                                Padding(
+                                                const Padding(
                                                   padding: EdgeInsets.all(15.0),
                                                   child: Text(
                                                     'Thank You!',
@@ -157,7 +157,7 @@ class Payment extends StatelessWidget {
                                                             Color(0xFFEADBCC)),
                                                   ),
                                                 ),
-                                                Padding(
+                                                const Padding(
                                                   padding: EdgeInsets.all(15.0),
                                                   child: Text(
                                                     'Your order will ready in few minutus.',
@@ -168,7 +168,7 @@ class Payment extends StatelessWidget {
                                                             Color(0xFFEADBCC)),
                                                   ),
                                                 ),
-                                                Padding(
+                                                const Padding(
                                                     padding: EdgeInsets.only(
                                                         top: 50.0)),
                                                 TextButton(
@@ -189,7 +189,7 @@ class Payment extends StatelessWidget {
                                                       cart.deleteCounter();
                                                       dbHelper?.deleteAll();
                                                     },
-                                                    child: Text(
+                                                    child: const Text(
                                                       'Got It!',
                                                       style: TextStyle(
                                                           color: Color.fromARGB(
@@ -208,7 +208,7 @@ class Payment extends StatelessWidget {
                                             builder: (BuildContext context) =>
                                                 dialog);
                                       }),
-                                      child: Text('Cash on Delivery',
+                                      child: const Text('Cash on Delivery',
                                           style: TextStyle(
                                               fontFamily: 'Libre Baskerville',
                                               fontSize: 15)),

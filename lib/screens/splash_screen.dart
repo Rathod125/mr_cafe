@@ -70,7 +70,7 @@ class _SplashScreenState extends State<SplashScreen>
       duration: 3000,
       splashIconSize: animation.value * 300,
       nextScreen: FirebaseAuth.instance.currentUser == null
-          ? WelcomeScreen()
+          ? const WelcomeScreen()
           : const MainHome(),
     );
   }

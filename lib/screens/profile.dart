@@ -6,12 +6,11 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
 import 'package:mr_cafe/screens/mainscreen.dart';
-import 'package:provider/provider.dart';
 
 import 'login_screen.dart';
 
 class ProfilePage extends StatefulWidget {
-  ProfilePage({Key? key}) : super(key: key);
+  const ProfilePage({Key? key}) : super(key: key);
 
   @override
   State<ProfilePage> createState() => _ProfilePageState();
@@ -35,7 +34,7 @@ class _ProfilePageState extends State<ProfilePage> {
     'Settings'
   ];
 
-  List<Icon> icons = [
+  List<Icon> icons = const [
     Icon(Icons.list),
     Icon(Icons.person),
     Icon(Icons.payment),
@@ -85,7 +84,7 @@ class _ProfilePageState extends State<ProfilePage> {
     });
   }
 
-  IconThemeData iconTheme = IconThemeData(color: Color(0xFF212325));
+  IconThemeData iconTheme = const IconThemeData(color: Color(0xFF212325));
 
   @override
   Widget build(BuildContext context) {
@@ -161,8 +160,8 @@ class _ProfilePageState extends State<ProfilePage> {
                     // ),
                     Row(
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.only(top: 20),
+                        const Padding(
+                          padding: EdgeInsets.only(top: 20),
                           child: Text(
                             'Name:',
                             style: TextStyle(fontSize: 20),
@@ -172,15 +171,15 @@ class _ProfilePageState extends State<ProfilePage> {
                           padding: const EdgeInsets.only(top: 20, left: 5),
                           child: Text(
                             userName,
-                            style: TextStyle(fontSize: 20),
+                            style: const TextStyle(fontSize: 20),
                           ),
                         ),
                       ],
                     ),
                     Row(
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.only(top: 20),
+                        const Padding(
+                          padding: EdgeInsets.only(top: 20),
                           child: Text(
                             'Mobile Number:',
                             style: TextStyle(fontSize: 20),
@@ -190,15 +189,15 @@ class _ProfilePageState extends State<ProfilePage> {
                           padding: const EdgeInsets.only(top: 20, left: 5),
                           child: Text(
                             number,
-                            style: TextStyle(fontSize: 20),
+                            style: const TextStyle(fontSize: 20),
                           ),
                         ),
                       ],
                     ),
                     Row(
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.only(top: 20),
+                        const Padding(
+                          padding: EdgeInsets.only(top: 20),
                           child: Text(
                             'Email:',
                             style: TextStyle(fontSize: 20),
@@ -208,7 +207,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           padding: const EdgeInsets.only(top: 20, left: 5),
                           child: Text(
                             emal,
-                            style: TextStyle(fontSize: 20),
+                            style: const TextStyle(fontSize: 20),
                           ),
                         ),
                       ],
@@ -305,10 +304,10 @@ class _ProfilePageState extends State<ProfilePage> {
               height: MediaQuery.of(context).size.height * 0.2,
             ),
             ListTile(
-                iconColor: Color(0xFF212325),
-                title: Text('Log Out'),
-                leading: Icon(Icons.logout),
-                tileColor: Color.fromARGB(255, 220, 201, 182),
+                iconColor: const Color(0xFF212325),
+                title: const Text('Log Out'),
+                leading: const Icon(Icons.logout),
+                tileColor: const Color.fromARGB(255, 220, 201, 182),
                 onTap: () {
                   logout();
                 })

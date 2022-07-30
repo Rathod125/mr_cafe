@@ -26,7 +26,7 @@ class CategoriesList extends StatelessWidget {
                     return Itemlist1(title: 'Hot Coffee');
                   })));
                 },
-                images: AssetImage(
+                images: const AssetImage(
                   'assets/hotcoffee/capuccino.jpeg',
                 ),
               ),
@@ -40,7 +40,7 @@ class CategoriesList extends StatelessWidget {
                     return Itemlist2(title: 'Cold Coffee');
                   })));
                 },
-                images: AssetImage(
+                images: const AssetImage(
                   'assets/coldcoffee/icedespresso.jpeg',
                 ),
               ),
@@ -54,7 +54,7 @@ class CategoriesList extends StatelessWidget {
                     return Itemlist3(title: 'Manual Brew');
                   })));
                 },
-                images: AssetImage(
+                images: const AssetImage(
                   'assets/manualbrew/Frenchpress.jpeg',
                 ),
               ),
@@ -77,7 +77,7 @@ class CategoriesList extends StatelessWidget {
                     return Itemlist4(title: 'Frappe');
                   })));
                 },
-                images: AssetImage(
+                images: const AssetImage(
                   'assets/frappe/mocha.jpeg',
                 ),
               ),
@@ -91,7 +91,7 @@ class CategoriesList extends StatelessWidget {
                     return Itemlist5(title: 'Lemonade');
                   })));
                 },
-                images: AssetImage(
+                images: const AssetImage(
                   'assets/lemonade/kiwi.jpeg',
                 ),
               ),
@@ -105,7 +105,7 @@ class CategoriesList extends StatelessWidget {
                     return Itemlist6(title: 'Desserts');
                   })));
                 },
-                images: AssetImage(
+                images: const AssetImage(
                   'assets/desserts/nutellacheesecake.jpeg',
                 ),
               ),
@@ -134,7 +134,7 @@ class CategoryLogo extends StatelessWidget {
       onTap: onpress,
       child: Column(children: [
         CircleAvatar(
-          backgroundColor: Color(0xFFEADBCC),
+          backgroundColor: const Color(0xFFEADBCC),
           radius: 40,
           backgroundImage: images,
           // height: 100,
